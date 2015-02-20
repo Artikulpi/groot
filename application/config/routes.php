@@ -37,6 +37,10 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['g_admin/(:any)/(:any)/edit/(:num)'] = "g_admin/$1/add_$2/$3";
+$route['g_admin/(:any)/(:any)/add'] = "g_admin/$1/add_$2";
+$route['g_admin/(:any)/edit/(:num)'] = "g_admin/$1/add/$2";
+$route['g_admin'] = "g_admin/dashboard";
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
