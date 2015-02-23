@@ -12,9 +12,10 @@
 
         <!-- CSS Plugin -->
         <link href="<?php echo base_url('/media/css/bootstrap.min.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('/media/css/jquery-ui.min.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('/media/css/jquery-ui.structure.min.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('/media/css/jquery-ui.theme.min.css'); ?>" rel="stylesheet">
         <link href="<?php echo base_url('/media/css/ionicons.min.css'); ?>" type="text/css" rel="stylesheet">
-        <link href="<?php echo base_url('/media/css/jquery-ui/themes/base/jquery-ui.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('/media/css/jquery-ui-timepicker-addon.css'); ?>" rel="stylesheet">
         <link href="<?php echo base_url('media/css/jquery.Jcrop.min.css'); ?>" rel="stylesheet">
         <!-- End Style Plugin-->
 
@@ -25,8 +26,7 @@
         <!-- Java Script Plugin -->
         <script src="<?php echo base_url('/media/js/jquery-1.11.1.min.js'); ?>"></script>
         <script src="<?php echo base_url('/media/js/bootstrap.min.js'); ?>"></script>
-        <script src="<?php echo base_url('/media/js/jquery-ui/ui/jquery-ui.js'); ?>"></script>
-        <script src="<?php echo base_url('/media/js/jquery-ui-timepicker-addon.js'); ?>"></script>
+        <script src="<?php echo base_url('/media/js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('/media/js/imgLiquid-min.js'); ?>"></script>
         <script src="<?php echo base_url('/media/js/angular.min.js'); ?>"></script>
         <script src="<?php echo base_url('/media/js/jquery.Jcrop.min.js'); ?>"></script>
