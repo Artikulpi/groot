@@ -40,7 +40,15 @@
 $route['g_admin/(:any)/(:any)/edit/(:num)'] = "g_admin/$1/add_$2/$3";
 $route['g_admin/(:any)/(:any)/add'] = "g_admin/$1/add_$2";
 $route['g_admin/(:any)/edit/(:num)'] = "g_admin/$1/add/$2";
-$route['g_admin'] = "g_admin/dashboard";
+
+$route['gadmin/(:any)/edit/(:num)'] = "$1/$1_admin/add/$2";
+$route['gadmin/([a-zA-Z_-]+)/(:any)'] = '$1/$1_admin/$2';
+$route['gadmin/media_album/(:any)'] = 'media_manager/media_album_admin/$1';
+$route['gadmin/media_album'] = 'media_manager/media_album_admin';
+$route['gadmin/auth/login'] = 'user/auth/login';
+$route['gadmin/auth'] = 'user/auth/login';
+$route['gadmin/([a-zA-Z_-]+)'] = '$1/$1_admin';
+$route['gadmin'] = "dashboard/dashboard_admin";
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';

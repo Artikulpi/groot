@@ -3,7 +3,7 @@ var medpop = {
 	init : function (start){
 		if(typeof(start) == 'undefined')
 			start = 1;
-		var urlget = BASEURL+'index.php/g_admin/media_manager/listAjax/';
+		var urlget = BASEURL+'index.php/media_manager/media_manager_admin/listAjax/';
 		
 		if(start > 0)
 			urlget += start+'/';
@@ -34,7 +34,7 @@ var medpop = {
 		$(poplist).html('');
 		
 		$(data.images).each(function(index, value){
-			var imgs = $('<div/>').addClass('span2 imgs');
+			var imgs = $('<div/>').addClass('col-md-2 imgs');
 			var crop = $('<div/>').addClass('crop img-holder'),
 			img_s	 = $('<img />').attr({src:BASEURL+'uploads/'+value.name}).click(function (){medpop.assign(this, value.id)});
 			
