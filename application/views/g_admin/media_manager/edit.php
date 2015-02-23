@@ -9,7 +9,7 @@
         <div class="col-md-9">
              <?php
                 if ($this->session->flashdata('error')) {
-                    echo '<div class="alert alert-danger" >' . $this->session->flashdata('error') . '</div>';
+                    echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $this->session->flashdata('error') . '</div>';
                 }
                 ?>
             <div id="imgholder">

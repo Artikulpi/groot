@@ -30,7 +30,7 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('user_name', 'Username', 'required');
         $this->form_validation->set_rules('user_full_name', 'Name', 'required');
         $this->form_validation->set_rules('user_email', 'User Email', 'required|valid_email');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
@@ -72,7 +72,7 @@ class Profile extends CI_Controller {
         $this->form_validation->set_rules('user_password', 'Password', 'required|matches[passconf]|min_length[6]|');
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|');
         $this->form_validation->set_rules('user_current_password', 'Old Password', 'required|callback_check_current_password|');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
             $old_password = $this->input->post('user_current_password');
 

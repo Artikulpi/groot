@@ -46,7 +46,7 @@ class Posts extends CI_Controller {
         $this->form_validation->set_rules('posts_content', 'Content', 'required');
         $this->form_validation->set_rules('category_id_new', 'Kategori', 'is_unique[g_posts_category.category_name]');
         $this->form_validation->set_rules('posts_is_published', 'Publish Status', 'required');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
@@ -133,7 +133,7 @@ class Posts extends CI_Controller {
         $this->load->model('Posts_model');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('category_name', 'Name', 'required|is_unique[g_posts_category.category_name]');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {

@@ -3,7 +3,7 @@ var medpop = {
 	init : function (start){
 		if(typeof(start) == 'undefined')
 			start = 1;
-		var urlget = BASEURL+'index.php/manage/media_manager/listAjax/';
+		var urlget = BASEURL+'index.php/g_admin/media_manager/listAjax/';
 		
 		if(start > 0)
 			urlget += start+'/';

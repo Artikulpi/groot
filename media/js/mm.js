@@ -2,7 +2,7 @@ var MediaManager = {
 	baseurl : '',
     _popup: null,
     popup: function() {
-        MediaManager._popup = window.open(BASEURL+'/index.php/manage/media_manager/popup', 'popup'
+        MediaManager._popup = window.open(BASEURL+'/index.php/g_admin/media_manager/popup', 'popup'
             ,'width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
     },
     close: function() {

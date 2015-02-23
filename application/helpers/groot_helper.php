@@ -108,12 +108,20 @@ if (!function_exists('pretty_date')) {
 
     if (!function_exists('upload_url')) {
 
-        function image_url($name = '') {
+        function upload_url($name = '') {
             if (stristr($name, '://') !== FALSE) {
                 return $name;
             } else {
                 return base_url('uploads/' . $name);
             }
+        }
+
+    }
+
+    if (!function_exists('media_url')) {
+
+        function media_url($name = '') {
+            return base_url('media/' . $name);
         }
 
     }

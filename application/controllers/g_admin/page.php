@@ -33,7 +33,7 @@ class Page extends CI_Controller {
             $this->form_validation->set_rules('page_description', 'Description', 'required');
             $this->form_validation->set_rules('page_content', 'Content', 'required');
             $this->form_validation->set_rules('page_is_published', 'Publish Status', 'required');
-            $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
             $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
             if ($_POST AND $this->form_validation->run() == TRUE) {

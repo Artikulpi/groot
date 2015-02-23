@@ -6,7 +6,7 @@ class Mediamanager_model extends CI_Model {
         $limit = 15,
         $select = '*',
         $lastInsertId = null;
-    protected $table = 'mediamanager';
+    protected $table = 'g_mediamanager';
 
     public function __construct()
     {
@@ -65,15 +65,15 @@ class Mediamanager_model extends CI_Model {
     	}
     	$sql = 'SELECT 
     				alb.id, 0 as name,"" as type, alb.label, 0 as info,alb.upload_at,
-    				(SELECT COUNT(*) FROM mediamanager mm WHERE mm.album_id = alb.id) count,
+    				(SELECT COUNT(*) FROM g_mediamanager mm WHERE mm.album_id = alb.id) count,
     				0 as sequence
 				FROM
-				   mediamanager_album alb
+				   g_mediamanager_album alb
 				UNION
 				SELECT 
 				   mm.id, mm.name, mm.type, mm.label, mm.info,mm.upload_at, 0 as count, 1 as sequence
 				FROM
-				   mediamanager mm
+				   g_mediamanager mm
     			'.$where.'
 				ORDER BY sequence ASC, upload_at DESC'.
     			$limit;
@@ -155,7 +155,7 @@ class Mediamanager_model extends CI_Model {
      */
     public function delete($id = NULL)
     {
-    	$this->db->delete('mediamanager', array('id' => $id));
+    	$this->db->delete('g_mediamanager', array('id' => $id));
     	$status = $this->db->affected_rows();
     	return ($status == 0) ? FALSE : TRUE;
     }

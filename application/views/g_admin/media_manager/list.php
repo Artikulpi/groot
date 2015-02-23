@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <?php echo form_open_multipart('manage/media_manager' . '/upload', array('enctype' => 'multipart/form-data')) ?>
+        <?php echo form_open_multipart('g_admin/media_manager' . '/upload', array('enctype' => 'multipart/form-data')) ?>
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-12">
@@ -68,7 +68,7 @@
                                     $info = unserialize($image['info']);
                                 }
                                 $label = strlen($image['label']) > 0 ? $image['label'] : $info['file_name'];
-                                $imageView = image_url($image['name']) . '?' . uniqid();
+                                $imageView = upload_url($image['name']) . '?' . uniqid();
                                 if ($image['type'] != '') {
                                     $type_ex = explode("/", $image['type']);
                                     $type = $type_ex[0];
@@ -91,7 +91,7 @@
                                     <?php if ($image['info'] != '0'): ?>
                                         <div class="<?php if ($type == 'image'): ?>crop<?php endif; ?> img-holder">
                                             <?php if (is_file($info['full_path'])): ?>
-                                                <a href="<?php echo 'index.php' . site_url('/manage/media_manager/edit/' . $image['id']) ?>">
+                                                <a href="<?php echo 'index.php' . site_url('/g_admin/media_manager/edit/' . $image['id']) ?>">
                                                     <img src="<?php echo $imageView ?>" >
                                                     <div class="info"></div>
                                                 </a>
@@ -105,7 +105,7 @@
                                         </div>
                                     <?php else: ?>
                                         <div class="img-album">
-                                            <a href="<?php echo site_url('/manage/media_manager/album/' . $image['id']) ?>">
+                                            <a href="<?php echo site_url('/g_admin/media_manager/album/' . $image['id']) ?>">
                                                 <img src="<?php echo media_url('image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
                                                 <div class="info_album">
                                                     <div class="info_name"><?php echo $image['label'] ?></div>
@@ -120,12 +120,12 @@
                                             <p><a class="info-news" href=""><?php echo $label ?></a></p>
                                             <div class="imgaction">
                                                 <?php if ($type == 'image'): ?>
-                                                    <a href="" class="zoomin"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i><input type="hidden" value="<?php echo image_url($image['name']) . '?' . uniqid() ?>" /></a>
+                                                    <a href="" class="zoomin"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i><input type="hidden" value="<?php echo upload_url($image['name']) . '?' . uniqid() ?>" /></a>
                                                 <?php else : ?>
-                                                    <a href="javascript:window.open('<?php echo site_url('/manage/media_manager/viewapp/' . $image['id']) ?>','<?php echo $image['label'] ?>','width=600,height=550');"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i></a>
+                                                    <a href="javascript:window.open('<?php echo site_url('/g_admin/media_manager/viewapp/' . $image['id']) ?>','<?php echo $image['label'] ?>','width=600,height=550');"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i></a>
                                                 <?php endif; ?>
-                                                <a href="<?php echo site_url('/manage/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>
-                                                <a href="<?php echo site_url('/manage/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="edit"></i></a>
+                                                <a href="<?php echo site_url('/g_admin/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>
+                                                <a href="<?php echo site_url('/g_admin/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="edit"></i></a>
                                             </div>
                                         </div>
                                     <?php endif ?>

@@ -6,7 +6,7 @@ class Mediaalbum_model extends CI_Model {
         $limit = 15,
         $select = '*',
         $lastInsertId = null;
-    protected $table = 'mediamanager_album';
+    protected $table = 'g_mediamanager_album';
 
     public function __construct()
     {
@@ -55,9 +55,9 @@ class Mediaalbum_model extends CI_Model {
     	}
         $sql = 'SELECT 
 				   alb.id, alb.label, alb.upload_at,
-				   (SELECT COUNT(*) FROM mediamanager mm WHERE mm.album_id = alb.id) count
+				   (SELECT COUNT(*) FROM g_mediamanager mm WHERE mm.album_id = alb.id) count
 				FROM
-				   mediamanager_album alb
+				   g_mediamanager_album alb
 				ORDER BY
 				   alb.upload_at DESC '.
         		$limit;
