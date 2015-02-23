@@ -29,5 +29,5 @@ INSERT INTO `mptt` (`id`, `title`, `lft`, `rgt`, `parent`, `url`) VALUES
 --
 -- Dumping data for table `g_post_category`
 --
-INSERT INTO `g_post_category` (`category_id`, `category_name`, `category_input_date`, `category_last_update`) VALUES
+INSERT INTO `g_posts_category` (`category_id`, `category_name`, `category_input_date`, `category_last_update`) VALUES
 (1, 'Uncategorized', '2014-06-20 06:55:00', '2014-06-20 06:55:00');

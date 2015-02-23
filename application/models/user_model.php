@@ -3,7 +3,7 @@
 /** 
 * user Model Class
  *
- * @package     UMKMweb
+ * @package     GROOT
  * @subpackage  Models
  * @category    Models
  * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>

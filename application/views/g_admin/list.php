@@ -16,6 +16,38 @@
 
         <div class="panel panel-default pipanel">
             <div class="panel-heading">
+                <a data-toggle="collapse" href="#navpost">
+                    <h4 class="title">Posting</h4>
+                </a>
+            </div>
+
+            <ul id="navpost" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'posts') ? 'in' : NULL; ?>">
+                <a class="lgitem list-group-item" href="<?php echo site_url('g_admin/posts'); ?>">
+                    <span class="glyphicon glyphicon-list"></span> Daftar Posting</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('g_admin/posts/add'); ?>"> 
+                    <span class="glyphicon glyphicon-plus-sign"></span> Tambah Posting</a>
+            </ul>
+        </div><!-- Posts -->
+
+        <div class="panel panel-default pipanel">
+            <div class="panel-heading">
+                <a data-toggle="collapse" href="#navpage">
+                    <h4 class="title">Halaman</h4>
+                </a>
+            </div>
+
+            <ul id="navpage" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'page') ? 'in' : NULL; ?>">
+                <a class="lgitem list-group-item" href="<?php echo site_url('g_admin/page'); ?>">
+                    <span class="glyphicon glyphicon-list"></span> Daftar Halaman</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('g_admin/page/add'); ?>">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Tambah Halaman</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('g_admin/page/tree'); ?>">
+                    <span class="glyphicon glyphicon-align-left"></span> Page Tree</a>
+            </ul>
+        </div><!-- Page -->
+
+        <div class="panel panel-default pipanel">
+            <div class="panel-heading">
                 <a data-toggle="collapse" href="#navuser">
                     <h4 class="title">Admin</h4>
                 </a>

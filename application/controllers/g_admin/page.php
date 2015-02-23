@@ -9,10 +9,8 @@ class Page extends CI_Controller {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged_admin') == NULL) redirect('g_admin/auth/login');
         $this->load->model('Page_model');
-        $this->load->model('Log_activity_model');
+        $this->load->model('Activity_log_model');
         $this->load->library('upload');
-        $this->load->library('Zebra_Mptt');
-        $this->mptt = new Zebra_Mptt();
     }
 
     // Page view in list
@@ -20,19 +18,19 @@ class Page extends CI_Controller {
             $this->load->model('Page_model');
             $this->load->library('pagination');
             $data['page'] = $this->Page_model->get(array('limit' => 10, 'offset' => $offset));
-            $config['base_url'] = site_url('manage/page/index');
-            $config['total_rows'] = $this->db->count_all('page');
+            $config['base_url'] = site_url('g_admin/page/index');
+            $config['total_rows'] = $this->db->count_all('g_page');
             $this->pagination->initialize($config);
             $data['title'] = 'Page';
-            $data['main'] = 'manage/page/page_list';
-            $this->load->view('manage/layout', $data);
+            $data['main'] = 'g_admin/page/page_list';
+            $this->load->view('g_admin/layout', $data);
     }
 
     // Add Page and Update
     public function add($id = NULL) {
             $this->load->library('form_validation');
             $this->form_validation->set_rules('page_name', 'Title', 'required');
-            $this->form_validation->set_rules('page_short_desc', 'Description', 'required');
+            $this->form_validation->set_rules('page_description', 'Description', 'required');
             $this->form_validation->set_rules('page_content', 'Content', 'required');
             $this->form_validation->set_rules('page_is_published', 'Publish Status', 'required');
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
@@ -59,31 +57,31 @@ class Page extends CI_Controller {
                 }
 
                 $params['page_last_update'] = date('Y-m-d H:i');
-                $params['user_id'] = $this->session->userdata('user_id_manage');
+                $params['user_id'] = $this->session->userdata('user_id_admin');
                 $params['page_publish_date'] = ($this->input->post('page_publish_date')) ? $this->input->post('page_publish_date') : date('Y-m-d H:i');
                 $params['page_name'] = $this->input->post('page_name');
                 $params['page_content'] = $this->input->post('page_content');
-                $params['page_short_desc'] = $this->input->post('page_short_desc');
+                $params['page_description'] = $this->input->post('page_description');
                 $params['page_is_published'] = $this->input->post('page_is_published');
                 $params['page_is_commentable'] = $this->input->post('page_is_commentable');
                 $status = $this->Page_model->add($params);
 
                 // activity log
-                $this->Log_activity_model->add(
+                $this->Activity_log_model->add(
                         array(
-                            'activity_date' => date('Y-m-d H:i'),
-                            'user_id' => $this->session->userdata('user_id_manage'),
-                            'activity_module' => 'Halaman',
-                            'activity_action' => $data['operation'],
-                            'activity_info' => 'ID:null;Title:' . $params['page_name']
+                            'activity_log_date' => date('Y-m-d H:i'),
+                            'user_id' => $this->session->userdata('user_id_admin'),
+                            'activity_log_module' => 'Halaman',
+                            'activity_log_action' => $data['operation'],
+                            'activity_log_info' => 'ID:null;Title:' . $params['page_name']
                         )
                 );
 
                 $this->session->set_flashdata('success', $data['operation'] . ' halaman berhasil');
-                redirect('manage/page');
+                redirect('g_admin/page');
             } else {
                 if ($this->input->post('user_id')) {
-                    redirect('manage/page/edit/' . $this->input->post('page_id'));
+                    redirect('g_admin/page/edit/' . $this->input->post('page_id'));
                 }
 
                 // Edit mode
@@ -92,8 +90,8 @@ class Page extends CI_Controller {
                 }
 
                 $data['title'] = $data['operation'] . ' Halaman';
-                $data['main'] = 'manage/page/page_add';
-                $this->load->view('manage/layout', $data);
+                $data['main'] = 'g_admin/page/page_add';
+                $this->load->view('g_admin/layout', $data);
             }
     }
 
@@ -102,24 +100,26 @@ class Page extends CI_Controller {
         if ($_POST) {
                 $this->Page_model->delete($this->input->post('del_id'));
                 // activity log
-                $this->Log_activity_model->add(
+                $this->Activity_log_model->add(
                         array(
-                            'activity_date' => date('Y-m-d H:i'),
-                            'user_id' => $this->session->userdata('user_id_manage'),
-                            'activity_module' => 'Page',
-                            'activity_action' => 'Hapus',
-                            'activity_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                            'activity_log_date' => date('Y-m-d H:i'),
+                            'user_id' => $this->session->userdata('user_id_admin'),
+                            'activity_log_module' => 'Page',
+                            'activity_log_action' => 'Hapus',
+                            'activity_log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                         )
                 );
                 $this->session->set_flashdata('success', 'Hapus halaman berhasil');
-                redirect('manage/page');
+                redirect('g_admin/page');
         } elseif (!$_POST) {
             $this->session->set_flashdata('delete', 'Delete');
-            redirect('manage/page/edit/' . $id);
+            redirect('g_admin/page/edit/' . $id);
         }
     }
 
     public function tree($id=NULL) {
+        //$this->load->library('Zebra_Mptt');
+        //$this->mptt = new Zebra_Mptt();
             if ($_POST) {
                 // Add menu
                 if (!empty($_POST['inputJudul'])) {
@@ -130,18 +130,18 @@ class Page extends CI_Controller {
                     $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
                     // activity log
-                    $this->Log_activity_model->add(
+                    $this->Activity_log_model->add(
                             array(
-                                'activity_date' => date('Y-m-d H:i'),
-                                'user_id' => $this->session->userdata('user_id_manage'),
-                                'activity_module' => 'Page Tree',
-                                'activity_action' => $data['operation'],
-                                'activity_info' => 'ID:' . $id . ';Title:' .$this->input->post('inputJudul')
+                                'activity_log_date' => date('Y-m-d H:i'),
+                                'user_id' => $this->session->userdata('user_id_admin'),
+                                'activity_log_module' => 'Page Tree',
+                                'activity_log_action' => $data['operation'],
+                                'activity_log_info' => 'ID:' . $id . ';Title:' .$this->input->post('inputJudul')
                             )
                     );
 
                     $this->session->set_flashdata('success', 'Add tree node berhasil');
-                    redirect('manage/page/tree');
+                    redirect('g_admin/page/tree');
                 }
 
                 $new_tree = json_decode($_POST['page_tree'], TRUE);
@@ -169,37 +169,39 @@ class Page extends CI_Controller {
                 }
 
                 $this->session->set_flashdata('success', 'Sunting tree berhasil');
-                redirect('manage/page/tree');
+                redirect('g_admin/page/tree');
             }
             $data['title'] = 'Page Tree';
-            $data['main'] = 'manage/page/page_tree';
+            $data['main'] = 'g_admin/page/page_tree';
             $data['tree'] = $this->mptt->get_tree();
             $data['pages'] = $this->Page_model->get(array('id' => $id));
-            $this->load->view('manage/layout', $data);
+            $this->load->view('g_admin/layout', $data);
        
     }
 
     public function remove_node($id = NULL) {
+        //$this->load->library('Zebra_Mptt');
+        //$this->mptt = new Zebra_Mptt();
             $tree = $this->mptt->get_path($id);
             $this->mptt->delete($id);
 
             // activity log
-            $this->Log_activity_model->add(
+            $this->Activity_log_model->add(
                     array(
-                        'activity_date' => date('Y-m-d H:i'),
-                        'user_id' => $this->session->userdata('user_id_manage'),
-                        'activity_module' => 'Page Tree',
-                        'activity_action' => 'Hapus Page Tree',
-                        'activity_info' => 'ID:' . $id . ';Title:' . $tree[$id]['title']
+                        'activity_log_date' => date('Y-m-d H:i'),
+                        'user_id' => $this->session->userdata('user_id_admin'),
+                        'activity_log_module' => 'Page Tree',
+                        'activity_log_action' => 'Hapus Page Tree',
+                        'activity_log_info' => 'ID:' . $id . ';Title:' . $tree[$id]['title']
                     )
             );
 
             $this->session->set_flashdata('success', 'Hapus tree node berhasil');
-            redirect('manage/page/tree');
+            redirect('g_admin/page/tree');
     }
 
 }
 
 /* End of file page.php */
-    /* Location: ./application/controllers/manage/page.php */
+    /* Location: ./application/controllers/g_admin/page.php */
     
