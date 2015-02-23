@@ -118,8 +118,8 @@ class Page extends CI_Controller {
     }
 
     public function tree($id=NULL) {
-        //$this->load->library('Zebra_Mptt');
-        //$this->mptt = new Zebra_Mptt();
+        $this->load->library('G_mptt');
+        $this->mptt = new Zebra_Mptt();
             if ($_POST) {
                 // Add menu
                 if (!empty($_POST['inputJudul'])) {
@@ -180,8 +180,8 @@ class Page extends CI_Controller {
     }
 
     public function remove_node($id = NULL) {
-        //$this->load->library('Zebra_Mptt');
-        //$this->mptt = new Zebra_Mptt();
+        $this->load->library('G_mptt');
+        $this->mptt = new Zebra_Mptt();
             $tree = $this->mptt->get_path($id);
             $this->mptt->delete($id);
 

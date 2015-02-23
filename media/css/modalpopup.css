@@ -1,0 +1,87 @@
+ul {
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+.gallery {
+	list-style-type: none;
+	margin: 0 10px;
+}
+
+li {
+line-height: 20px;
+}
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+}
+ul.gallery
+.gallery {
+	list-style-type: none;
+}
+.gallery>li {
+float: left;
+margin: 4px 0 4px 1px;
+position: relative;
+cursor: pointer;
+}
+
+.divtext {
+	position: absolute;
+	bottom: 0px;
+	padding: 10px;
+	background-color: #FFF;
+	left: 0;
+	right: 0;
+	opacity: 0.7;
+	font-weight: bold;
+}
+
+.dcenter {
+	text-align: center;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 10px;
+	margin-top: -14px;
+}
+.dcenter .disabled a {
+	color: #000 !important;
+	font-weight: bold !important;
+}
+.popmenu {
+	width: 300px;
+	margin: 0px auto;
+	margin-bottom: 4px;
+}
+.popmenu li a {
+	font-size: 14px;
+	color: #999999 !important;
+	cursor: pointer;
+}
+
+
+
+/* listing */
+.crop {
+    width: 160px;
+	height: 140px;
+	overflow: hidden;
+}
+
+.crop img {
+    width: 150px;
+	height: 150px;
+	margin: -5px 0 0 0px;
+}
+
+
+
+
+/* Custom Jasny */
+.fileinput-preview img {
+	width: 300px !important;
+}

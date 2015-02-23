@@ -1,0 +1,105 @@
+@font-face {
+   font-family: Century Gothic;
+   font-style: normal;
+   src: url(../fonts/gothic_0.TTF) format('truetype');
+}
+
+body {
+    padding-top:10px;
+}
+
+
+body, html {
+    font-family: Century Gothic;
+}
+
+
+
+
+
+
+
+body{
+    background-color: #34495e;
+    padding-top: 20px;
+	font-family: Century Gothic;
+}
+.login-usr{
+    width:23%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 30px 20px;
+    background-color: #F1F3F3;
+    border-radius: 0px;
+}
+.up {
+    position: relative;
+    word-wrap: break-word;
+}
+.up:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -40px;
+    left: 128px;
+    width: 30px;
+    height: 30px;
+    border-color: transparent transparent #F1F3F3 transparent;
+    border-style: solid;
+    border-width: 20px;
+}
+.btn {
+    border-radius: 0px;
+    margin-top: 8px;
+    width: 100%;
+    height:50px;
+}
+
+.form-group {
+    margin-bottom: 2px;
+}
+
+.form-control {
+    height: 50px;
+}
+
+img {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    width:30%;
+    padding-left: 35px;
+    padding-bottom: 15px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.down { 
+    width: 253px; 
+    text-align: center;
+    min-height: 80px; 
+    background: #c0392b; 
+    color: white; 
+    padding: 5px 10px 3px 5px; 
+    position: absolute; 
+    margin: 50px 0px;
+}
+
+.left:after { 
+    content:''; 
+    display:block; 
+    position:absolute; 
+    top:-20px; 
+    left:115px; 
+    width:10px; 
+    height:0; 
+    border-color: transparent transparent #c0392b transparent; 
+    border-style: solid; 
+    border-width: 10px;
+}
+
+

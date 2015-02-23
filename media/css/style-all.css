@@ -1,0 +1,11 @@
+.olx {
+    border: 1px solid #000;
+    border-radius: 0px;
+}
+.jarak {
+    margin-bottom: 50px;
+}
+.btn-submit{
+    background-color: #000;
+    color: white;
+}

@@ -1,0 +1,136 @@
+.box-title {
+    position:relative;
+}
+.btn-gr {
+    position:absolute;
+    top:2px;
+    right:-14px;
+}
+.imgs {
+    position: relative;
+    width: 160px !important;
+}
+.imgs .img-holder {
+    margin-bottom: 17px;
+}
+.imgs img {
+    box-sizing: border-box;
+}
+.imgs .img-info {
+    position: absolute;
+    width: 100%;
+    background: #000;
+    opacity: .6;
+    color: #fff;
+    bottom: 0;
+    min-height: 30px;
+    text-align: center;
+    bottom:17px;
+    z-index: 10;
+    padding-top: 10px;
+}
+.imgs .info-news {
+    color:#52FF00;
+    font-weight: bold;
+}
+.imgaction {
+	display: none;
+	margin-top: 50px;
+	z-index: 20;
+}
+.imgaction a {
+	padding: 10px;
+}
+.imgaction a:hover {
+	background-color: #368ee0; 
+}
+.img_centre {
+	text-align: center;
+}
+
+
+.crop {
+    width: 160px;
+	height: 120px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 160px;
+	height: 240px;
+    margin: -30px 0 0 -30px;
+}
+
+.img_text {
+	width: 210px !important;
+}
+
+
+
+#poplist {
+	text-align: center; margin: 0px auto;
+}
+
+.dk_page {
+	text-align: center;
+	border-bottom: 2px solid #e8e9ea;
+	padding-bottom: 20px;
+}
+.dk_page a {
+	display: inline-block;
+	padding: 5px 0;
+	text-align: center;
+	min-width: 25px;
+	color: #373737;
+	background: #f6f6f6;
+	border: 1px solid #e0e0e0;
+	border-radius: 3px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 11px;
+}
+.dk_page a.pn {
+	padding: 5px 10px;
+}
+.dk_page a:hover,
+.dk_page a.selected {
+	background: #e0e0e0;
+	border-color: #b3b3b3;
+}
+.dk_page a.disabled {
+	background: #f6f6f6;
+	border-color: #e0e0e0;
+	color: #bfbfbf;
+}
+
+/** loading css*/
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+
+  border-radius: 100%;  
+  -webkit-animation: scaleout 1.0s infinite ease-in-out;
+  animation: scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleout {
+  0% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+/** end of loading css */

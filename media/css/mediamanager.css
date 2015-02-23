@@ -1,0 +1,77 @@
+.box-title {
+    position:relative;
+}
+.btn-gr {
+    position:absolute;
+    top:2px;
+    right:-14px;
+}
+.imgs {
+    position: relative;
+}
+.imgs .img-holder {
+    margin-bottom: 17px;
+}
+.imgs img {
+    box-sizing: border-box;
+}
+.imgs .img-info {
+    position: absolute;
+    width: 100%;
+    background: #000;
+    opacity: .6;
+    color: #fff;
+    bottom: 0;
+    min-height: 30px;
+    text-align: center;
+    z-index: 10;
+    padding-top: 10px;
+}
+.imgs .info-news {
+    color:#52FF00;
+    font-weight: bold;
+}
+.imgaction {
+	display: none;
+	margin-top: 50px;
+	z-index: 20;
+}
+.imgaction a {
+	padding: 10px;
+}
+.imgaction a:hover {
+	background-color: #368ee0; 
+}
+.img_centre {
+	text-align: center;
+}
+.img_centre img{
+        max-width: 550px;
+}
+
+.crop {
+    width: 294px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 250px;
+    height: 310px;
+    margin: -30px 0 0 -30px;
+}
+
+
+
+
+/* Albums, 08 June 2014 */
+.info_album {
+	padding: 12px 3px;
+	text-align: center;
+}
+.info_name {
+	font-weight: bold;
+}
+.img-album {
+	text-align: center;
+}
