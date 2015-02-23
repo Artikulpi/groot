@@ -1,0 +1,7 @@
+{
+    "require": {
+        "monolog/monolog": "*",
+        "stefangabos/zebra_mptt": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
