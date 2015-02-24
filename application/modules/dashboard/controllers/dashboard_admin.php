@@ -1,5 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/** 
+* Dashboard controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class Dashboard_admin extends CI_Controller {
 
     public function __construct()

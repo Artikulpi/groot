@@ -3,6 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+/** 
+* Activity log controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class Activity_log_admin extends CI_Controller {
 
     function __construct() {

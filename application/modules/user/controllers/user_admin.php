@@ -3,6 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+/** 
+* User controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class User_admin extends CI_Controller {
 
     public function __construct() {
@@ -50,11 +59,11 @@ class User_admin extends CI_Controller {
                 $params['user_id'] = $this->input->post('user_id');
             } else {
                 $params['user_name'] = $this->input->post('user_name');
-                $params['user_input_date'] = date('Y-m-d H:i');
+                $params['user_input_date'] = date('Y-m-d H:i:s');
                 $params['user_password'] = sha1($this->input->post('user_password'));
             }
             $params['user_role'] = $this->input->post('role_id');
-            $params['user_last_update'] = date('Y-m-d H:i');
+            $params['user_last_update'] = date('Y-m-d H:i:s');
             $params['user_full_name'] = $this->input->post('user_full_name');
             $params['user_description'] = $this->input->post('user_description');
             $params['user_email'] = $this->input->post('user_email');
@@ -63,7 +72,7 @@ class User_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => $data['operation'],
@@ -117,7 +126,7 @@ class User_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => 'Reset Password',
@@ -148,7 +157,7 @@ class User_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => 'Hapus',

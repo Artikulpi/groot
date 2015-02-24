@@ -3,6 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+/** 
+* Page controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class Page_admin extends CI_Controller {
 
     public function __construct() {
@@ -53,12 +62,12 @@ class Page_admin extends CI_Controller {
                     $params['page_id'] = $this->input->post('page_id');
                     $params['page_input_date'] = $this->input->post('page_input_date');
                 } else {
-                    $params['page_input_date'] = date('Y-m-d H:i');
+                    $params['page_input_date'] = date('Y-m-d H:i:s');
                 }
 
-                $params['page_last_update'] = date('Y-m-d H:i');
+                $params['page_last_update'] = date('Y-m-d H:i:s');
                 $params['user_id'] = $this->session->userdata('user_id_admin');
-                $params['page_publish_date'] = ($this->input->post('page_publish_date')) ? $this->input->post('page_publish_date') : date('Y-m-d H:i');
+                $params['page_publish_date'] = ($this->input->post('page_publish_date')) ? $this->input->post('page_publish_date') : date('Y-m-d H:i:s');
                 $params['page_name'] = $this->input->post('page_name');
                 $params['page_content'] = $this->input->post('page_content');
                 $params['page_description'] = $this->input->post('page_description');
@@ -69,7 +78,7 @@ class Page_admin extends CI_Controller {
                 // activity log
                 $this->Activity_log_model->add(
                         array(
-                            'activity_log_date' => date('Y-m-d H:i'),
+                            'activity_log_date' => date('Y-m-d H:i:s'),
                             'user_id' => $this->session->userdata('user_id_admin'),
                             'activity_log_module' => 'Halaman',
                             'activity_log_action' => $data['operation'],
@@ -102,7 +111,7 @@ class Page_admin extends CI_Controller {
                 // activity log
                 $this->Activity_log_model->add(
                         array(
-                            'activity_log_date' => date('Y-m-d H:i'),
+                            'activity_log_date' => date('Y-m-d H:i:s'),
                             'user_id' => $this->session->userdata('user_id_admin'),
                             'activity_log_module' => 'Page',
                             'activity_log_action' => 'Hapus',
@@ -132,7 +141,7 @@ class Page_admin extends CI_Controller {
                     // activity log
                     $this->Activity_log_model->add(
                             array(
-                                'activity_log_date' => date('Y-m-d H:i'),
+                                'activity_log_date' => date('Y-m-d H:i:s'),
                                 'user_id' => $this->session->userdata('user_id_admin'),
                                 'activity_log_module' => 'Page Tree',
                                 'activity_log_action' => $data['operation'],
@@ -188,7 +197,7 @@ class Page_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Page Tree',
                         'activity_log_action' => 'Hapus Page Tree',

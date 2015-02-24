@@ -3,6 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+/** 
+* Posts controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class Posts_admin extends CI_Controller {
 
     public function __construct() {
@@ -51,8 +60,8 @@ class Posts_admin extends CI_Controller {
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
             if ($this->input->post('category_id_new')) {
-                $params['category_input_date'] = date('Y-m-d H:i');
-                $params['category_last_update'] = date('Y-m-d H:i');
+                $params['category_input_date'] = date('Y-m-d H:i:s');
+                $params['category_last_update'] = date('Y-m-d H:i:s');
                 $params['category_name'] = $this->input->post('category_id_new');
                 $this->Posts_model->add_category($params);
                 $this->db->select('*');
@@ -75,12 +84,12 @@ class Posts_admin extends CI_Controller {
             if ($this->input->post('posts_id')) {
                 $params['posts_id'] = $this->input->post('posts_id');
             } else {
-                $params['posts_input_date'] = date('Y-m-d H:i');
+                $params['posts_input_date'] = date('Y-m-d H:i:s');
             }
 
             $params['user_id'] = $this->session->userdata('user_id_admin');
-            $params['posts_last_update'] = date('Y-m-d H:i');
-            $params['posts_published_date'] = ($this->input->post('posts_published_date')) ? $this->input->post('posts_published_date') : date('Y-m-d H:i');
+            $params['posts_last_update'] = date('Y-m-d H:i:s');
+            $params['posts_published_date'] = ($this->input->post('posts_published_date')) ? $this->input->post('posts_published_date') : date('Y-m-d H:i:s');
             $params['posts_title'] = $this->input->post('posts_title');
             $params['posts_description'] = stripslashes($this->input->post('posts_description'));
             $params['posts_content'] = stripslashes($this->input->post('posts_content'));
@@ -97,7 +106,7 @@ class Posts_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Posting',
                         'activity_log_action' => $data['operation'],
@@ -141,16 +150,16 @@ class Posts_admin extends CI_Controller {
                 $params['category_id'] = $this->input->post('category_id');
                 $params['category_input_date'] = $this->input->post('category_input_date');
             } else {
-                $params['category_input_date'] = date('Y-m-d H:i');
+                $params['category_input_date'] = date('Y-m-d H:i:s');
             }
-            $params['category_last_update'] = date('Y-m-d H:i');
+            $params['category_last_update'] = date('Y-m-d H:i:s');
             $params['category_name'] = $this->input->post('category_name');
             $this->Posts_model->add_category($params);
 
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Posting',
                         'activity_log_action' => $data['operation'],
@@ -185,7 +194,7 @@ class Posts_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Posting',
                         'activity_log_action' => 'Hapus',
@@ -210,7 +219,7 @@ class Posts_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Kategori Posting',
                         'activity_log_action' => 'Hapus',

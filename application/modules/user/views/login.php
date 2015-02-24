@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>UMKM <?php echo isset($title) ? ' | ' . $title : null; ?></title>
+        <title>GROOT | Login</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -37,7 +37,7 @@
             </div>
             <div class="login-usr up">
                 <h3 style="font-family:Century Gothic; color: #5bc0de; margin-bottom: 30px" class="text-left">
-                    Pelanggan Login
+                    Admin Login
                 </h3>
                 <div class="form-group" style=" color: #5bc0de;">
                     <input style="font-family:Century Gothic; border-radius: 0px;" type="text" name="username" class="form-control"  placeholder="Username" autofocus>
@@ -60,7 +60,7 @@
         </div><!-- OFF Container-fluid -->
         <footer class=" navbar-fixed-bottom" style="background-color: #2c3e50;">
                 <div class="orc text-center">
-                    <p class="text-muted" style="color: white;">© 2014-2015 UMKM - Supported by ARTIKULPI</a></p>
+                    <p class="text-muted" style="color: white;">© 2014-2015 GROOT - Supported by ARTIKULPI</a></p>
                 </div>
             </footer>
     </body>

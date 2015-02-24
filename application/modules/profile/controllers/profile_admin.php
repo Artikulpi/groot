@@ -3,6 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+/** 
+* Profile controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
 class Profile_admin extends CI_Controller {
 
     public function __construct() {
@@ -34,7 +43,7 @@ class Profile_admin extends CI_Controller {
 
             $params['user_id'] = $this->input->post('user_id');
             $params['user_role'] = $this->input->post('user_role');
-            $params['user_last_update'] = date('Y-m-d H:i');
+            $params['user_last_update'] = date('Y-m-d H:i:s');
             $params['user_name'] = $this->input->post('user_name');
             $params['user_full_name'] = $this->input->post('user_full_name');
             $params['user_description'] = $this->input->post('user_description');
@@ -44,7 +53,7 @@ class Profile_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => $data['operation'],
@@ -79,7 +88,7 @@ class Profile_admin extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i'),
+                        'activity_log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => 'Ganti Password',
