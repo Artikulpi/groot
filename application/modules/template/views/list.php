@@ -70,9 +70,9 @@
 
             <ul id="navmm" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'media_manager' OR $this->uri->segment(2) == 'media_album') ? 'in' : NULL; ?>">
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/media_manager'); ?>">
-                    <span class="glyphicon glyphicon-list"></span> Image List</a>
+                    <span class="ion-images"></span> Image List</a>
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/media_album'); ?>"> 
-                    <span class="glyphicon glyphicon-list"></span> Album List</a>
+                    <span class="ion-folder"></span> Album List</a>
             </ul>
         </div><!-- Media Manager -->
 
