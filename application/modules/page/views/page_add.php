@@ -2,8 +2,8 @@
     var token_name = "<?php echo $this->security->get_csrf_token_name() ?>";
     var csrf_hash = "<?php echo $this->security->get_csrf_hash() ?>";
 </script>
-<script src="<?php echo base_url('/media/js/modalpopup.js'); ?>"></script>
-<link href="<?php echo base_url('/media/css/modalpopup.css'); ?>" rel="stylesheet">
+<script src="<?php echo base_url('media/js/modalpopup.js'); ?>"></script>
+<link href="<?php echo base_url('media/css/modalpopup.css'); ?>" rel="stylesheet">
 <link href="<?php echo base_url('media/css/jasny-bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
 <script src="<?php echo base_url('media/js/jasny-bootstrap.min.js'); ?>"></script>
 <?php $this->load->view('template/tinymce_init'); ?>
@@ -58,9 +58,9 @@ if (isset($page)) {
                     <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
                     <input type="hidden" name="inputGambarExisting">
                     <input type="hidden" name="inputGambarExistingId">
-                    <?php if (isset($page) AND ! empty($page['page_image'])): ?>
+                    <?php if (isset($page) AND !empty($page['page_image'])): ?>
                         <div class="thumbnail mt10">
-                            <img src="<?php echo image_url($page['page_image']); ?>" style="height: 250px" >
+                            <img src="<?php echo $page['page_image']; ?>" style="height: 250px" >
                         </div>
                         <input type="hidden" name="inputGambarCurrent" value="<?php echo $page['page_image']; ?>">
                     <?php endif; ?>
@@ -104,7 +104,7 @@ if (isset($page)) {
     <?php echo form_close(); ?>
 </div>
 
-<?php if (isset($page)): ?>
+<?php if (isset($page)) { ?>
     <!-- Delete Confirmation -->
     <div class="modal fade" id="confirm-del">
         <div class="modal-dialog">
@@ -131,12 +131,12 @@ if (isset($page)) {
     if ($this->session->flashdata('delete')) { {
             ?>
             <script type="text/javascript">
-            $(window).load(function () {
-            $('#confirm-del').modal('show');
-            });
+                $(window).load(function() {
+                    $('#confirm-del').modal('show');
+                });
             </script>
-        <?php
+            <?php
         }
     }
     ?>
-<?php endif; ?>
+<?php } ?>
