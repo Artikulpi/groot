@@ -78,7 +78,7 @@ if (isset($user)) {
                         ?>
                         <a style="margin-top: 3px" href="<?php echo site_url('gadmin/user/delete/' . $user['user_id']); ?>" class="btn btn-danger"><i class="ion-trash-a"></i> Hapus</a>
                     <?php } ?>
-                        <a href="<?php echo site_url('gadmin/profile/cpw') ?>" class="btn btn-primary" style="margin-top: 3px"> Ubah password</a>
+                        <a href="<?php echo site_url('gadmin/profile/cpw') ?>" class="btn btn-primary" style="margin-top: 3px"><i class="ion-refresh"></i> Ubah password</a>
                 <?php endif; ?>
             </div>
         </div>

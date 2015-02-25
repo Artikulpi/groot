@@ -7,8 +7,8 @@
         </div>
         <div class="col-md-4">
             <span class=" pull-right">
-        <a href="<?php echo site_url('gadmin/profile/edit/');?>" class="btn btn-success"><i class="icon-pencil icon-white"></i> Edit</a>
-        <a href="<?php echo site_url('gadmin/profile/cpw/');?>" class="btn btn-primary"><i class="icon-eye-open icon-white"></i> Ubah Password</a>
+        <a href="<?php echo site_url('gadmin/profile/cpw/');?>" class="btn btn-primary"><i class="ion-refresh"></i> Ubah Password</a>
+        <a href="<?php echo site_url('gadmin/profile/edit/');?>" class="btn btn-warning"><i class="ion-edit"></i> Edit</a>
             </span>
         </div>
     </div><br>
