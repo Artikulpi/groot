@@ -76,21 +76,21 @@ class User_admin extends CI_Controller {
                         'user_id' => $this->session->userdata('user_id_admin'),
                         'activity_log_module' => 'Pengguna',
                         'activity_log_action' => $data['operation'],
-                        'activity_log_info' => 'ID:null;Title:' . $params['user_name']
+                        'activity_log_info' => 'ID:null;Title:' . $this->input->post('user_name')
                     )
             );
 
             $this->session->set_flashdata('success', $data['operation'] . ' Pengguna berhasil');
-            redirect('user/user');
+            redirect('gadmin/user');
         } else {
             if ($this->input->post('user_id')) {
-                redirect('user/user/edit/' . $this->input->post('user_id'));
+                redirect('gadmin/user/edit/' . $this->input->post('user_id'));
             }
 
             // Edit mode
             if (!is_null($id)) {
                 if ($this->User_model->get(array('id' => $id)) == NULL) {
-                    redirect('user/user');
+                    redirect('gadmin/user');
                 } else {
                     $data['user'] = $this->User_model->get(array('id' => $id));
                 }
@@ -105,7 +105,7 @@ class User_admin extends CI_Controller {
 
     function detail($id = NULL) {
         if ($this->User_model->get(array('id' => $id)) == NULL) {
-            redirect('user/user');
+            redirect('gadmin/user');
         }
         $data['user'] = $this->User_model->get(array('id' => $id));
         $data['title'] = 'Detail pengguna';
@@ -134,10 +134,10 @@ class User_admin extends CI_Controller {
                     )
             );
             $this->session->set_flashdata('success', 'Reset password pengguna berhasil');
-            redirect('user/user');
+            redirect('gadmin/user');
         } else {
             if ($this->User_model->get(array('id' => $id)) == NULL) {
-                redirect('user/user');
+                redirect('gadmin/user');
             }
             $data['user'] = $this->User_model->get(array('id' => $id));
             $data['title'] = 'Ganti Password Pengguna';
@@ -149,7 +149,7 @@ class User_admin extends CI_Controller {
     // Delete User
     public function delete($id = NULL) {
         if ($this->User_model->get(array('id' => $id)) == NULL) {
-            redirect('user/user');
+            redirect('gadmin/user');
         }
         if ($_POST) {
 
@@ -165,10 +165,10 @@ class User_admin extends CI_Controller {
                     )
             );
             $this->session->set_flashdata('success', 'Hapus pengguna berhasil');
-            redirect('user/user');
+            redirect('gadmin/user');
         } elseif (!$_POST) {
             $this->session->set_flashdata('delete', 'Delete');
-            redirect('user/user/edit/' . $id);
+            redirect('gadmin/user/edit/' . $id);
         }
     }
 

@@ -6,8 +6,8 @@
         </div>
         <div class="col-md-4">
             <span class=" pull-right">
-                <a href="<?php echo site_url('user/user') ?>" class="btn btn-info"><span class="ion-arrow-left-a"></span>&nbsp; Kembali</a> 
-                <a href="<?php echo site_url('user/user/edit/' . $user['user_id']) ?>" class="btn btn-warning"><span class="ion-edit"></span>&nbsp; Edit</a> 
+                <a href="<?php echo site_url('gadmin/user') ?>" class="btn btn-info"><span class="ion-arrow-left-a"></span>&nbsp; Kembali</a> 
+                <a href="<?php echo site_url('gadmin/user/edit/' . $user['user_id']) ?>" class="btn btn-warning"><span class="ion-edit"></span>&nbsp; Edit</a> 
             </span>
         </div>
     <div class="row">
