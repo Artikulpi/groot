@@ -100,7 +100,7 @@
             <?php
             if ($this->session->flashdata('success')) {
                 $data['message'] = $this->session->flashdata('success');
-                $this->load->view('template/notification_success', $data);
+                $this->load->view('admin/notification_success', $data);
             }
             ?>
         </nav>
@@ -110,7 +110,7 @@
         <div class="container-fluid">
             <div class="row row-offcanvas row-offcanvas-left">
 
-                <?php $this->load->view('template/list') ?>
+                <?php $this->load->view('admin/list') ?>
                 <?php isset($main) ? $this->load->view($main) : null; ?>
 
             </div>
