@@ -9,7 +9,7 @@ INSERT INTO `g_user_role` (`role_id`, `role_name`, `role_input_date`, `role_last
 --
 -- Dumping data for table `g_user`
 --
-INSERT INTO `groot`.`g_user` (`user_id`, `user_name`, `user_full_name`, `user_password`, `user_email`, `user_description`, `user_role`, `user_input_date`, `user_last_update`) VALUES 
+INSERT INTO `g_user` (`user_id`, `user_name`, `user_full_name`, `user_password`, `user_email`, `user_description`, `user_role`, `user_input_date`, `user_last_update`) VALUES 
 (1, 'admin', 'Admin', SHA1('password'), 'admin@example.com', 'Admin default', '1', NULL, CURRENT_TIMESTAMP);
 
 
