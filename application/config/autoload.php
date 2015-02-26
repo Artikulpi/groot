@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'form_validation', 'pagination', 'session', 'g_composer');
+$autoload['libraries'] = array('database', 'form_validation', 'pagination', 'session','template', 'g_mptt', 'g_composer');
 
 
 /*
@@ -80,7 +80,7 @@ $autoload['helper'] = array('url', 'text', 'inflector', 'form', 'groot');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('groot');
 
 
 /*

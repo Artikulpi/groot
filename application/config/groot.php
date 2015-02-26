@@ -1,6 +1,11 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['modules_locations'] = array(
-    APPPATH.'modules/' => '../modules/',
-);
-?>
+/*
+|--------------------------------------------------------------------------
+| Template
+|--------------------------------------------------------------------------
+| Konfigurasi untuk penggunaan template
+| 
+|
+*/
+$config['template'] = 'spacious';
