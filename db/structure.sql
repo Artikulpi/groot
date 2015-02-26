@@ -2,13 +2,11 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `groot` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `groot` ;
 
 -- -----------------------------------------------------
--- Table `groot`.`g_user_role`
+-- Table `g_user_role`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_user_role` (
+CREATE TABLE IF NOT EXISTS `g_user_role` (
   `role_id` INT NOT NULL AUTO_INCREMENT,
   `role_name` VARCHAR(100) NULL,
   `role_input_date` TIMESTAMP NULL,
@@ -18,9 +16,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_user`
+-- Table `g_user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_user` (
+CREATE TABLE IF NOT EXISTS `g_user` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(100) NULL,
   `user_full_name` VARCHAR(255) NULL,
@@ -34,16 +32,16 @@ CREATE TABLE IF NOT EXISTS `groot`.`g_user` (
   INDEX `fk_g_user_user_role_idx` (`user_role` ASC),
   CONSTRAINT `fk_g_user_user_role`
     FOREIGN KEY (`user_role`)
-    REFERENCES `groot`.`g_user_role` (`role_id`)
+    REFERENCES `g_user_role` (`role_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_posts_category`
+-- Table `g_posts_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_posts_category` (
+CREATE TABLE IF NOT EXISTS `g_posts_category` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(100) NULL,
   `category_input_date` TIMESTAMP NULL,
@@ -53,9 +51,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_posts`
+-- Table `g_posts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_posts` (
+CREATE TABLE IF NOT EXISTS `g_posts` (
   `posts_id` INT NOT NULL AUTO_INCREMENT,
   `posts_title` VARCHAR(255) NULL,
   `posts_description` TEXT NULL,
@@ -73,21 +71,21 @@ CREATE TABLE IF NOT EXISTS `groot`.`g_posts` (
   INDEX `fk_g_posts_g_posts_category1_idx` (`category_id` ASC),
   CONSTRAINT `fk_g_posts_g_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `groot`.`g_user` (`user_id`)
+    REFERENCES `g_user` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL,
   CONSTRAINT `fk_g_posts_g_posts_category1`
     FOREIGN KEY (`category_id`)
-    REFERENCES `groot`.`g_posts_category` (`category_id`)
+    REFERENCES `g_posts_category` (`category_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_page`
+-- Table `g_page`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_page` (
+CREATE TABLE IF NOT EXISTS `g_page` (
   `page_id` INT NOT NULL AUTO_INCREMENT,
   `page_name` VARCHAR(100) NULL,
   `page_description` TEXT NULL,
@@ -103,16 +101,16 @@ CREATE TABLE IF NOT EXISTS `groot`.`g_page` (
   INDEX `fk_g_page_g_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_g_page_g_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `groot`.`g_user` (`user_id`)
+    REFERENCES `g_user` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`mptt`
+-- Table `mptt`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`mptt` (
+CREATE TABLE IF NOT EXISTS `mptt` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(50) NOT NULL,
   `lft` INT NOT NULL DEFAULT 0,
@@ -124,9 +122,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_activity_log`
+-- Table `g_activity_log`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_activity_log` (
+CREATE TABLE IF NOT EXISTS `g_activity_log` (
   `activity_log_id` INT NOT NULL AUTO_INCREMENT,
   `activity_log_date` TIMESTAMP NULL,
   `activity_log_action` VARCHAR(45) NULL,
@@ -137,16 +135,16 @@ CREATE TABLE IF NOT EXISTS `groot`.`g_activity_log` (
   INDEX `fk_g_activity_log_g_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_g_activity_log_g_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `groot`.`g_user` (`user_id`)
+    REFERENCES `g_user` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_mediamanager`
+-- Table `g_mediamanager`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_mediamanager` (
+CREATE TABLE IF NOT EXISTS `g_mediamanager` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL DEFAULT NULL,
   `type` VARCHAR(45) NULL DEFAULT NULL,
@@ -162,9 +160,9 @@ COLLATE = latin1_swedish_ci;
 
 
 -- -----------------------------------------------------
--- Table `groot`.`g_mediamanager_album`
+-- Table `g_mediamanager_album`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `groot`.`g_mediamanager_album` (
+CREATE TABLE IF NOT EXISTS `g_mediamanager_album` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `label` VARCHAR(255) NULL DEFAULT NULL,
   `upload_at` DATETIME NULL DEFAULT NULL,
@@ -172,6 +170,19 @@ CREATE TABLE IF NOT EXISTS `groot`.`g_mediamanager_album` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_swedish_ci;
+
+
+-- -----------------------------------------------------
+-- Table `user_sessions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `user_sessions` (
+  `session_id` VARCHAR(45) NOT NULL,
+  `ip_address` VARCHAR(45) NULL DEFAULT NULL,
+  `user_agent` VARCHAR(120) NULL DEFAULT NULL,
+  `last_activity` INT(11) NULL DEFAULT NULL,
+  `user_data` TEXT NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
