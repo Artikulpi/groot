@@ -6,8 +6,8 @@
 <link href="<?php echo base_url('media/css/modalpopup.css'); ?>" rel="stylesheet">
 <link href="<?php echo base_url('media/css/jasny-bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
 <script src="<?php echo base_url('media/js/jasny-bootstrap.min.js'); ?>"></script>
-<?php $this->load->view('template/tinymce_init'); ?>
-<?php $this->load->view('template/datepicker'); ?>
+<?php $this->load->view('admin/tinymce_init'); ?>
+<?php $this->load->view('admin/datepicker'); ?>
 
 <?php
 if (isset($page)) {

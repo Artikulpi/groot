@@ -44,7 +44,7 @@ class Media_manager_admin extends CI_Controller {
         $this->load->model('Mediaalbum_model');
         $data['albums'] = $this->Mediaalbum_model->gets($offset);
 
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     public function album($album_id, $offset = 0) {
@@ -68,7 +68,7 @@ class Media_manager_admin extends CI_Controller {
         $this->load->model('Mediaalbum_model');
         $data['albums'] = $this->Mediaalbum_model->gets($offset);
 
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     public function add($id) {
@@ -139,7 +139,7 @@ class Media_manager_admin extends CI_Controller {
 
         $data['main'] = 'media_manager/edit';
 
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     public function restore($id) {

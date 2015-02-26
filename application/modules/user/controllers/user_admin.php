@@ -35,7 +35,7 @@ class User_admin extends CI_Controller {
         $config['total_rows'] = count($this->User_model->get());
         $this->pagination->initialize($config);
 
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     // Add User_customer and Update
@@ -99,7 +99,7 @@ class User_admin extends CI_Controller {
             $data['button'] = ($id == $this->session->userdata('user_id_admin')) ? 'Ubah' : 'Reset';
             $data['title'] = $data['operation'] . ' Pengguna';
             $data['main'] = 'user/user_add';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 
@@ -110,7 +110,7 @@ class User_admin extends CI_Controller {
         $data['user'] = $this->User_model->get(array('id' => $id));
         $data['title'] = 'Detail pengguna';
         $data['main'] = 'user/user_detail';
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     function rpw($id = NULL) {
@@ -142,7 +142,7 @@ class User_admin extends CI_Controller {
             $data['user'] = $this->User_model->get(array('id' => $id));
             $data['title'] = 'Ganti Password Pengguna';
             $data['main'] = 'user/change_pass';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 

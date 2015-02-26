@@ -32,7 +32,7 @@ class Posts_admin extends CI_Controller {
 
         $data['title'] = 'Posting';
         $data['main'] = 'posts/posts_list';
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     // Category view in list
@@ -44,7 +44,7 @@ class Posts_admin extends CI_Controller {
         $this->pagination->initialize($config);
         $data['title'] = 'Kategori Posting';
         $data['main'] = 'posts/category_list';
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     // Add Posts and Update
@@ -133,7 +133,7 @@ class Posts_admin extends CI_Controller {
             $data['category'] = $this->Posts_model->get_category();
             $data['title'] = $data['operation'] . ' Posting';
             $data['main'] = 'posts/posts_add';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 
@@ -183,7 +183,7 @@ class Posts_admin extends CI_Controller {
             }
             $data['title'] = 'Tambah Kategori';
             $data['main'] = 'posts/category_add';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 

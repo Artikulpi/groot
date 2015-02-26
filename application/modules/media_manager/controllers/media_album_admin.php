@@ -32,7 +32,7 @@ class Media_album_admin extends CI_Controller {
         $this->pagination->initialize($config);
         $data['main'] = 'media_manager/album_list';
 
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     public function create () {

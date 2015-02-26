@@ -32,7 +32,7 @@ class Page_admin extends CI_Controller {
             $this->pagination->initialize($config);
             $data['title'] = 'Page';
             $data['main'] = 'page/page_list';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
     }
 
     // Add Page and Update
@@ -100,7 +100,7 @@ class Page_admin extends CI_Controller {
 
                 $data['title'] = $data['operation'] . ' Halaman';
                 $data['main'] = 'page/page_add';
-                $this->load->view('template/layout', $data);
+                $this->load->view('admin/layout', $data);
             }
     }
 
@@ -184,7 +184,7 @@ class Page_admin extends CI_Controller {
             $data['main'] = 'page/page_tree';
             $data['tree'] = $this->mptt->get_tree();
             $data['pages'] = $this->Page_model->get(array('id' => $id));
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
        
     }
 

@@ -22,7 +22,7 @@ class Dashboard_admin extends CI_Controller {
     {
         $data['title'] = 'Dashboard';
         $data['main'] = 'dashboard/dashboard';
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
 }

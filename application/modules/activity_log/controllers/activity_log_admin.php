@@ -33,7 +33,7 @@ class Activity_log_admin extends CI_Controller {
             $config['total_rows'] = $this->db->count_all('g_activity_log');
             $this->pagination->initialize($config);
 
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
     }
 
 }

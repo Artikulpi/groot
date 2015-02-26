@@ -26,7 +26,7 @@ class Profile_admin extends CI_Controller {
         $data['user'] = $this->User_model->get(array('id' => $this->session->userdata('user_id_admin')));
         $data['title'] = 'Detail Profil';
         $data['main'] = 'profile/profile';
-        $this->load->view('template/layout', $data);
+        $this->load->view('admin/layout', $data);
     }
 
     // Add Manage and Update
@@ -68,7 +68,7 @@ class Profile_admin extends CI_Controller {
             $data['role'] = $this->User_model->get_role();
             $data['title'] = $data['operation'] . ' User';
             $data['main'] = 'profile/edit';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 
@@ -103,7 +103,7 @@ class Profile_admin extends CI_Controller {
             }
             $data['title'] = 'Ganti Password Pengguna';
             $data['main'] = 'profile/change_pass';
-            $this->load->view('template/layout', $data);
+            $this->load->view('admin/layout', $data);
         }
     }
 
