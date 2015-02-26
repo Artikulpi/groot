@@ -31,14 +31,14 @@
                           <h2><?php echo $row['posts_title']?></h2>
                           <div class="row-fluid">
                               <h5>
-                                  <span class=""><?php echo pretty_date($row['posts_title'], 'l, d-M-Y'), FALSE?> </span> - 
+                                  <span class=""><?php echo pretty_date($row['posts_published_date'], 'l, d-M-Y'), FALSE?> </span> - 
                                   <span class="">Category: <a href=""><?php echo $row['category_name']?></a> </span>
                               </h5>
                           </div>
                           <div class="row">
                             <div class="col-md-12">
                               <div class="up-teks">
-                                  <p align="justify"><?php echo strip_tags(character_limiter($row['posts_title'], 500))?></p>
+                                  <p align="justify"><?php echo strip_tags(character_limiter($row['posts_description'], 500))?></p>
                               </div>
                             </div>
                           </div>
