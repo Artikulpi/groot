@@ -84,15 +84,15 @@ if (!function_exists('pretty_date')) {
 
     }
 
-    if (!function_exists('news_url')) {
+    if (!function_exists('posts_url')) {
 
-        function news_url($news = array()) {
-            if (isset($news['news_url'])) {
-                return $news['news_url'];
+        function posts_url($posts = array()) {
+            if (isset($posts['posts_url'])) {
+                return $posts['posts_url'];
             } else {
-                list($date, $time) = explode(' ', $news['news_published_date']);
+                list($date, $time) = explode(' ', $posts['posts_published_date']);
                 list($year, $month, $day) = explode('-', $date);
-                return site_url('news/read/' . $year . '/' . $month . '/' . $day . '/' . $news['news_id'] . '/' . url_title($news['news_title'], '-', TRUE) . '.html');
+                return site_url('posts/read/' . $year . '/' . $month . '/' . $day . '/' . $posts['posts_id'] . '/' . url_title($posts['posts_title'], '-', TRUE) . '.html');
             }
         }
 

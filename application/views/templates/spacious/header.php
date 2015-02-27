@@ -39,7 +39,7 @@
             <div class="col-md-4">
                 <div class="col-md-6 col-sm-12 logo">
                     <div class="">
-                        <CENTER><img src="<?php echo template_media_url() ?>/image/groot.png" class="img-responsive"></CENTER>
+                        <CENTER><a href="<?php echo site_url() ?>"><img src="<?php echo template_media_url() ?>/image/groot.png" class="img-responsive"></a></CENTER>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">

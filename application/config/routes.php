@@ -37,6 +37,14 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+
+$route['(:any)/category/(:num)/(:any).html'] = "$1/category/$2/$3";
+$route['(:any)/view/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
+$route['(:any)/view/(:num)/(:any).html'] = "$1/detail/$2/$3";
+$route['(:any)/read/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
+$route['(:any)/read/(:num)/(:any).html'] = "$1/detail/$2/$3";
+$route['page/(:num)/(:any)'] = "page/detail/$1/$2";
+
 $route['g_admin/(:any)/(:any)/edit/(:num)'] = "g_admin/$1/add_$2/$3";
 $route['g_admin/(:any)/(:any)/add'] = "g_admin/$1/add_$2";
 $route['g_admin/(:any)/edit/(:num)'] = "g_admin/$1/add/$2";
