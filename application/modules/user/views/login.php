@@ -52,7 +52,7 @@
                     <?php
                     if ($this->session->flashdata('failed')) {
                         $data['message'] = $this->session->flashdata('failed');
-                        $this->load->view('template/login_failed', $data);
+                        $this->load->view('admin/login_failed', $data);
                     }
                     ?>
                 </div>    
