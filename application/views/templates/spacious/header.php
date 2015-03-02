@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>GROOT <?php echo isset($title) ? ' | ' . $title : null; ?></title><!-- Bootstrap core CSS -->
-        <link rel="shortcut icon" href="<?php echo template_media_url() ?>/ico/favicon.png">
+        <link rel="shortcut icon" href="<?php echo favicon()?>">
 
         <link href="<?php echo base_url() ?>media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url() ?>media/css/ionicons.min.css" rel="stylesheet" type="text/css">

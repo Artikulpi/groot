@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!-- Icon Template -->
-        <link rel="icon" href="<?php echo base_url('media/ico/favicon.png'); ?>" type="image/x-icon">
+        <link rel="icon" href="<?php echo favicon(); ?>" type="image/x-icon">
 
         <!-- CSS Plugin -->
         <link href="<?php echo base_url('/media/css/bootstrap.min.css'); ?>" rel="stylesheet">

@@ -78,6 +78,19 @@
 
         <div class="panel panel-default pipanel">
             <div class="panel-heading">
+                <a data-toggle="collapse" href="#navset">
+                    <h4 class="title">Pengaturan</h4>
+                </a>
+            </div>
+
+            <ul id="navset" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'setting') ? 'in' : NULL; ?>">
+                <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/setting'); ?>">
+                    <span class="glyphicon glyphicon-cog"></span> Pengaturan</a>
+            </ul>
+        </div><!-- Media Manager -->
+
+        <div class="panel panel-default pipanel">
+            <div class="panel-heading">
                 <a data-toggle="collapse" href="#navlog">
                     <h4 class="title">Log Aktivitas</h4>
                 </a>

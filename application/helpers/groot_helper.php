@@ -98,6 +98,22 @@ if (!function_exists('pretty_date')) {
 
     }
 
+    if (!function_exists('favicon')) {
+
+        function favicon() {
+            $CI = & get_instance();
+            $CI->load->model('Setting_model');
+
+            $return = $CI->Setting_model->get(array('id' => 1));
+            if ($return['setting_value'] != '-') {
+                return $return['setting_value'];
+            } else {
+                return base_url('media/ico/favicon.png');
+            }
+        }
+
+    }
+
     if (!function_exists('template_media_url')) {
 
         function template_media_url($name = '') {
