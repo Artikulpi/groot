@@ -58,6 +58,9 @@ $route['gadmin/auth'] = 'user/auth/login';
 $route['gadmin/([a-zA-Z_-]+)'] = '$1/$1_admin';
 $route['gadmin'] = "dashboard/dashboard_admin";
 
+$route['search/(:any)'] = "base/search/$1";
+$route['search'] = "base/search";
+
 $route['default_controller'] = "base";
 $route['404_override'] = '';
 

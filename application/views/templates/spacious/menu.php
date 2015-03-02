@@ -22,11 +22,11 @@
                     </ul>
                 <?php endif; ?></li>
         <?php endforeach; ?>
-        <form class="navbar-form navbar-left" role="search">
+        <form  action="<?php echo site_url('search'); ?>" method="post" class="navbar-form navbar-left" role="search">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" name="search" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button type="submit" class="btn btn-info"><i class="ion-search"></i> Cari</button>
         </form>
     </ul>
 </div><!-- /.navbar-collapse -->
