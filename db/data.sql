@@ -31,3 +31,11 @@ INSERT INTO `mptt` (`id`, `title`, `lft`, `rgt`, `parent`, `url`) VALUES
 --
 INSERT INTO `g_posts_category` (`category_id`, `category_name`, `category_input_date`, `category_last_update`) VALUES
 (1, 'Uncategorized', '2014-06-20 06:55:00', '2014-06-20 06:55:00');
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `g_setting` (`setting_id`, `setting_name`, `setting_value`, `setting_description`) VALUES
+(1, 'Favicon', '-', 'Favicon'),
+--(2, 'Google Analytics ID', '-', 'Google Analytics ID');

@@ -173,6 +173,20 @@ COLLATE = latin1_swedish_ci;
 
 
 -- -----------------------------------------------------
+-- Table `g_setting`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `g_setting` (
+  `setting_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `setting_name` VARCHAR(255) NULL DEFAULT NULL,
+  `setting_value` VARCHAR(255) NULL DEFAULT NULL,
+  `setting_description` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`setting_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 18
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `user_sessions`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `user_sessions` (
