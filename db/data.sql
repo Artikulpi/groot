@@ -37,5 +37,5 @@ INSERT INTO `g_posts_category` (`category_id`, `category_name`, `category_input_
 --
 
 INSERT INTO `g_setting` (`setting_id`, `setting_name`, `setting_value`, `setting_description`) VALUES
-(1, 'Favicon', '-', 'Favicon'),
---(2, 'Google Analytics ID', '-', 'Google Analytics ID');
+(1, 'Favicon', '-', 'Favicon');
+-- (2, 'Google Analytics ID', '-', 'Google Analytics ID');
