@@ -26,6 +26,10 @@
                     <span class="glyphicon glyphicon-list"></span> Daftar Posting</a>
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/posts/add'); ?>"> 
                     <span class="glyphicon glyphicon-plus-sign"></span> Tambah Posting</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/posts/category'); ?>">
+                    <span class="glyphicon glyphicon-list"></span> Daftar Kategori</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/posts/add_category'); ?>"> 
+                    <span class="glyphicon glyphicon-plus-sign"></span> Tambah Kategori</a>
             </ul>
         </div><!-- Posts -->
 
