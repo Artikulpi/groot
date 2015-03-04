@@ -60,7 +60,7 @@ if (isset($posts)) {
                     <input type="hidden" name="inputGambarExisting">
                     <input type="hidden" name="inputGambarExistingId">
 
-                    <?php if (isset($posts) AND ! empty($posts['posts_image'])): ?>
+                    <?php if (isset($posts) AND !empty($posts['posts_image'])): ?>
                         <div class="thumbnail mt10">
                             <img class="previewTarget" src="<?php echo $posts['posts_image']; ?>" style="width: 280px !important" >
                         </div>
@@ -118,16 +118,11 @@ if (isset($posts)) {
             </div>
             <hr>
             <div class="form-group">
-                <div class="row">
-                    <button name="action" type="submit" value="preview" class="btn btn-primary"><i class="ion-eye"></i> Tampilkan</button>
-                    <button name="action" type="submit" value="save" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
-                </div>
-                <div class="row" style="margin-top: 3px">
-                    <a href="<?php echo site_url('gadmin/posts'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
-                    <?php if (isset($posts)): ?>
-                        <a href="<?php echo site_url('gadmin/posts/delete/' . $posts['posts_id']); ?>" class="btn btn-danger" ><i class="ion-trash-a"></i> Hapus</a>
-                    <?php endif; ?>
-                </div>
+                <button name="action" type="submit" value="save" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
+                <a href="<?php echo site_url('gadmin/posts'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
+                <?php if (isset($posts)): ?>
+                    <a href="<?php echo site_url('gadmin/posts/delete/' . $posts['posts_id']); ?>" class="btn btn-danger" ><i class="ion-trash-a"></i> Hapus</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -159,9 +154,9 @@ if (isset($posts)) {
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
         <script type="text/javascript">
-        $(window).load(function () {
-        $('#confirm-del').modal('show');
-        });
+            $(window).load(function() {
+                $('#confirm-del').modal('show');
+            });
         </script>
     <?php }
     ?>
