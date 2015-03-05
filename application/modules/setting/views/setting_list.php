@@ -20,21 +20,24 @@
                 <label>Favicon</label>
             </div>
             <div class="col-md-8">
-                <div class="form-group">
-                    <div class="box4">
-                        <label for="image">Unggah File Gambar</label>
-                        <!--<input id="image" type="file" name="inputGambar">-->
-                        <a name="action" id="openmm"type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
-                        <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
-                        <input type="hidden" name="inputGambarExisting">
-                        <input type="hidden" name="inputGambarExistingId">
+                <input type="checkbox" id="check" <?php echo $favicon['setting_value'] != '-' ? 'checked' : NULL ?> name="upload">
+                <div id="icon" <?php echo $favicon['setting_value'] == '-' ? 'style="display: none;"' : NULL ?>>
+                    <div class="form-group">
+                        <div class="box4">
+                            <label for="image">Unggah File Gambar</label>
+                            <!--<input id="image" type="file" name="inputGambar">-->
+                            <a name="action" id="openmm"type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
+                            <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
+                            <input type="hidden" name="inputGambarExisting">
+                            <input type="hidden" name="inputGambarExistingId">
 
-                        <?php if (isset($favicon) AND !empty($favicon['setting_value']) AND $favicon['setting_value'] != '-'): ?>
-                            <div class="thumbnail mt10">
-                                <img class="previewTarget" src="<?php echo $favicon['setting_value']; ?>" style="width: 280px !important" >
-                            </div>
-                            <input type="hidden" name="inputGambarCurrent" value="<?php echo $favicon['setting_value']; ?>">
-                        <?php endif; ?>
+                            <?php if (isset($favicon) AND !empty($favicon['setting_value']) AND $favicon['setting_value'] != '-'): ?>
+                                <div class="thumbnail mt10">
+                                    <img class="previewTarget" src="<?php echo $favicon['setting_value']; ?>" style="width: 280px !important" >
+                                </div>
+                                <input type="hidden" name="inputGambarCurrent" value="<?php echo $favicon['setting_value']; ?>">
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,5 +54,14 @@
             Kolom tidak boleh kosng, Jika ingin di nonaktifkan silahkan beri tanda ( - ) pada kolom yang tersedia.
         </div>
     </div>
-
 </div>
+
+<script>
+    $('#check').change(function(checked) {
+        if ($(this).is(':checked')) {
+            $('#icon').show();
+        } else {
+            $('#icon').hide();
+        }
+    });
+</script>

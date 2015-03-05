@@ -7,7 +7,8 @@ class Setting_admin extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if ($this->session->userdata('logged_admin') == NULL) redirect('gadmin/auth');
+        if ($this->session->userdata('logged_admin') == NULL)
+            redirect('gadmin/auth');
         $this->load->model('Setting_model');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -16,12 +17,16 @@ class Setting_admin extends CI_Controller {
 
     public function index() {
         if ($_POST) {
-            if (!empty($_FILES['inputGambar']['name'])) {
-                $param['favicon'] = $this->input->post('inputGambarCurrent');
-            } elseif ($this->input->post('inputGambarCurrent')) {
-                $param['favicon'] = $this->input->post('inputGambarCurrent');
+            if ($this->input->post('upload')) {
+                if (!empty($_FILES['inputGambar']['name'])) {
+                    $param['favicon'] = $this->input->post('inputGambarCurrent');
+                } elseif ($this->input->post('inputGambarCurrent')) {
+                    $param['favicon'] = $this->input->post('inputGambarCurrent');
+                } else {
+                    $param['favicon'] = $this->input->post('inputGambarCurrent');
+                }
             } else {
-                $params['favicon'] = $this->input->post('inputGambarCurrent');
+                $param['favicon'] = '-';
             }
             $this->Setting_model->save($param);
             $this->session->set_flashdata('success', 'Sunting pengaturan berhasil');
