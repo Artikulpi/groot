@@ -186,7 +186,7 @@ class Posts_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('category_id', 'asc');
+            $this->db->order_by('category_id', 'desc');
         }
 
         $this->db->select('*');
