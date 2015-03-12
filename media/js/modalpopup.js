@@ -142,6 +142,8 @@ $(document).ready(function(){
 			$(data.images).each(function (index, value) {
 				if(value.type == 'application/pdf')
 					var sr_img = BASEURL+'media/image/icon_pdf.png';
+				else if(value.type == 'application/vnd.openxmlformats-officedocument')
+					var sr_img = BASEURL+'media/image/icon_word.png';
 				else if(value.type == 'application/msword')
 					var sr_img = BASEURL+'media/image/icon_word.png';
 				else
@@ -149,7 +151,7 @@ $(document).ready(function(){
 				
 				var img	= $('<img/>').attr({src:sr_img});
 				var crop = $('<div/>').addClass('crop');
-				var dixtext = $('<div/>').addClass('divtext').html(value.label);
+				var dixtext = $('<div/>').addClass('divtext').html(value.name);
 				var li = $('<li/>').append(crop.append(img)).append(dixtext);
 				
 				$(gallery).append(li);
@@ -160,7 +162,29 @@ $(document).ready(function(){
 					});
 			});
 			
-			$('.modal-body').append(gallery);
+			var page_box	= $('<br><div/>').addClass('pagination').css({clear: 'both'});
+			var page_ul		= $('<ul/>').addClass('pagination pagination-sm');
+			$(page_box).append(page_ul);
+			
+			var num_page	= data.pages.numpages;
+			var current		= data.pages.page;
+			
+			for (var i = 1; i <= num_page; i++) {
+				var selected = '';
+				if(parseInt(i) == parseInt(current))
+					var selected = 'selected';
+				
+				var page_li = $('<li/>').addClass(selected);
+				var ahref = $('<a/>').html(i).addClass("thepage");
+				
+				$(page_ul).append(page_li.append(ahref));
+			}
+						
+			$('.modal-body').append(gallery).append(page_box);
+                        
+			mmedia.tipe = tipe;
+			mmedia.from = from;
+			mmedia.listenpage();
 		},
 		polhead : function (selected) {
 			var dcenter	= $('<div/>').addClass('dcenter');
