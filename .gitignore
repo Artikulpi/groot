@@ -6,6 +6,7 @@
 development/
 uploads/
 nbproject/
+vendor/
 
 application/cache/*
 !application/cache/index.html
