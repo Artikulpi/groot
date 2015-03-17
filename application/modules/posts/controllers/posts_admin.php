@@ -3,20 +3,20 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/** 
-* Posts controllers class
+/**
+ * Posts controllers class
  *
  * @package     GROOT
  * @subpackage  Controllers
  * @category    Controllers
  * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
  */
-
 class Posts_admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct(TRUE);
-        if ($this->session->userdata('logged_admin') == NULL) redirect('gadmin/auth');
+        if ($this->session->userdata('logged_admin') == NULL)
+            redirect('gadmin/auth');
         $this->load->model(array('Posts_model', 'Activity_log_model'));
         $this->load->library('upload');
     }
@@ -32,6 +32,16 @@ class Posts_admin extends CI_Controller {
 
         $data['title'] = 'Posting';
         $data['main'] = 'posts/posts_list';
+        $this->load->view('admin/layout', $data);
+    }
+
+    function view($id = NULL) {
+        if ($this->Posts_model->get(array('id' => $id)) == NULL) {
+            redirect('gadmin/posts');
+        }
+        $data['posts'] = $this->Posts_model->get(array('id' => $id));
+        $data['title'] = 'Detail posting';
+        $data['main'] = 'posts/posts_view';
         $this->load->view('admin/layout', $data);
     }
 
@@ -59,16 +69,6 @@ class Posts_admin extends CI_Controller {
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
-            if ($this->input->post('category_id_new')) {
-                $params['category_input_date'] = date('Y-m-d H:i:s');
-                $params['category_last_update'] = date('Y-m-d H:i:s');
-                $params['category_name'] = $this->input->post('category_id_new');
-                $this->Posts_model->add_category($params);
-                $this->db->select('*');
-                $this->db->from('g_posts_category');
-                $this->db->where('category_name', $this->input->post('category_id_new'));
-                $query = $this->db->get();
-            }
             if (!empty($_FILES['inputGambar']['name'])) {
                 $params['posts_image'] = $this->do_upload();
             } elseif ($this->input->post('inputGambarExisting')) {
@@ -93,11 +93,7 @@ class Posts_admin extends CI_Controller {
             $params['posts_title'] = $this->input->post('posts_title');
             $params['posts_description'] = stripslashes($this->input->post('posts_description'));
             $params['posts_content'] = stripslashes($this->input->post('posts_content'));
-            if ($this->input->post('category_id_new')) {
-                $params['category_id'] = $query->row('category_id');
-            } else {
-                $params['category_id'] = $this->input->post('category_id');
-            }
+            $params['category_id'] = $this->input->post('category_id');
             $params['posts_is_published'] = $this->input->post('posts_is_published');
             $params['posts_is_commentable'] = $this->input->post('posts_is_commentable');
             $status = $this->Posts_model->add($params);
@@ -114,11 +110,6 @@ class Posts_admin extends CI_Controller {
                     )
             );
 
-            if ($this->input->post('action') == 'preview') {
-                $posts = $this->Posts_model->get(array('id' => $status));
-                redirect(posts_url($posts));
-            }
-
             $this->session->set_flashdata('success', $data['operation'] . ' posting berhasil');
             redirect('gadmin/posts');
         } else {
@@ -130,7 +121,7 @@ class Posts_admin extends CI_Controller {
             if (!is_null($id)) {
                 $data['posts'] = $this->Posts_model->get(array('id' => $id));
             }
-            $data['category'] = $this->Posts_model->get_category();
+            $data['category'] = $this->get_category();
             $data['title'] = $data['operation'] . ' Posting';
             $data['main'] = 'posts/posts_add';
             $this->load->view('admin/layout', $data);
@@ -154,7 +145,7 @@ class Posts_admin extends CI_Controller {
             }
             $params['category_last_update'] = date('Y-m-d H:i:s');
             $params['category_name'] = $this->input->post('category_name');
-            $this->Posts_model->add_category($params);
+            $res = $this->Posts_model->add_category($params);
 
             // activity log
             $this->Activity_log_model->add(
@@ -167,8 +158,12 @@ class Posts_admin extends CI_Controller {
                     )
             );
 
+            if ($this->input->is_ajax_request()) {
+                echo $res;
+            } else {
             $this->session->set_flashdata('success', $data['operation'] . ' kategori berhasil');
             redirect('gadmin/posts/category');
+            }
         } else {
             if ($this->input->post('category_id')) {
                 redirect('gadmin/category/edit/' . $this->input->post('category_id'));
@@ -185,6 +180,11 @@ class Posts_admin extends CI_Controller {
             $data['main'] = 'posts/category_add';
             $this->load->view('admin/layout', $data);
         }
+    }
+
+    protected function get_category() {
+        $res = json_encode($this->Posts_model->get_category());
+        return $res;
     }
 
     // Delete Posts

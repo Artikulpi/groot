@@ -23,7 +23,7 @@
                     ?>
                     <tbody>
                         <tr>
-                            <td ><b><a style="float: left;" href="<?php echo site_url('gadmin/posts/edit/' . $row['posts_id']); ?>" ><?php echo $row['posts_title']; ?></a></b></td>
+                            <td ><b><a style="float: left;" href="<?php echo site_url('gadmin/posts/view/' . $row['posts_id']); ?>" ><?php echo $row['posts_title']; ?></a></b></td>
                             <td ><?php echo $row['user_name']; ?></td>
                             <td ><?php echo $row['category_name']; ?></td>
                             <td ><?php echo pretty_date($row['posts_input_date'], 'l, d/m/Y', FALSE); ?></td>

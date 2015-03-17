@@ -9,6 +9,7 @@
 
 <?php $this->load->view('admin/tinymce_init'); ?>
 <?php $this->load->view('admin/datepicker'); ?>
+<?php $this->load->view('posts/add_js'); ?>
 
 <?php
 if (isset($posts)) {
@@ -97,24 +98,26 @@ if (isset($posts)) {
                 </label>
             </div>
             <hr>
-            <div class="form-group">
-                <label for="inputCategory">Kategori</label>
-                <select name="category_id" class="form-control">
-                    <?php
-                    if (!empty($category)) {
-                        foreach ($category as $row):
-                            $select = ($row['category_id'] == $inputCategory) ? 'selected' : NULL;
-                            ?>
-
-                            <option value="<?php echo $row['category_id']; ?>" <?php echo $select; ?>> <?php echo $row['category_name']; ?></option>
-
-                            <?php
-                        endforeach;
-                    }
-                    ?>
-                </select>
-                <p style="text-align: center">Atau input baru</p>
-                <input type="text" name="category_id_new" class="form-control" placeholder="Tambah kategori baru">
+            <div class="form-group" ng-controller="CategoriesCtrl">
+                <label>Kategori</label>
+                <div class=" input-group">
+                    <select name="category_id" class="form-control" id="selectCat">
+                        <option ng-repeat="category in categories" ng-selected="category_data.index == category.category_id" value="{{category.category_id}}">{{category.category_name}}</option>
+                    </select>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#category" aria-expanded="false">
+                            <span class="ion-plus"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="collapse" id="category">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Tambah Baru" id="appendedInputButton" type="text" ng-model="categoryText">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default simpan" type="button" ng-click="addCategory()" ng-disabled="!(!!categoryText)">Simpan</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <hr>
             <div class="form-group">

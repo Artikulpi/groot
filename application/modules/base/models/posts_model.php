@@ -186,7 +186,7 @@ class Posts_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('category_id', 'asc');
+            $this->db->order_by('category_id', 'desc');
         }
 
         $this->db->select('*');
@@ -219,6 +219,9 @@ class Posts_model extends CI_Model {
             $this->db->insert('g_posts_category');
             $id = $this->db->insert_id();
         }
+
+        $status = $this->db->affected_rows();
+        return ($status == 0) ? FALSE : $id;
     }
     
     // Delete category to database
