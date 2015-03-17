@@ -1,4 +1,4 @@
-ul {
+/*ul {
 	display: block;
 	list-style-type: disc;
 	-webkit-margin-before: 1em;
@@ -6,7 +6,7 @@ ul {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
-}
+}*/
 
 .gallery {
 	list-style-type: none;
