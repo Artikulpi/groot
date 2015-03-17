@@ -2,6 +2,19 @@
 
 /*
  *---------------------------------------------------------------
+ * DEFAULT TIMEZONE
+ *---------------------------------------------------------------
+ *
+ * Set the default timezone for date/time functions to use if
+ * none is set on the server.
+ *
+ */
+
+$timezone = "Asia/Jakarta";
+date_default_timezone_set($timezone);
+
+/*
+ *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
  *---------------------------------------------------------------
  *
