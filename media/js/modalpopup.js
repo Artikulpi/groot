@@ -329,8 +329,7 @@ $(document).ready(function(){
 			//$('#myModal').remove(); // primary close
 		},
 		insertFile : function (from, data, sr_img) {
-			if(mmedia.onlylink > 0)
-				return mmedia.insertLinkOnly(from, data);
+			return mmedia.insertLinkOnly(from, data);
 			
 			var is_new = 1;
 			if($('.tbl_file').html() != 'undefined')
@@ -456,7 +455,9 @@ $(document).ready(function(){
 			     	{
 			     		// Success so call function to process the form
 			     		//submitForm(event, data);
-			     		imx.successUpload();
+			     		//imx.successUpload();
+                                        mmedia.goImages();
+                                        return false;
 			     	}
 			     	else
 			     	{
