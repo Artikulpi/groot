@@ -15,6 +15,7 @@ class Media_album_admin extends CI_Controller {
 
 	public function __construct () {
         parent::__construct(TRUE);
+        if ($this->session->userdata('logged_admin') == NULL) redirect('gadmin/auth/login');
 
         $this->load->model('Mediaalbum_model');
     }

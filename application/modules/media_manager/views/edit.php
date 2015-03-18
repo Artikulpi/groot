@@ -123,7 +123,7 @@
         loaded: false,
         img: null,
         action: 'crop',
-        src: '<?php echo image_url($image['name']) . '?' . uniqid()?>',
+        src: '<?php echo upload_url($image['name']) . '?' . uniqid()?>',
         data: [],
         set: function (key, value) {
             Image.data[key] = value;

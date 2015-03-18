@@ -20,6 +20,7 @@ class Media_manager_admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct(TRUE);
+        if ($this->session->userdata('logged_admin') == NULL) redirect('gadmin/auth/login');
 
         $this->load->model('Mediamanager_model');
         $this->load->model('Activity_log_model');
@@ -29,13 +30,12 @@ class Media_manager_admin extends CI_Controller {
 
         $this->load->library('pagination');
 
-        $images = $this->Mediamanager_model->gets($offset);
-        $data['images'] = $images['data'];
+        $data['images'] = $this->Mediamanager_model->getImage(array('limit' => 16, 'offset' => $offset));
         $data['total_images'] = $this->Mediamanager_model->count();
 
         $config['base_url'] = site_url('gadmin/media_manager/index/');
         $config['total_rows'] = $data['total_images'];
-        $config['per_page'] = $this->Mediamanager_model->limit;
+        $config['per_page'] = 16;
 
         $this->pagination->initialize($config);
         $data['main'] = 'media_manager/list';
@@ -302,7 +302,7 @@ class Media_manager_admin extends CI_Controller {
         $image = $this->Mediamanager_model->get($id);
 
         $filename = $image['name'];
-        $file = image_url($filename);
+        $file = upload_url($filename);
 
         //header('Content-type: application/pdf');
         header('Content-type: ' . $image['type']);

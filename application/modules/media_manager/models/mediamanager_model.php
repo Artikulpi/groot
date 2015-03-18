@@ -12,6 +12,50 @@ class Mediamanager_model extends CI_Model {
     {
         parent::__construct();
     }
+    function getImage($params = array())
+    {
+        $this->db->select('g_mediamanager.id, name, type, isfile, g_mediamanager.label, info, g_mediamanager.upload_at, g_mediamanager.album_id'); 
+        
+        if(isset($params['id']))
+        {
+            $this->db->where('g_mediamanager.id', $params['id']);
+        }
+        if(isset($params['name']))
+        {
+            $this->db->where('name', $params['user_id']);
+        }
+        
+        if(isset($params['limit']))
+        {
+            if(!isset($params['offset']))
+            {
+                $params['offset'] = NULL;
+            }
+
+            $this->db->limit($params['limit'], $params['offset']);
+        }
+
+        if(isset($params['order_by']))
+        {
+            $this->db->order_by($params['order_by'], 'desc');
+        }
+        else
+        {
+            $this->db->order_by('id', 'desc');
+        }
+
+        $this->db->join('g_mediamanager_album', 'g_mediamanager_album.id = g_mediamanager.album_id', 'left');
+        $res = $this->db->get('g_mediamanager');
+
+        if(isset($params['id']))
+        {
+            return $res->row_array();
+        }
+        else
+        {
+            return $res->result_array();
+        }
+    }
 	
     public function insert($fileData) {
     	$now = new Datetime('now');
@@ -51,29 +95,20 @@ class Mediamanager_model extends CI_Model {
     public function gets ($offset, $keyword='', $params=array()) { 
     	$limit = '';
     	$where = ' WHERE
-    					mm.album_id <= 0';
+    					g_mediamanager.album_id >= 0';
     	if(strlen($keyword) > 0) {
     		$where .= " AND ( label LIKE %'".$keyword."'% OR name LIKE %'".$keyword."'% ) ";
     	}
     	 
     	if(isset($params['isfile'])) {
-    		$where .= " AND mm.isfile = ".$params['isfile'];
+    		$where .= " AND g_mediamanager.isfile = ".$params['isfile'];
     	}
     	
     	if (is_numeric($offset)) {
     		$limit = ' LIMIT '.$offset.', '.$this->limit;
     	}
-    	$sql = 'SELECT 
-    				alb.id, 0 as name,"" as type, alb.label, 0 as info,alb.upload_at,
-    				(SELECT COUNT(*) FROM g_mediamanager mm WHERE mm.album_id = alb.id) count,
-    				0 as sequence
-				FROM
-				   g_mediamanager_album alb
-				UNION
-				SELECT 
-				   mm.id, mm.name, mm.type, mm.label, mm.info,mm.upload_at, 0 as count, 1 as sequence
-				FROM
-				   g_mediamanager mm
+    	$sql = ' SELECT g_mediamanager.id, g_mediamanager.name, g_mediamanager.type, g_mediamanager.label, g_mediamanager.info,g_mediamanager.upload_at, 0 as count, 1 as sequence
+        FROM g_mediamanager g_mediamanager
     			'.$where.'
 				ORDER BY sequence ASC, upload_at DESC'.
     			$limit;
@@ -172,60 +207,6 @@ class Mediamanager_model extends CI_Model {
 VALUES (
 NULL ,  'alternative_2',  'alternative_2',  '0',  '0'
 )";
-    	/* $q2 = "
-INSERT INTO `permission_access` (`role_id`, `name`, `value`) VALUES
-(1, 'dashboard', 0),
-(1, 'profil', 0),
-(1, 'news', 0),
-(1, 'event', 0),
-(1, 'directory_aceh', 0),
-(1, 'service', 0),
-(1, 'hukum', 0),
-(1, 'jelajah', 0),
-(1, 'page', 0),
-(1, 'banner', 0),
-(1, 'surat', 0),
-(1, 'document', 0),
-(1, 'aggregator', 0),
-(1, 'setting', 0),
-(1, 'template', 0),
-(2, 'dashboard', 0),
-(2, 'profil', 0),
-(2, 'news', 0),
-(2, 'event', 0),
-(2, 'directory_aceh', 0),
-(2, 'service', 0),
-(2, 'hukum', 0),
-(2, 'jelajah', 0),
-(2, 'page', 0),
-(2, 'banner', 0),
-(2, 'surat', 0),
-(2, 'document', 0),
-(2, 'aggregator', 0),
-(2, 'setting', 0),
-(2, 'template', 0),
-(3, 'dashboard', 0),
-(3, 'profil', 0),
-(3, 'news', 0),
-(3, 'event', 0),
-(3, 'directory_aceh', 0),
-(3, 'service', 0),
-(3, 'hukum', 0),
-(3, 'jelajah', 0),
-(3, 'page', 0),
-(3, 'banner', 0),
-(3, 'surat', 0),
-(3, 'document', 0),
-(3, 'aggregator', 0),
-(3, 'setting', 0),
-(3, 'template', 0),
-(1, 'activity', 0),
-(2, 'activity', 0),
-(3, 'activity', 0),
-(1, 'media_manager', 0);;
-    			";
-    	 */
-    	//$x1 = $this->db->query($q1);
     	$x2 = $this->db->query($q2);
     	echo '<pre>'; var_dump($x2); echo '<pre/>'; exit();
     	//var_dump($x1, $x2);

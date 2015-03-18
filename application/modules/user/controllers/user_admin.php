@@ -117,7 +117,7 @@ class User_admin extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('user_password', 'Password', 'required|matches[passconf]|min_length[6]|');
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
             $id = $this->input->post('user_id');
             $params['user_password'] = sha1($this->input->post('user_password'));

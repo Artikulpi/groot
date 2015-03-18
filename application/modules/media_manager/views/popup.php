@@ -11,9 +11,9 @@
                     <a href="javascript:void(0)" onclick="_(this)"
                         data-id="<?php echo  $image['id']?>"
                         data-name="<?php echo  $image['name']?>"
-                        data-source="<?php echo  image_url($image['name']).'?'.uniqid()?>"
+                        data-source="<?php echo  upload_url($image['name']).'?'.uniqid()?>"
                     >
-                            <img src="<?php echo  image_url($image['name']).'?'.uniqid()?>" class="img-polaroid" width="120px">
+                            <img src="<?php echo  upload_url($image['name']).'?'.uniqid()?>" class="img-polaroid" width="120px">
                             <!-- 
                             <div class="info">
                                 <?php $info = unserialize($image['info']);?>

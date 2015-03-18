@@ -124,8 +124,8 @@
                                                 <?php else : ?>
                                                     <a href="javascript:window.open('<?php echo site_url('/gadmin/media_manager/viewapp/' . $image['id']) ?>','<?php echo $image['label'] ?>','width=600,height=550');"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i></a>
                                                 <?php endif; ?>
-                                                <a href="<?php echo site_url('/gadmin/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>
-                                                <a href="<?php echo site_url('/gadmin/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="edit"></i></a>
+                                                <!--<a href="<?php echo site_url('/gadmin/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>-->
+                                                <a href="<?php echo site_url('/gadmin/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="delete"></i></a>
                                             </div>
                                         </div>
                                     <?php endif ?>

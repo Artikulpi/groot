@@ -14,7 +14,7 @@
                     <input type="text" class="form-control " placeholder="Nama album ..." name="album_name">
                 </div>
                 <div class="col-md-2">
-                    <button class="btn do-upload btn-primary" type="submit">Create</button>
+                    <button class="btn do-upload btn-primary" type="submit"><span class="ion-plus-circled"></span>&nbsp; Tambah Album</button>
                 </div>
             </div>
             <?php echo form_close() ?>
