@@ -52,6 +52,19 @@
 
         <div class="panel panel-default pipanel">
             <div class="panel-heading">
+                <a data-toggle="collapse" href="#navcont">
+                    <h4 class="title">Contact</h4>
+                </a>
+            </div>
+
+            <ul id="navcont" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'contact') ? 'in' : NULL; ?>">
+                <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/contact'); ?>">
+                    <span class="glyphicon glyphicon-list"></span> Contact</a>
+            </ul>
+        </div><!-- User -->
+
+        <div class="panel panel-default pipanel">
+            <div class="panel-heading">
                 <a data-toggle="collapse" href="#navuser">
                     <h4 class="title">Pengguna</h4>
                 </a>

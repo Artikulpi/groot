@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Zebra_Mptt' => array($vendorDir . '/stefangabos/zebra_mptt'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
 );
