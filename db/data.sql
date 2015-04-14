@@ -38,20 +38,19 @@ INSERT INTO `g_posts_category` (`category_id`, `category_name`, `category_input_
 
 INSERT INTO `g_setting` (`setting_id`, `setting_name`, `setting_value`, `setting_description`) VALUES
 (1, 'Favicon', '-', 'Favicon'),
-(2, 'Google Analytics ID', '-', 'Google Analytics ID');
-(3, 'email', '-', 'Email'),
-(4, 'from', '-', 'sender email'), 
-(5, 'from_name', '-', 'email name'), 
-(6, 'protocol', 'smtp', 'protocol email'), 
-(7, 'smtp_host', 'ssl://smtp.gmail.com', 'smpt host email'), 
-(8, 'smtp_port', '465', 'smpt port email'), 
-(9, 'smtp_user', '-', 'smpt user email'), 
-(10, 'smtp_pass', '-', 'password email'), 
-(11, 'smtp_timeout', '30', 'smtp timeout email'), 
-(12, 'mailtype', 'html', 'mailtype email'), 
-(13, 'charset', 'utf-8', 'charset email'), 
-(14, 'newline', '\\r\\n', 'newline email'), 
-(15, 'crlf', '\\r\\n', 'crlf email');
+(2, 'google', '-', 'Google Analytics ID'),
+(3, 'from', '-', 'sender email'), 
+(4, 'from_name', '-', 'email name'), 
+(5, 'protocol', 'smtp', 'protocol email'), 
+(6, 'smtp_host', 'ssl://smtp.gmail.com', 'smpt host email'), 
+(7, 'smtp_port', '465', 'smpt port email'), 
+(8, 'smtp_user', '-', 'smpt user email'), 
+(9, 'smtp_pass', '-', 'password email'), 
+(10, 'smtp_timeout', '30', 'smtp timeout email'), 
+(11, 'mailtype', 'html', 'mailtype email'), 
+(12, 'charset', 'utf-8', 'charset email'), 
+(13, 'newline', '\\r\\n', 'newline email'), 
+(14, 'crlf', '\\r\\n', 'crlf email');
 
 
 INSERT INTO `g_contact` (`contact_id`, `contact_name`, `contact_value`, `contact_description`) VALUES 

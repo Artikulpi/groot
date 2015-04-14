@@ -46,7 +46,7 @@
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/page/add'); ?>">
                     <span class="glyphicon glyphicon-plus-sign"></span> Tambah Halaman</a>
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/page/tree'); ?>">
-                    <span class="glyphicon glyphicon-align-left"></span> Page Tree</a>
+                    <span class="glyphicon glyphicon-align-left"></span> Susunan Menu</a>
             </ul>
         </div><!-- Page -->
 
@@ -102,7 +102,9 @@
 
             <ul id="navset" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'setting') ? 'in' : NULL; ?>">
                 <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/setting'); ?>">
-                    <span class="glyphicon glyphicon-cog"></span> Pengaturan</a>
+                    <span class="glyphicon glyphicon-cog"></span> General</a>
+                <a class="lgitem list-group-item" href="<?php echo site_url('gadmin/setting/email'); ?>">
+                    <span class="glyphicon glyphicon-cog"></span> Email</a>
             </ul>
         </div><!-- Media Manager -->
 

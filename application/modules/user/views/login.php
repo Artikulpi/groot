@@ -1,67 +1,65 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>GROOT | Login</title>
-        <meta name="generator" content="Bootply" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>GROOT | Login</title><!-- Bootstrap core CSS -->
+        <link rel="shortcut icon" href="media/image/Artikulpi.png">
 
-        <!-- Icon Template -->
-        <link rel="icon" href="<?php echo base_url('media/ico/favicon.png'); ?>" type="image/x-icon">
+        <link href="<?php echo base_url('/media/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('/media/css/ionicons.min.css') ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url('/media/css/style-login.css') ?>" rel="stylesheet" type="text/css">
 
-        <!-- CSS Plugin -->
-        <link href="<?php echo base_url('/media/css/bootstrap.min.css'); ?>" rel="stylesheet">
-        <!-- End Style Plugin-->
-
-        <!-- CSS Costum -->
-        <link href="<?php echo base_url('/media/css/styles-beckend.css'); ?>" rel="stylesheet">
-        <link href="<?php echo base_url('/media/css/style-login.css'); ?>" rel="stylesheet">
-        <!-- End Style Costum-->
-
-        <!-- Java Script Plugin -->
-        <script src="<?php echo base_url('/media/js/jquery-1.11.1.min.js'); ?>"></script>
-        <script src="<?php echo base_url('/media/js/bootstrap.min.js'); ?>"></script>
-
-        <!--[if lt IE 9]>
-                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-                <![endif]-->
+        <script src="<?php echo base_url('/media/js/jquery-1.11.1.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('/media/js/bootstrap.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('/media/js/template.js') ?>" type="text/javascript"></script>
 
     </head>
-    <body>
-        <div class="container-fluid">
-            <?php echo form_open('user/auth/process_login'); ?>
 
-            <div class="logo">
-                <!--<img src="<?php //echo base_url('/media/ico/logo-sipsi.png'); ?>">-->
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+                    <div class="login">
+                        <h1 class="admin">Hello, Admin!</h1>
+                        <?php echo form_open('user/auth/process_login'); ?>
+                        <div class="form-group forms">
+                            <input name="username" type="text" autofocus class="form-control" id="exampleInputName2" placeholder="Username">
+                        </div>
+                        <div class="form-group formz">
+                            <label class="sr-only" for="exampleInputPassword3">Password</label>
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-sunny btn-lg col-md-12 col-sm-12 col-xs-12 col-lg-12">SIGN IN</button>
+                        <?php echo form_close(); ?>
+                    </div>
+                    <?php if ($this->session->flashdata('failed')) { ?>
+                        <div class="alert alert-danger form-failed" role="alert">
+                            <center><?php echo $this->session->flashdata('failed') ?>
+                            </center>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('.form-failed').delay(1200).fadeOut();
+                            });
+                        </script>
+                    <?php } ?>
+                </div>
             </div>
-            <div class="login-usr up">
-                <h3 style="font-family:Century Gothic; color: #5bc0de; margin-bottom: 30px" class="text-left">
-                    Admin Login
-                </h3>
-                <div class="form-group" style=" color: #5bc0de;">
-                    <input style="font-family:Century Gothic; border-radius: 0px;" type="text" name="username" class="form-control"  placeholder="Username" autofocus>
+            <nav class="navbar navbar-default navbar-fixed-bottom navzu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <center>© 2015 ARTIKULPI<br>Providing Appropriate Information Technology</center>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input style="font-family:Century Gothic; border-radius: 0px;" type="password" name="password" class="form-control"  placeholder="Password">
-                </div>
-                <button style="font-family:Century Gothic;" type="submit" class="btn btn-warning">Masuk</button>
-                <div>
-                    <?php echo form_close(); ?>
-                    <br>
-                    <?php
-                    if ($this->session->flashdata('failed')) {
-                        $data['message'] = $this->session->flashdata('failed');
-                        $this->load->view('admin/login_failed', $data);
-                    }
-                    ?>
-                </div>    
-            </div>
-        </div><!-- OFF Container-fluid -->
-        <footer class=" navbar-fixed-bottom" style="background-color: #2c3e50;">
-                <div class="orc text-center">
-                    <p class="text-muted" style="color: white;">© 2014-2015 GROOT - Supported by ARTIKULPI</a></p>
-                </div>
-            </footer>
+            </nav>
+        </div>
+
     </body>
 </html>

@@ -1,105 +1,88 @@
 @font-face {
-   font-family: Century Gothic;
+   font-family: Arvo;
    font-style: normal;
-   src: url(../fonts/gothic_0.TTF) format('truetype');
+   src: url(../fonts/Arvo-Regular.ttf);
+}
+@font-face {
+   font-family: Open Sans Regular;
+   font-style: normal;
+   src: url(../fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+   font-family: Open Sans Light;
+   font-style: normal;
+   src: url(../fonts/OpenSans-Light.ttf);
 }
 
-body {
-    padding-top:10px;
+html, body {
+	background-color: #37ae90;
+	color: #000;
+	font-family: 'Open Sans Regular', sans-serif;
 }
 
-
-body, html {
-    font-family: Century Gothic;
+.login {
+	padding: 20px;
+	margin-top: 15%;
+	margin-bottom: 10%;
+	min-height: 300px;
 }
-
-
-
-
-
-
-
-body{
-    background-color: #34495e;
-    padding-top: 20px;
-	font-family: Century Gothic;
+.admin {
+	text-align: center;
+    font-family: Arvo;
+    margin-bottom: 30px;
+    color: #3b444f;
 }
-.login-usr{
-    width:23%;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 20px 30px 20px;
-    background-color: #F1F3F3;
-    border-radius: 0px;
+.btn-sunny {
+    font-family: Arvo;
+	border-radius: 0px;
+	padding: 20px;
+	color: #fff;
+	background-color: #3b444f;
+	border-bottom: 5px solid white;
 }
-.up {
-    position: relative;
-    word-wrap: break-word;
+.btn-sunny:hover, .btn-sky.active:focus, .btn-sunny:focus, .open>.dropdown-toggle.btn-sunny {
+	color: #3b444f;
+	background-color: white;
+	border-bottom: 5px solid #3b444f;
+	outline: none;
 }
-.up:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -40px;
-    left: 128px;
-    width: 30px;
-    height: 30px;
-    border-color: transparent transparent #F1F3F3 transparent;
-    border-style: solid;
-    border-width: 20px;
+.btn-sunny:active, .btn-sunny.active {
+	color: #3b444f;
+	background-color: white;
+	border-bottom: 5px solid #3b444f;
+	outline: none;
 }
-.btn {
-    border-radius: 0px;
-    margin-top: 8px;
-    width: 100%;
-    height:50px;
+.navzu {
+	background-color: transparent;
+	color: white;
+    font-family: Arvo;
+	border: none;
 }
-
-.form-group {
-    margin-bottom: 2px;
-}
+/*CUSTOM*/
 
 .form-control {
-    height: 50px;
+	border-radius: 0px;
+	padding: 30px;
+	color: #3b444f;
+}
+::selection {
+	color: white;
+    background: #3b444f; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+	color: white;
+    background: #3b444f; /* Gecko Browsers */
 }
 
-img {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.logo {
-    width:30%;
-    padding-left: 35px;
-    padding-bottom: 15px;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.down { 
-    width: 253px; 
-    text-align: center;
-    min-height: 80px; 
-    background: #c0392b; 
-    color: white; 
-    padding: 5px 10px 3px 5px; 
-    position: absolute; 
-    margin: 50px 0px;
-}
 
-.left:after { 
-    content:''; 
-    display:block; 
-    position:absolute; 
-    top:-20px; 
-    left:115px; 
-    width:10px; 
-    height:0; 
-    border-color: transparent transparent #c0392b transparent; 
-    border-style: solid; 
-    border-width: 10px;
-}
+
+
+
+
+
+
+
+
 
 
