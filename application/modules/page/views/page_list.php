@@ -2,7 +2,7 @@
 
     <h3 class="page-header">
         Daftar Halaman
-    <a href="<?php echo site_url('gadmin/page/add'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a><br>
+    <a href="<?php echo site_url('gadmin/page/add'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a>
 </h3>
 
 

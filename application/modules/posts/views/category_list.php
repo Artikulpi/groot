@@ -1,7 +1,7 @@
 <div class="col-sm-9 col-md-10 main">
     <h3 class="page-header">
         Daftar Kategori Posting
-        <a href="<?php echo site_url('gadmin/posts/add_category'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a><br><br>
+        <a href="<?php echo site_url('gadmin/posts/add_category'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a>
     </h3>
 
     <div class="table-responsive">

@@ -2,7 +2,7 @@
 
     <h3 class="page-header">
         Daftar Log Aktivitas
-    </h3><hr>
+    </h3>
 
     <div class="table-responsive">
         <table class="table table-striped">
