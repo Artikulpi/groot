@@ -24,7 +24,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td>Judul Berita</td>
+                        <td>Judul Posting</td>
                         <td>:</td>
                         <td><?php echo $posts['posts_title'] ?></td>
                     </tr>
