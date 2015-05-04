@@ -229,6 +229,12 @@ thead{
     color : #428bca;
 }
 
+.notifikasi-failed {
+    opacity:0.9;
+    margin-left:450px;
+    color : #b94a48;
+}
+
 .content-dashboard{
     color:white;
     background-color:#15A6B5;
