@@ -4,6 +4,6 @@ class G_mptt
 {
     function __construct() 
     {
-        include "./vendor/stefangabos/Zebra_mptt/Zebra_mptt.php";
+        include "./vendor/stefangabos/Zebra_mptt/Zebra_Mptt.php";
     }
 }
