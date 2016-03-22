@@ -46,6 +46,7 @@ $route['(:any)/read/(:num)/(:any).html'] = "$1/detail/$2/$3";
 $route['page/(:num)/(:any)'] = "page/detail/$1/$2";
 
 $route['gadmin/(:any)/edit/(:num)'] = "$1/$1_admin/add/$2";
+$route['gadmin/(:any)/(:any)/(:num)/(:num)'] = "$1/$1_admin/$2/$3/$4";
 $route['gadmin/(:any)/(:any)/(:num)'] = "$1/$1_admin/$2/$3";
 $route['gadmin/([a-zA-Z_-]+)/(:any)'] = '$1/$1_admin/$2';
 $route['gadmin/media_album/(:any)'] = 'media_manager/media_album_admin/$1';

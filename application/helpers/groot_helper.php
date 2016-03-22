@@ -221,9 +221,14 @@ if (!function_exists('upload_url')) {
 }
 
 if (!function_exists('media_url')) {
-
     function media_url($name = '') {
-        return base_url('media/' . $name);
-    }
+        $CI = & get_instance();
+        $media_url = $CI->config->item('media_url');
 
+        if ($media_url != '-') {
+            return $media_url . $name;
+        } else {
+            return base_url($name);
+        }
+    }
 }
