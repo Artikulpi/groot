@@ -1,8 +1,29 @@
 ###################
-GROOT
+What is CodeIgniter
 ###################
 
-Just another simple web CMS.
+CodeIgniter is an Application Development Framework - a toolkit - for people
+who build web sites using PHP. Its goal is to enable you to develop projects
+much faster than you could if you were writing code from scratch, by providing
+a rich set of libraries for commonly needed tasks, as well as a simple
+interface and logical structure to access these libraries. CodeIgniter lets
+you creatively focus on your project by minimizing the amount of code needed
+for a given task.
+
+*******************
+Release Information
+*******************
+
+This repo contains in-development code for future releases. To download the
+latest stable release please visit the `CodeIgniter Downloads
+<https://codeigniter.com/download>`_ page.
+
+**************************
+Changelog and New Features
+**************************
+
+You can find a list of all changes for each release in the `user
+guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
 Server Requirements
@@ -18,38 +39,32 @@ issues, as well as missing features.
 Installation
 ************
 
-$ git clone https://github.com/Artikulpi/groot.git
-$ cd groot
-$ php composer.phar install
-
-Create mysql database, and then import sql files :
-* db/structure.sql
-* db/data.sql
-
-That's all, you can browse your new Groot instalation : http://localhost/groot
+Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
+of the CodeIgniter User Guide.
 
 *******
 License
 *******
 
-The MIT License (MIT)
+Please see the `license
+agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
 
-Copyright (c) 2014 - 2015, British Columbia Institute of Technology
+*********
+Resources
+*********
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+-  `User Guide <https://codeigniter.com/docs>`_
+-  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
+-  `Community Forums <http://forum.codeigniter.com/>`_
+-  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
+-  `Community IRC <https://webchat.freenode.net/?channels=%23codeigniter>`_
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
+or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+***************
+Acknowledgement
+***************
+
+The CodeIgniter team would like to thank EllisLab, all the
+contributors to the CodeIgniter project and you, the CodeIgniter user.

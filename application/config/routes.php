@@ -1,4 +1,6 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -17,13 +19,13 @@
 |
 | Please see the user guide for complete details:
 |
-|	http://codeigniter.com/user_guide/general/routing.html
+|	https://codeigniter.com/user_guide/general/routing.html
 |
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
 | -------------------------------------------------------------------------
 |
-| There area two reserved routes:
+| There are three reserved routes:
 |
 |	$route['default_controller'] = 'welcome';
 |
@@ -33,35 +35,35 @@
 |
 |	$route['404_override'] = 'errors/page_missing';
 |
-| This route will tell the Router what URI segments to use if those provided
-| in the URL cannot be matched to a valid route.
+| This route will tell the Router which controller/method to use if those
+| provided in the URL cannot be matched to a valid route.
 |
+|	$route['translate_uri_dashes'] = FALSE;
+|
+| This is not exactly a route, but allows you to automatically route
+| controller and method names that contain dashes. '-' isn't a valid
+| class or method name character, so it requires translation.
+| When you set this option to TRUE, it will replace ALL dashes in the
+| controller and method URI segments.
+|
+| Examples:	my-controller/index	-> my_controller/index
+|		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['(:any)/category/(:num)/(:any).html'] = "$1/category/$2/$3";
-$route['(:any)/view/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
-$route['(:any)/view/(:num)/(:any).html'] = "$1/detail/$2/$3";
-$route['(:any)/read/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
-$route['(:any)/read/(:num)/(:any).html'] = "$1/detail/$2/$3";
-$route['page/(:num)/(:any)'] = "page/detail/$1/$2";
-
-$route['gadmin/(:any)/edit/(:num)'] = "$1/$1_admin/add/$2";
-$route['gadmin/(:any)/(:any)/(:num)/(:num)'] = "$1/$1_admin/$2/$3/$4";
-$route['gadmin/(:any)/(:any)/(:num)'] = "$1/$1_admin/$2/$3";
-$route['gadmin/([a-zA-Z_-]+)/(:any)'] = '$1/$1_admin/$2';
-$route['gadmin/media_album/(:any)'] = 'media_manager/media_album_admin/$1';
-$route['gadmin/media_album'] = 'media_manager/media_album_admin';
-$route['gadmin/auth/login'] = 'user/auth/login';
-$route['gadmin/auth'] = 'user/auth/login';
-$route['gadmin/([a-zA-Z_-]+)'] = '$1/$1_admin';
-$route['gadmin'] = "dashboard/dashboard_admin";
+$route['manage/(:any)/edit/(:num)'] = "$1/$1_manage/add/$2";
+$route['manage/(:any)/(:any)/edit/(:num)'] = "$1/$1_manage/add_$2/$3";
+$route['manage/(:any)/(:any)/(:num)'] = "$1/$1_manage/$2/$3";
+$route['manage/(:any)/(:any)/(:any)'] = "$1/$1_manage/$3_$2";
+$route['manage/auth/logout'] = 'user/auth/logout';
+$route['manage/auth/login'] = 'user/auth/login';
+$route['manage/([a-zA-Z_-]+)/(:any)'] = '$1/$1_manage/$2';
+$route['manage/auth'] = 'user/auth/login';
+$route['manage/([a-zA-Z_-]+)'] = '$1/$1_manage';
+$route['manage'] = "dashboard/dashboard_manage";
 
 $route['search/(:any)'] = "base/search/$1";
 $route['search'] = "base/search";
 
 $route['default_controller'] = "base";
 $route['404_override'] = '';
-
-
-/* End of file routes.php */
-/* Location: ./application/config/routes.php */
+$route['translate_uri_dashes'] = FALSE;
