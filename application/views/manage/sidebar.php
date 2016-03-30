@@ -16,18 +16,18 @@
                         <div class="desc"><?php echo $this->session->userdata('uemail'); ?></div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-primary btn-twitter btn-sm" href="">
+                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" href="">
                             <i class="ion-social-twitter"></i>
                         </a>
-                        <a class="btn btn-danger btn-sm" rel="publisher"
+                        <a class="btn btn-circle btn-danger btn-sm" rel="publisher"
                         href="">
                         <i class="ion-social-googleplus"></i>
                     </a>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
+                    <a class="btn btn-circle btn-primary btn-sm" rel="publisher"
                     href="">
                     <i class="ion-social-facebook"></i>
                 </a>
-                <a class="btn btn-warning btn-sm" rel="publisher" href="">
+                <a class="btn btn-circle btn-warning btn-sm" rel="publisher" href="">
                     <i class="ion-social-github"></i>
                 </a>
             </div>
