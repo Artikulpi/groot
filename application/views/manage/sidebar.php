@@ -70,7 +70,7 @@
                 </a>
             </div>
 
-            <ul id="navuser" class="list-group panel-collapse collapse <?php echo ($this->uri->segment(2) == 'user') ? 'in' : NULL; ?>">
+            <ul id="navuser" class="list-group panel-collapse collapse">
                 <a class="lgitem list-group-item" href="<?php echo site_url('manage/user'); ?>">
                     <span class="glyphicon glyphicon-list"></span> Daftar penguna</a>
                 <a class="lgitem list-group-item" href="<?php echo site_url('manage/user/add'); ?>"> 

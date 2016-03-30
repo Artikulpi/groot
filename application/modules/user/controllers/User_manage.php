@@ -7,32 +7,24 @@ class User_manage extends CI_Controller {
 	{
         parent::__construct();
         $this->load->model('User_model');
-        //$this->load->model('Activity_log_model');
-        $this->load->helper(array('form', 'url'));
 
-        if ($this->session->userdata('logged_admin') == NULL)
-            redirect('user/auth/login');
+        if ($this->session->userdata('logged') == NULL) {
+            header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
+        }
     }
 
     // User_customer view in list
-    public function index($offset = NULL)
+    public function index()
     {
-        $this->load->library('pagination');
-
-        $data['user'] = $this->User_model->get(array('limit' => 10, 'offset' => $offset));
+        $data['user'] = $this->User_model->get();
         $data['title'] = 'Pengguna';
         $data['main'] = 'user/user_list';
-        $config['base_url'] = site_url('user/index');
-        $config['total_rows'] = count($this->User_model->get());
-        $this->pagination->initialize($config);
-
         $this->load->view('manage/layout', $data);
     }
 
     // Add User_customer and Update
-    public function add($id = NULL) {
-        $this->load->library('form_validation');
-
+    public function add($id = NULL)
+    {
         if (!$this->input->post('user_id')) {
             $this->form_validation->set_rules('user_password', 'password', 'required|matches[passconf]|min_length[6]|');
             $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|max_length[20]|');
@@ -90,7 +82,7 @@ class User_manage extends CI_Controller {
             $data['button'] = ($id == $this->session->userdata('user_id_admin')) ? 'Ubah' : 'Reset';
             $data['title'] = $data['operation'] . ' Pengguna';
             $data['main'] = 'user/user_add';
-            $this->load->view('admin/layout', $data);
+            $this->load->view('manage/layout', $data);
         }
     }
 
@@ -101,7 +93,7 @@ class User_manage extends CI_Controller {
         $data['user'] = $this->User_model->get(array('id' => $id));
         $data['title'] = 'Detail pengguna';
         $data['main'] = 'user/user_detail';
-        $this->load->view('admin/layout', $data);
+        $this->load->view('manage/layout', $data);
     }
 
     function rpw($id = NULL) {

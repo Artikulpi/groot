@@ -14,7 +14,7 @@ class User_model extends CI_Model {
     function get($params = array())
     {
         $this->db->select('user.user_id, user_name, user_password, user_full_name, user_description,
-            user_email, user_input_date, user_last_update, user.user_role, user_role.role_name'); 
+            user_email, user_input_date, user_last_update, user.user_role_id, user_role.role_name'); 
         
         if(isset($params['id']))
         {
@@ -33,9 +33,9 @@ class User_model extends CI_Model {
             $this->db->where('user_input_date', $params['date']);
         }
         
-        if(isset($params['user_role']))
+        if(isset($params['user_role_id']))
         {
-            $this->db->where('user_role', $params['user_role']);
+            $this->db->where('user_role_id', $params['user_role_id']);
         }
 
         if(isset($params['limit']))

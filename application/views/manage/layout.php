@@ -31,7 +31,7 @@
         <script src="<?php echo media_url('/js/angular.min.js'); ?>"></script>
         <script src="<?php echo media_url('/js/jquery.Jcrop.min.js'); ?>"></script>
         <script src="<?php echo media_url('/js/mm.js'); ?>"></script>
-            <script type="text/javascript" src="<?php echo media_url('/js/tinymce/tinymce.min.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo media_url('/js/tinymce/tinymce.min.js'); ?>"></script>
     <script>
       tinymce.init({
   selector: 'textarea',
@@ -44,7 +44,6 @@
   toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 });
     </script>
-
 
         <!--End Javascript-->
         <script type="text/javascript">
