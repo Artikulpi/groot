@@ -1,22 +1,37 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
             <div class="nav-side-menu">
                 <div class="menu-list">
-                    <div class="sidebar-block">
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="page-profile.html">
-                                    <span class="status dotted dotted-primary" data-toggle="tooltip" data-container="body" title="" data-original-title="available"></span>
-                                    <img class="media-object img-circle" src="<?php echo media_url('image/profil.png') ?>" alt="photo profile">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading"><?php echo $text = ucfirst($this->session->userdata('uname')); ?></h4>
-                                <p class="text-muted">
-                                    <small><?php echo $this->session->userdata('uemail'); ?></small>
-                                </p>
-                            </div>
-                        </div>
+
+                  <div class="card hovercard">
+                    <div class="cardheader">
+
                     </div>
+                    <div class="avatar">
+                        <img alt="" src="<?php echo media_url('image/profil.png') ?>">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <a target="_blank" href=""><?php echo $text = ucfirst($this->session->userdata('uname')); ?></a>
+                        </div>
+                        <div class="desc"><?php echo $this->session->userdata('uemail'); ?></div>
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-primary btn-twitter btn-sm" href="">
+                            <i class="ion-social-twitter"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" rel="publisher"
+                        href="">
+                        <i class="ion-social-googleplus"></i>
+                    </a>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                    href="">
+                    <i class="ion-social-facebook"></i>
+                </a>
+                <a class="btn btn-warning btn-sm" rel="publisher" href="">
+                    <i class="ion-social-github"></i>
+                </a>
+            </div>
+        </div>
 
                     <ul id="menu-content" class="menu-content collapse out">
                         <li class="active">
