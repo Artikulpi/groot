@@ -1,5 +1,5 @@
-<div class="col-sm-9 col-md-10 main">
-    <h3 class="page-header">
-        Dashboard
-    </h3><br>
-</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header">Dashboard</h2>
+		</div>
+	</div><!--/.row-->
