@@ -7,7 +7,7 @@
 
                     </div>
                     <div class="avatar">
-                        <img alt="" src="<?php echo media_url('image/profil.png') ?>">
+                        <img alt="" src="<?php echo media_url('image/profile.png') ?>">
                     </div>
                     <div class="info">
                         <div class="title">
