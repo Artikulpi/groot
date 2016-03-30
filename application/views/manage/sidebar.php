@@ -26,7 +26,7 @@
                         </li>
 
                         <li  data-toggle="collapse" data-target="#posting" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Posting <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Posting <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
 
                         <ul class="sub-menu collapse" id="posting">
@@ -41,7 +41,7 @@
                                      </ul>
 
                         <li  data-toggle="collapse" data-target="#halaman" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Halaman <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Halaman <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'page') ? 'in' : NULL; ?>" id="halaman">
                             <li class="active"><a href="<?php echo site_url('manage/page'); ?>">
@@ -53,7 +53,7 @@
                                  </ul>
 
                         <li  data-toggle="collapse" data-target="#contact" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Contact <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Contact <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'contact') ? 'in' : NULL; ?>" id="contact">
                             <li class="active"><a href="<?php echo site_url('manage/contact'); ?>">
@@ -61,7 +61,7 @@
                                  </ul>
 
                         <li  data-toggle="collapse" data-target="#pengguna" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Pengguna <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Pengguna <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'user') ? 'in' : NULL; ?>" id="pengguna">
                             <li class="active"><a href="<?php echo site_url('manage/user'); ?>">
@@ -71,7 +71,7 @@
                                  </ul>
 
                         <li  data-toggle="collapse" data-target="#media" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Media Manager <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Media Manager <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'media_manager' OR $this->uri->segment(2) == 'media_album') ? 'in' : NULL; ?>" id="media">
                             <li class="active"><a href="<?php echo site_url('manage/media_manager'); ?>">
@@ -81,7 +81,7 @@
                                  </ul>
 
                         <li  data-toggle="collapse" data-target="#setting" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Pengaturan <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Pengaturan <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'setting') ? 'in' : NULL; ?>" id="setting">
                             <li class="active"><a href="<?php echo site_url('manage/setting'); ?>">
@@ -91,7 +91,7 @@
                                  </ul>
 
                         <li  data-toggle="collapse" data-target="#log" class="collapsed">
-                            <a href="#"><i class="ion-folder"></i> Log Aktivitas <span class="arrow"></span></a>
+                            <a href="#"><i class="ion-folder"></i> Log Aktivitas <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'activity_log') ? 'in' : NULL; ?>" id="log">
                             <li class="active"><a href="<?php echo site_url('manage/activity_log'); ?>">

@@ -32,6 +32,10 @@
     <script src="<?php echo media_url('js/angular.min.js'); ?>"></script>
     <script src="<?php echo media_url('js/jquery.Jcrop.min.js'); ?>"></script>
     <script src="<?php echo media_url('js/mm.js'); ?>"></script>
+    <script src="<?php echo media_url('js/chart.min.js'); ?>"></script>
+    <script src="<?php echo media_url('js/chart-data.js'); ?>"></script>
+    <script src="<?php echo media_url('js/easypiechart.js'); ?>"></script>
+    <script src="<?php echo media_url('js/easypiechart-data.js'); ?>"></script>
     <script src="<?php echo media_url('js/lumino.glyphs.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo media_url('js/tinymce/tinymce.min.js'); ?>"></script>
     <script>
