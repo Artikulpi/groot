@@ -11,15 +11,15 @@
                     </div>
                     <div class="info">
                         <div class="title">
-                            <a target="_blank" href=""><?php echo $text = ucfirst($this->session->userdata('uname')); ?></a>
+                            <a href="<?php echo site_url('manage/profile') ?>"><?php echo $text = ucfirst($this->session->userdata('uname')); ?></a>
                         </div>
                         <div class="desc"><?php echo $this->session->userdata('uemail'); ?></div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" title="view profil" href="<?php echo site_url('gadmin/profile') ?>">
+                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" title="view profil" href="<?php echo site_url('manage/profile') ?>">
                             <i class="ion-eye"></i>
                         </a>
-                        <a class="btn btn-circle btn-warning btn-sm" rel="publisher" title="edit profil" href="<?php echo site_url('gadmin/profile/cpw/'); ?>">
+                        <a class="btn btn-circle btn-warning btn-sm" rel="publisher" title="edit profil" href="<?php echo site_url('manage/profile/cpw/'); ?>">
                         <i class="ion-edit"></i>
                     </a>
 

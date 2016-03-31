@@ -73,7 +73,7 @@
                 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><span>Groot</span></a>
+                            <a class="navbar-brand" href="<?php echo site_url('manage') ?>"><span>Groot</span></a>
                             <ul class="user-menu">
                                 <li class="dropdown pull-right">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -92,14 +92,14 @@
                                                     <span><?php echo $text = ucfirst($this->session->userdata('uname')); ?></span>
                                                     <p class="text-muted small"><?php echo $this->session->userdata('uemail'); ?></p>
                                                     <div class="divider"></div>
-                                                    <a href="<?php echo site_url('gadmin/profile') ?>" class="btn btn-warning btn-sm">Lihat Profil
+                                                    <a href="<?php echo site_url('manage/profile') ?>" class="btn btn-warning btn-sm">Lihat Profil
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         </li>
                                         <li>
-                                        <a style="margin-top: -20px" class="btn" href="<?php echo site_url('gadmin/profile/cpw/'); ?>">
+                                        <a style="margin-top: -20px" class="btn" href="<?php echo site_url('manage/profile/cpw/'); ?>">
                                         <i class="glyphicon glyphicon-edit" title="Ubah password"> Ubah Password 
                                         <strong>[ <?php echo $this->session->userdata('uname') ?> ]</i></strong></a>
                                         </li>

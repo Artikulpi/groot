@@ -110,6 +110,11 @@ class Posting_manage extends CI_Controller {
 		$this->load->view('manage/layout', $data);
 	}
 
+    protected function get_category() {
+        $res = json_encode($this->Posts_model->get_category());
+        return $res;
+    }
+
 	public function add_category($id = NULL)
 	{
 		$data['operation'] = isset($id) ? 'Edit' : 'Tambah';
