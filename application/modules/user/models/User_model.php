@@ -149,8 +149,8 @@ class User_model extends CI_Model {
             $this->db->set('user_last_update', $data['user_last_update']);
         }
         
-         if(isset($data['user_role'])) {
-            $this->db->set('user_role', $data['user_role']);
+         if(isset($data['user_role_id'])) {
+            $this->db->set('user_role_id', $data['user_role_id']);
         }
         
         if (isset($data['user_id'])) {

@@ -1,8 +1,7 @@
-<div class="col-sm-9 col-md-10 main">
-    <h3 class="page-header">
+    <h2 class="page-header">
         <?php echo $title ?>
         <a href="<?php echo site_url('manage/user/add'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a>
-    </h3>
+    </h2>
 
     <table class="table table-striped">
     	<thead>
@@ -21,8 +20,8 @@
     			<td><?php echo $row['user_full_name'] ?></td>
     			<td><?php echo $row['user_email'] ?></td>
     			<td>
-    				<a href="<?php echo site_url('manage/user/detail/'.$row['user_id']) ?>">View</a>
-    				<a href="<?php echo site_url('manage/user/view'.$row['user_id']) ?>">Edit</a>
+    				<a href="<?php echo site_url('manage/user/detail/'.$row['user_id']) ?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a>
+    				<a href="<?php echo site_url('manage/user/edit/'.$row['user_id']) ?>" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
     			</td>
     		</tr>
     	</tbody>
@@ -35,4 +34,3 @@
     	</tbody>
     	<?php } ?>
     </table>
-</div>

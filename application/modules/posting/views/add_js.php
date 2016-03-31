@@ -3,9 +3,9 @@
     function CategoriesCtrl($scope, $http) {
         $scope.categories = <?php echo $category ?>;
 <?php if (isset($posting)): ?>
-            $scope.category_data = {index: <?php echo $posting['category_id']; ?>};
+            $scope.category_data = {index: <?php echo $posting['posting_category_id']; ?>};
 <?php elseif (set_value('category_id')): ?>
-            $scope.category_data = {index: <?php echo set_value('category_id'); ?>};
+            $scope.category_data = {index: <?php echo set_value('posting_category_id'); ?>};
 <?php endif; ?>
 
         $scope.addCategory = function() {

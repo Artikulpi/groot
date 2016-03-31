@@ -1,15 +1,9 @@
-<div class="col-sm-9 col-md-10 main">
-    <div class="col-md-8">
-            <h3 class="page-header">
+            <h2 class="page-header">
                 <?php echo $title ?>
-            </h3>
-        </div>
-        <div class="col-md-4">
-            <span class=" pull-right">
-                <a href="<?php echo site_url('manage/user') ?>" class="btn btn-info"><span class="ion-arrow-left-a"></span>&nbsp; Kembali</a> 
-                <a href="<?php echo site_url('manage/user/edit/' . $user['user_id']) ?>" class="btn btn-warning"><span class="ion-edit"></span>&nbsp; Edit</a> 
-            </span>
-        </div>
+                <a href="<?php echo site_url('manage/user/add'); ?>" ><button type="button" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+                <a href="<?php echo site_url('manage/user'); ?>" ><button type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-arrow-left"></span> Kembali</button></a>&nbsp;&nbsp;
+            </h2>
+
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped">
@@ -32,7 +26,7 @@
                     <tr>
                         <td>Tanggal daftar</td>
                         <td>:</td>
-                        <td><?php echo pretty_date($user['user_input_date'], 'l, d-mY', FALSE) ?></td>
+                        <td><?php echo pretty_date($user['user_input_date'], 'l, d-m-Y', FALSE) ?></td>
                     </tr>
                     <tr>
                         <td>Peran</td>
@@ -43,5 +37,3 @@
             </table>
         </div>
     </div>
-
-</div>

@@ -6,7 +6,7 @@ class User_manage extends CI_Controller {
 	public function __construct()
 	{
         parent::__construct();
-        $this->load->model('User_model');
+        $this->load->model(array('User_model', 'activity_log/Activity_log_model'));
 
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
@@ -22,19 +22,19 @@ class User_manage extends CI_Controller {
         $this->load->view('manage/layout', $data);
     }
 
-    // Add User_customer and Update
-    public function add($id = NULL)
-    {
+    public function add($id = NULL) {
+        $this->load->library('form_validation');
+
         if (!$this->input->post('user_id')) {
-            $this->form_validation->set_rules('user_password', 'password', 'required|matches[passconf]|min_length[6]|');
-            $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|max_length[20]|');
-            $this->form_validation->set_rules('user_name', 'Username', 'required|is_unique[g_user.user_name]');
+            $this->form_validation->set_rules('user_password', 'password', 'required|matches[passconf]|min_length[6]');
+            $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|max_length[20]');
+            $this->form_validation->set_rules('user_name', 'Username', 'required|is_unique[user.user_name]');
         }
 
         $this->form_validation->set_rules('user_full_name', 'Name', 'required');
         $this->form_validation->set_rules('user_email', 'User Email', 'required|valid_email');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
-        $data['operation'] = isset($id) ? 'Edit' : 'Tambah';
+        $data['operation'] = is_null($id) ? 'Tambah' : 'Edit';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
 
@@ -45,7 +45,7 @@ class User_manage extends CI_Controller {
                 $params['user_input_date'] = date('Y-m-d H:i:s');
                 $params['user_password'] = sha1($this->input->post('user_password'));
             }
-            $params['user_role'] = $this->input->post('role_id');
+            $params['user_role_id'] = $this->input->post('user_role_id');
             $params['user_last_update'] = date('Y-m-d H:i:s');
             $params['user_full_name'] = $this->input->post('user_full_name');
             $params['user_description'] = $this->input->post('user_description');
@@ -55,11 +55,11 @@ class User_manage extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id_admin'),
-                        'activity_log_module' => 'Pengguna',
-                        'activity_log_action' => $data['operation'],
-                        'activity_log_info' => 'ID:null;Title:' . $this->input->post('user_name')
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_module' => 'Pengguna',
+                        'log_action' => $data['operation'],
+                        'log_info' => 'ID:null;Title:' . $this->input->post('user_name')
                     )
             );
 
@@ -98,8 +98,8 @@ class User_manage extends CI_Controller {
 
     function rpw($id = NULL) {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('user_password', 'Password', 'required|matches[passconf]|min_length[6]|');
-        $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]|');
+        $this->form_validation->set_rules('user_password', 'Password', 'required|matches[passconf]|min_length[6]');
+        $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
             $id = $this->input->post('user_id');
@@ -109,11 +109,11 @@ class User_manage extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id_admin'),
-                        'activity_log_module' => 'Pengguna',
-                        'activity_log_action' => 'Reset Password',
-                        'activity_log_info' => 'ID:null;Title:' . $this->input->post('user_name')
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_module' => 'Pengguna',
+                        'log_action' => 'Reset Password',
+                        'log_info' => 'ID:null;Title:' . $this->input->post('user_name')
                     )
             );
             $this->session->set_flashdata('success', 'Reset password pengguna berhasil');
@@ -125,7 +125,7 @@ class User_manage extends CI_Controller {
             $data['user'] = $this->User_model->get(array('id' => $id));
             $data['title'] = 'Ganti Password Pengguna';
             $data['main'] = 'user/change_pass';
-            $this->load->view('admin/layout', $data);
+            $this->load->view('manage/layout', $data);
         }
     }
 
@@ -140,11 +140,11 @@ class User_manage extends CI_Controller {
             // activity log
             $this->Activity_log_model->add(
                     array(
-                        'activity_log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id_admin'),
-                        'activity_log_module' => 'Pengguna',
-                        'activity_log_action' => 'Hapus',
-                        'activity_log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_module' => 'Pengguna',
+                        'log_action' => 'Hapus',
+                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
             );
             $this->session->set_flashdata('success', 'Hapus pengguna berhasil');

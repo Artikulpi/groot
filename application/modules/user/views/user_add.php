@@ -1,9 +1,11 @@
 <?php
+$this->load->view('manage/tinymce_init');
+
 if (isset($user)) {
     $id = $user['user_id'];
     $user_name = $user['user_name'];
     $user_full_name = $user['user_full_name'];
-    $user_role = $user['user_role'];
+    $user_role_id = $user['user_role_id'];
     $user_email = $user['user_email'];
     $user_description = $user['user_description'];
 } else {
@@ -14,16 +16,10 @@ if (isset($user)) {
     $user_description = set_value('user_description');
 }
 ?>
-<div class="col-sm-9 col-md-10 main">
     <?php echo isset($alert) ? ' ' . $alert : null; ?>
     <?php echo validation_errors(); ?>
 
-    <div class="row page-header">
-        <div class="col-sm-9 col-md-6">
-            <h3 class="page-title" ><?php echo $operation; ?> Pengguna</h3>
-        </div>
-
-    </div>
+            <h2 class="page-header" ><?php echo $operation; ?> Pengguna</h2>
 
     <?php echo form_open_multipart(current_url()); ?>
     <div class="row">
@@ -46,19 +42,12 @@ if (isset($user)) {
             <?php endif; ?>
             <label >Status Pengguna *</label>
             <select name="user_role_id" class="form-control">
-                <?php
-                if (!empty($role)) {
-                    foreach ($role as $row):
-                        $select = ($row['role_id'] == $user_role_id) ? 'selected' : NULL;
-                        ?>
-
-                        <option value="<?php echo $row['role_id']; ?>" <?php echo $select; ?>> <?php echo $row['role_name']; ?></option>
-
-                        <?php
-                    endforeach;
-                }
-                ?>
-            </select><br>
+          <?php foreach ($role as $r): ?>
+          <option value="<?php echo $r['role_id'] ?>"
+          <?php echo (isset($user) AND $user_role_id == $r['role_id']) ? 'selected' : '' ?>>
+          <?php echo $r['role_name'] ?></option>
+        <?php endforeach ?>
+        </select><br>
 
             <label >Email *</label>
             <input type="text" name="user_email" placeholder="Email Pengguna" class="form-control" value="<?php echo $user_email; ?>">
@@ -112,7 +101,7 @@ if (isset($user)) {
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <?php if ($this->session->flashdata('delete')) { ?>
+    <?php if ($this->session->flashdata('message')) { ?>
         <script type = "text/javascript">
             $(window).load(function () {
                 $('#confirm-del').modal('show');

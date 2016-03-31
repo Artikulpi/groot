@@ -69,51 +69,51 @@ class Posting_model extends CI_Model {
 	// add dan update ke database 
 	public function add($data = array())
 	{
-		if ($data['posting_id']) {
+		if (isset($data['posting_id'])) {
 			$this->db->set($data['posting_id'], $data['posting_id']);
 		}
 
-		if ($data['posting_title']) {
+		if (isset($data['posting_title'])) {
 			$this->db->set($data['posting_title'], $data['posting_title']);
 		}
 
-		if ($data['posting_description']) {
+		if (isset($data['posting_description'])) {
 			$this->db->set($data['posting_description'], $data['posting_description']);
 		}
 
-		if ($data['posting_content']) {
+		if (isset($data['posting_content'])) {
 			$this->db->set($data['posting_content'], $data['posting_content']);
 		}
 
-		if ($data['posting_published_date']) {
+		if (isset($data['posting_published_date'])) {
 			$this->db->set($data['posting_published_date'], $data['posting_published_date']);
 		}
 
-		if ($data['posting_image']) {
+		if (isset($data['posting_image'])) {
 			$this->db->set($data['posting_image'], $data['posting_image']);
 		}
 
-		if ($data['posting_input_date']) {
+		if (isset($data['posting_input_date'])) {
 			$this->db->set($data['posting_input_date'], $data['posting_input_date']);
 		}
 
-		if ($data['posting_last_update']) {
+		if (isset($data['posting_last_update'])) {
 			$this->db->set($data['posting_last_update'], $data['posting_last_update']);
 		}
 
-		if ($data['posting_is_published']) {
+		if (isset($data['posting_is_published'])) {
 			$this->db->set($data['posting_is_published'], $data['posting_is_published']);
 		}
 
-		if ($data['posting_is_commentable']) {
+		if (isset($data['posting_is_commentable'])) {
 			$this->db->set($data['posting_is_commentable'], $data['posting_is_commentable']);
 		}
 
-		if ($data['posting_category_id']) {
+		if (isset($data['posting_category_id'])) {
 			$this->db->set($data['posting_category_id'], $data['posting_category_id']);
 		}
 
-		if ($data['posting_user_id']) {
+		if (isset($data['posting_user_id'])) {
 			$this->db->set($data['posting_user_id'], $data['posting_user_id']);
 		}
 
