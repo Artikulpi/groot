@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
             <div class="nav-side-menu">
                 <div class="menu-list">
 
@@ -47,11 +47,11 @@
                         <ul class="sub-menu collapse" id="posting">
                             <li class="active"><a href="<?php echo site_url('manage/posting'); ?>">
                                Daftar Posting</a></li>
-                               <li><a href="<?php echo site_url('manage/posting/add'); ?>"> 
+                               <li class="active"><a href="<?php echo site_url('manage/posting/add'); ?>"> 
                                  Tambah Posting</a></li>
-                                 <li><a href="<?php echo site_url('manage/posting/category'); ?>">
+                                 <li class="active"><a href="<?php echo site_url('manage/posting/category'); ?>">
                                      Daftar Kategori</a></li>
-                                     <li><a href="<?php echo site_url('manage/posting/add_category'); ?>"> 
+                                     <li class="active"><a href="<?php echo site_url('manage/posting/add_category'); ?>"> 
                                          Tambah Kategori</a></li>
                                      </ul>
 
@@ -114,23 +114,7 @@
                                  </ul>
                 
                     </ul>
-                    <div class="sidebar-block">
-                        <div class="media">
-                            <div class="media-left">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Notification</h4>
-                                <p class="text-muted">
-                                    <small><?php
-                                    if ($this->session->flashdata('success')) {
-                                        $data['message'] = $this->session->flashdata('success');
-                                        $this->load->view('admin/notification_success', $data);
-                                    }
-                                    ?> </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <br><br><br>
                 </div>
             </div>

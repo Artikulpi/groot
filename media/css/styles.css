@@ -1726,9 +1726,9 @@ span.tags
 
 .card.hovercard .cardheader {
     /*background: url(../image/blur.jpg);*/
-    background: #fafafa;
+    background: #fff;
     background-size: cover;
-    height: 80px;
+    height: 55px;
 }
 
 .card.hovercard .avatar {
