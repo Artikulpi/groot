@@ -100,7 +100,7 @@
                                         </li>
                                         <li>
                                         <a style="margin-top: -20px" class="btn" href="<?php echo site_url('gadmin/profile/cpw/'); ?>">
-                                        <i class="glyphicon glyphicon-edit" data-toggle="tooltip" data-placement="bottom" title="Ubah password"> Ubah Password 
+                                        <i class="glyphicon glyphicon-edit" title="Ubah password"> Ubah Password 
                                         <strong>[ <?php echo $this->session->userdata('uname') ?> ]</i></strong></a>
                                         </li>
                                          <li>
@@ -142,7 +142,7 @@
                                 <ol class="breadcrumb">
                                     <a id="menu-toggle" data-toggle="collapse" data-target="#menu-content" href="#" class="btn-outline"><i class="glyphicon glyphicon-th-list"></i></a>
                                     <li><a href="#"><i class="ion-home"></i></a></li>
-                                    <li class="active">Icons</li>
+                                    <li class="active">Beranda</li>
                                 </ol>
                             </div><!--/.row-->
                             <?php isset($main) ? $this->load->view($main) : null; ?>

@@ -35,7 +35,7 @@ h1 {
 	font-size: 40px;
 }
 
-h2 {
+h3 {
 	font-weight: 300;
 	margin-bottom: 20px;
 }
@@ -186,8 +186,8 @@ h3, h4 {
 }
 
 .navbar-header .navbar-brand span {
-	font-size: 18px;
-	color: #fbbc05;
+	font-size: 23px;
+	color: #efc849;
 	font-weight: 200;
 }
 
@@ -654,7 +654,7 @@ a.bg-danger:hover {
 	margin-left: 10px;
 	overflow-x: auto;
 	clear: both;
-	resize:vertical;
+	/*resize:vertical;*/
 	/*padding-left: 210px;*/
 }
 /*
@@ -907,8 +907,8 @@ a.bg-danger:hover {
 		margin: 0 ;
 	}
 
-	h2.page-header {
-		margin-top: 10px;
+	h3.page-header {
+		margin-top: 20px;
 		border-bottom: 0;
 	}
 
@@ -1745,7 +1745,7 @@ span.tags
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    border: 5px solid #ffebee;
+    border: 5px solid #efc849;
 }
 
 .card.hovercard .info {

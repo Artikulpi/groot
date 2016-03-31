@@ -6,14 +6,11 @@ if (isset($category)) {
 }
 ?>
 
-<div class="col-sm-9 col-md-10 main">
-    <?php if (!isset($posting)) echo validation_errors(); ?>
-    <div class="row page-header">
-        <div class="col-sm-9 col-md-6">
-            <h3 class="page-title"><?php echo $operation; ?> Kategori Posting</h3>
-        </div>
 
-    </div>
+    <?php if (!isset($posting)) echo validation_errors(); ?>
+
+    <h3 class="page-header"><?php echo $operation; ?> Kategori Posting</h3>
+    <hr>
 
     <div class="row">
         <?php echo form_open(current_url()); ?>
@@ -36,40 +33,40 @@ if (isset($category)) {
         </div>
         <?php echo form_close(); ?>
     </div>
-</div>
 
-<?php if (isset($category)): ?>
-    <!-- Delete Confirmation -->
-    <div class="modal fade" id="confirm-del">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><b>Konfirmasi Penghapusan</b></h4>
-                </div>
-                <div class="modal-body">
-                    <p>Data yang dipilih akan dihapus&hellip;</p>
-                </div>
-                <?php echo form_open('manage/posting/delete_category/' . $category['category_id']); ?>
-                <div class="modal-footer">
-                    <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
-                    <input type="hidden" name="del_id" value="<?php echo $category['category_id'] ?>" />
-                    <input type="hidden" name="del_name" value="<?php echo $category['category_name'] ?>" />
-                    <button type="submit" class="btn btn-primary">Ya</button>
-                </div>
-                <?php echo form_close(); ?>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <?php
-    if ($this->session->flashdata('message')) { {
+
+    <?php if (isset($category)): ?>
+        <!-- Delete Confirmation -->
+        <div class="modal fade" id="confirm-del">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><b>Konfirmasi Penghapusan</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Data yang dipilih akan dihapus&hellip;</p>
+                    </div>
+                    <?php echo form_open('manage/posting/delete_category/' . $category['category_id']); ?>
+                    <div class="modal-footer">
+                        <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
+                        <input type="hidden" name="del_id" value="<?php echo $category['category_id'] ?>" />
+                        <input type="hidden" name="del_name" value="<?php echo $category['category_name'] ?>" />
+                        <button type="submit" class="btn btn-primary">Ya</button>
+                    </div>
+                    <?php echo form_close(); ?>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <?php
+        if ($this->session->flashdata('message')) { {
             ?>
             <script type="text/javascript">
                 $(window).load(function () {
                     $('#confirm-del').modal('show');
                 });
             </script>
-        <?php
+            <?php
         }
     }
     ?>

@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-md-10 main">
+
     <h3 class="page-header">
         <?php echo $title ?>
         <a href="<?php echo site_url('manage/posting/add_category'); ?>" ><button type="button" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Tambah</button></a>
@@ -33,4 +33,3 @@
             </tbody>
   <?php } ?>
     </table>
-</div>

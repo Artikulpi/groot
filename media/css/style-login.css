@@ -1,21 +1,26 @@
 @font-face {
-   font-family: Arvo;
-   font-style: normal;
-   src: url(../fonts/Arvo-Regular.ttf);
+	font-family: Arvo;
+	font-style: normal;
+	src: url(../fonts/Arvo-Regular.ttf);
 }
 @font-face {
-   font-family: Open Sans Regular;
-   font-style: normal;
-   src: url(../fonts/OpenSans-Regular.ttf);
+	font-family: Open Sans Regular;
+	font-style: normal;
+	src: url(../fonts/OpenSans-Regular.ttf);
 }
 @font-face {
-   font-family: Open Sans Light;
-   font-style: normal;
-   src: url(../fonts/OpenSans-Light.ttf);
+	font-family: Open Sans Light;
+	font-style: normal;
+	src: url(../fonts/OpenSans-Light.ttf);
 }
 
 html, body {
 	background-color: #f5f5f5;
+	background: url(../ico/blue.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	color: #000;
 	font-family: 'Open Sans Regular', sans-serif;
 }
@@ -28,12 +33,12 @@ html, body {
 }
 .admin {
 	text-align: center;
-    font-family: Arvo;
-    margin-bottom: 30px;
-    color: #3b444f;
+	font-family: Arvo;
+	margin-bottom: 30px;
+	color: #3b444f;
 }
 .btn-sunny {
-    font-family: Arvo;
+	font-family: Arvo;
 	border-radius: 0px;
 	padding: 20px;
 	color: #fff;
@@ -55,7 +60,7 @@ html, body {
 .navzu {
 	background-color: transparent;
 	color: black;
-    font-family: Arvo;
+	font-family: Arvo;
 	border: none;
 }
 /*CUSTOM*/
@@ -68,11 +73,11 @@ html, body {
 }
 ::selection {
 	color: white;
-    background: #3b444f; /* WebKit/Blink Browsers */
+	background: #3b444f; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
 	color: white;
-    background: #3b444f; /* Gecko Browsers */
+	background: #3b444f; /* Gecko Browsers */
 }
 
 

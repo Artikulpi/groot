@@ -16,20 +16,16 @@
                         <div class="desc"><?php echo $this->session->userdata('uemail'); ?></div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" href="">
-                            <i class="ion-social-twitter"></i>
+                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" title="view profil" href="<?php echo site_url('gadmin/profile') ?>">
+                            <i class="ion-eye"></i>
                         </a>
-                        <a class="btn btn-circle btn-danger btn-sm" rel="publisher"
-                        href="">
-                        <i class="ion-social-googleplus"></i>
+                        <a class="btn btn-circle btn-warning btn-sm" rel="publisher" title="edit profil" href="<?php echo site_url('gadmin/profile/cpw/'); ?>">
+                        <i class="ion-edit"></i>
                     </a>
-                    <a class="btn btn-circle btn-primary btn-sm" rel="publisher"
-                    href="">
-                    <i class="ion-social-facebook"></i>
-                </a>
-                <a class="btn btn-circle btn-warning btn-sm" rel="publisher" href="">
-                    <i class="ion-social-github"></i>
-                </a>
+
+                    <a type="submit" class="btn btn-circle btn-danger btn-sm" rel="publisher" title="keluar" href="">
+                        <i class="ion-locked"></i>
+                    </a>
             </div>
         </div>
 
@@ -44,7 +40,7 @@
                             <a href="#"><i class="ion-folder"></i> Posting <i class="ion-arrow-down-b pull-right"></i></a>
                         </li>
 
-                        <ul class="sub-menu collapse" id="posting">
+                        <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'page') ? 'in' : NULL; ?>" id="posting">
                             <li class="active"><a href="<?php echo site_url('manage/posting'); ?>">
                                Daftar Posting</a></li>
                                <li class="active"><a href="<?php echo site_url('manage/posting/add'); ?>"> 
@@ -61,9 +57,9 @@
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'page') ? 'in' : NULL; ?>" id="halaman">
                             <li class="active"><a href="<?php echo site_url('manage/page'); ?>">
                              Daftar Halaman</a></li>
-                             <li><a href="<?php echo site_url('manage/page/add'); ?>">
+                             <li class="active"><a href="<?php echo site_url('manage/page/add'); ?>">
                                  Tambah Halaman</a></li>
-                                 <li><a href="<?php echo site_url('manage/page/tree'); ?>">
+                                 <li class="active"><a href="<?php echo site_url('manage/page/tree'); ?>">
                                      Susunan Menu</a></li> 
                                  </ul>
 
@@ -81,7 +77,7 @@
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'user') ? 'in' : NULL; ?>" id="pengguna">
                             <li class="active"><a href="<?php echo site_url('manage/user'); ?>">
                                  Daftar penguna</a></li>
-                                  <li><a href="<?php echo site_url('manage/user/add'); ?>"> 
+                                  <li class="active"><a href="<?php echo site_url('manage/user/add'); ?>"> 
                                  Tambah pengguna</a></li>
                                  </ul>
 
@@ -91,7 +87,7 @@
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'media_manager' OR $this->uri->segment(2) == 'media_album') ? 'in' : NULL; ?>" id="media">
                             <li class="active"><a href="<?php echo site_url('manage/media_manager'); ?>">
                                 Image List</a></li>
-                                  <li><a href="<?php echo site_url('manage/media_album'); ?>"> 
+                                  <li class="active"><a href="<?php echo site_url('manage/media_album'); ?>"> 
                                  Album List</a></li>
                                  </ul>
 
@@ -101,7 +97,7 @@
                         <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'setting') ? 'in' : NULL; ?>" id="setting">
                             <li class="active"><a href="<?php echo site_url('manage/setting'); ?>">
                                      General</a></li>
-                                  <li><a href="<?php echo site_url('manage/setting/email'); ?>">
+                                  <li class="active"><a href="<?php echo site_url('manage/setting/email'); ?>">
                                      Email</a></li>
                                  </ul>
 
