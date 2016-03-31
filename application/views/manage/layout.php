@@ -86,7 +86,7 @@
                                     <div class="navbar-content">
                                             <div class="row">
                                                 <div class="col-md-5">
-                                                    <img src="<?php echo media_url('/image/profil.png'); ?>"><p class="text-center small">
+                                                    <img src="<?php echo media_url('/image/profile.png'); ?>" width="100px"><p class="text-center small">
                                                 </div>
                                                 <div class="col-md-7">
                                                     <span><?php echo $text = ucfirst($this->session->userdata('uname')); ?></span>

@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
             <div class="nav-side-menu">
                 <div class="menu-list">
 
@@ -7,7 +7,7 @@
 
                     </div>
                     <div class="avatar">
-                        <img alt="" src="<?php echo media_url('image/profil.png') ?>">
+                        <img alt="" src="<?php echo media_url('image/profile.png') ?>">
                     </div>
                     <div class="info">
                         <div class="title">
@@ -16,18 +16,18 @@
                         <div class="desc"><?php echo $this->session->userdata('uemail'); ?></div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-primary btn-twitter btn-sm" href="">
+                        <a class="btn btn-circle btn-primary btn-twitter btn-sm" href="">
                             <i class="ion-social-twitter"></i>
                         </a>
-                        <a class="btn btn-danger btn-sm" rel="publisher"
+                        <a class="btn btn-circle btn-danger btn-sm" rel="publisher"
                         href="">
                         <i class="ion-social-googleplus"></i>
                     </a>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
+                    <a class="btn btn-circle btn-primary btn-sm" rel="publisher"
                     href="">
                     <i class="ion-social-facebook"></i>
                 </a>
-                <a class="btn btn-warning btn-sm" rel="publisher" href="">
+                <a class="btn btn-circle btn-warning btn-sm" rel="publisher" href="">
                     <i class="ion-social-github"></i>
                 </a>
             </div>
@@ -47,11 +47,11 @@
                         <ul class="sub-menu collapse" id="posting">
                             <li class="active"><a href="<?php echo site_url('manage/posting'); ?>">
                                Daftar Posting</a></li>
-                               <li><a href="<?php echo site_url('manage/posting/add'); ?>"> 
+                               <li class="active"><a href="<?php echo site_url('manage/posting/add'); ?>"> 
                                  Tambah Posting</a></li>
-                                 <li><a href="<?php echo site_url('manage/posting/category'); ?>">
+                                 <li class="active"><a href="<?php echo site_url('manage/posting/category'); ?>">
                                      Daftar Kategori</a></li>
-                                     <li><a href="<?php echo site_url('manage/posting/add_category'); ?>"> 
+                                     <li class="active"><a href="<?php echo site_url('manage/posting/add_category'); ?>"> 
                                          Tambah Kategori</a></li>
                                      </ul>
 
@@ -114,23 +114,7 @@
                                  </ul>
                 
                     </ul>
-                    <div class="sidebar-block">
-                        <div class="media">
-                            <div class="media-left">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Notification</h4>
-                                <p class="text-muted">
-                                    <small><?php
-                                    if ($this->session->flashdata('success')) {
-                                        $data['message'] = $this->session->flashdata('success');
-                                        $this->load->view('admin/notification_success', $data);
-                                    }
-                                    ?> </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <br><br><br>
                 </div>
             </div>
