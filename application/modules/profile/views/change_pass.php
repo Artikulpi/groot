@@ -1,4 +1,6 @@
-<div class="col-sm-9 col-md-10 main">
+   <h3 class="page-header">
+                <?php echo $title ?>
+            </h3>
 	<?php echo form_open(current_url()); ?>
 	<?php echo validation_errors(); ?>
 	<div class="form-group">
@@ -17,4 +19,3 @@
     <button type="submit" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
     <a href="<?php echo site_url('manage/profile'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</button></a>
 	<?php form_close() ?>
-</div>

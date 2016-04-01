@@ -845,9 +845,10 @@ a.bg-danger:hover {
 	}
 	.img-circle {
 		border-radius: 0%;
-		margin-left: 5px;
-		width: 65px;
-		height: 65px;
+		margin-left: 1px;
+		width: 50px;
+		height: 50px;
+		position: relative;
 	}
 	img {
 		vertical-align: middle;

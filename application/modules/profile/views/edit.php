@@ -15,16 +15,11 @@ if (isset($user)) {
     $inputDescValue = set_value('user_description');
 }
 ?>
-<div class="col-sm-9 col-md-10 main">
+
     <?php echo isset($alert) ? ' ' . $alert : null; ?>
     <?php echo validation_errors(); ?>
 
-    <div class="row page-header">
-        <div class="col-sm-9 col-md-6">
-            <h3 class="page-title" ><?php echo $operation; ?> Profil</h3>
-        </div>
-
-    </div>
+            <h3 class="page-header" ><?php echo $operation; ?> Profil</h3>
 
     <?php echo form_open_multipart(current_url()); ?>
     <div class="row">
@@ -70,21 +65,22 @@ if (isset($user)) {
         <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
         </div>
         <div class="col-sm-9 col-md-3">
+        <br>
             <div class="form-group">
-                <button name="action" type="submit" value="save" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
-                <a href="<?php echo site_url('manage/user'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
+                <button name="action" type="submit" value="save" class="btn btn-block btn-success"><i class="ion-checkmark"></i> Simpan</button>
+                <a href="<?php echo site_url('manage/user'); ?>" class="btn btn-block btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
                 <?php if (isset($user)): ?>
                     <?php if ($this->session->userdata('user_id_admin') != $id) {
                         ?>
-                        <a style="margin-top: 3px" href="<?php echo site_url('manage/user/delete/' . $user['user_id']); ?>" class="btn btn-danger"><i class="ion-trash-a"></i> Hapus</a>
+                        <a style="margin-top: 3px" href="<?php echo site_url('manage/user/delete/' . $user['user_id']); ?>" class="btn btn-block btn-danger"><i class="ion-trash-a"></i> Hapus</a>
                     <?php } ?>
-                        <a href="<?php echo site_url('manage/profile/cpw') ?>" class="btn btn-primary" style="margin-top: 3px"><i class="ion-refresh"></i> Ubah password</a>
+                        <a href="<?php echo site_url('manage/profile/cpw') ?>" class="btn btn-block btn-primary" style="margin-top: 3px"><i class="ion-refresh"></i> Ubah password</a>
                 <?php endif; ?>
             </div>
         </div>
     </div>
     <?php echo form_close(); ?>
-</div>
+
 
 <?php if (isset($user)): ?>
     <!-- Delete Confirmation -->

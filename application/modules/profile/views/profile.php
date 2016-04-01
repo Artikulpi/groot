@@ -1,24 +1,18 @@
             <h3 class="page-header">
                 <?php echo $title ?>
             </h3>
-
-
         <div class="main-content">
                 <!-- PROFILE TAB CONTENT -->
                 <div class="tab-pane profile active">
-                    <div class="row">
                     <div class="col-md-12 col-md-offset-3">
+                    <div class="row">
                         <div class="col-md-5 col-xs-12">
                             <div class="user-info-left">
                                 <img src="<?php echo media_url('image/avatar1.png') ?>" width="100%" alt="Profile Picture">
+                                <p></p>
                                 <div class="contact">
                                     <a href="<?php echo site_url('manage/profile/edit/'); ?>" class="btn btn-block btn-danger"><i class="glyphicon glyphicon-pencil"></i> Edit Profil</a>
                                     <a href="<?php echo site_url('manage/profile/cpw/'); ?>" class="btn btn-block btn-success"><i class="glyphicon glyphicon-edit"></i> Ubah Password</a>
-                                    <ul class="list-inline social">
-                                        <li><a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
-                                        <li><a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a></li>
-                                        <li><a href="#" title="Google Plus"><i class="fa fa-google-plus-square"></i></a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -121,4 +115,7 @@
                 <!-- END ACTIVITY TAB CONTENT -->
         
 
-        </div>  
+        </div> 
+        </div>
+
+
