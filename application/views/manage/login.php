@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>GROOT | Login</title><!-- Bootstrap core CSS -->
-        <link rel="shortcut icon" href="<?php echo media_url('/image/artikulpi.png') ?>" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo media_url('ico/favicon.png') ?>" type="image/x-icon">
 
         <link href="<?php echo media_url('/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo media_url('/css/ionicons.min.css') ?>" rel="stylesheet" type="text/css">

@@ -1775,3 +1775,114 @@ span.tags
 
 .btn-circle { border-radius: 50%; width:32px; height:32px; line-height:18px;  }
 
+
+
+/*=====halaman profile ======*/
+.nav.nav-tabs-custom-colored > li.active > a, 
+.nav.nav-tabs-custom-colored > li.active > a:hover, 
+.nav.nav-tabs-custom-colored > li.active > a:focus {
+  background-color: #296EAA;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tab-content.profile-page {
+  padding: 35px 15px;
+}
+
+.profile .user-info-left {
+  text-align: center;
+}
+
+.profile .user-info-left, 
+.profile .user-info-right {
+  padding: 10px 0;
+}
+
+.profile .user-info-left img {
+  border: 3px solid #fff;
+}
+
+.profile .user-info-left h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.user-info-left .btn{
+    border-radius:0px;    
+}
+
+.profile .user-info-left ul.social a {
+  font-size: 20px;
+  color: #b9b9b9;
+}
+
+.profile .user-info-right {
+  border-left: 1px solid #ddd;
+  padding-left: 30px;
+}
+
+.profile h3, .activity h3, .settings h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.data-row .data-name, .data-row .data-value {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.data-row .data-name {
+  width: 12em;
+    color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-size: 0.9em;
+  vertical-align: top;
+}
+
+ul.activity-list > li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+ul.activity-list > li {
+  padding: 15px;
+}
+
+ul.activity-list > li .activity-icon {
+  display: inline-block;
+  vertical-align: middle;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  width: 34px;
+  height: 34px;
+  background-color: #e4e4e4;
+  font-size: 16px;
+  color: #656565;
+  line-height: 34px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+fieldset {
+  margin-bottom: 40px;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+.form-control, .input-group .form-control {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
