@@ -3,7 +3,7 @@
             </h3>
         <div class="main-content">
                 <!-- PROFILE TAB CONTENT -->
-                <div class="tab-pane profile active">
+                <div class="profile">
                     <div class="col-md-12 col-md-offset-3">
                     <div class="row">
                         <div class="col-md-5 col-xs-12">

@@ -108,9 +108,9 @@
                             <li class="active"><a href="<?php echo site_url('manage/activity_log'); ?>">
                                  Daftar Log Aktivitas</a></li>
                                  </ul>
-                
+                       
+                    <br><br><br><br><br><br>
                     </ul>
-                   
-                    <br><br><br>
+                
                 </div>
             </div>
