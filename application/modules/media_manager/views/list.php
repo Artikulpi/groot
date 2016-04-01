@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <?php echo form_open_multipart('gadmin/media_manager' . '/upload', array('enctype' => 'multipart/form-data')) ?>
+        <?php echo form_open_multipart('manage/media_manager' . '/upload', array('enctype' => 'multipart/form-data')) ?>
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-12">
@@ -91,7 +91,7 @@
                                     <?php if ($image['info'] != '0'): ?>
                                         <div class="<?php if ($type == 'image'): ?>crop<?php endif; ?> img-holder">
                                             <?php if (is_file($info['full_path'])): ?>
-                                                <a href="<?php echo 'index.php' . site_url('/gadmin/media_manager/edit/' . $image['id']) ?>">
+                                                <a href="<?php echo 'index.php' . site_url('/manage/media_manager/edit/' . $image['id']) ?>">
                                                     <img src="<?php echo $imageView ?>" >
                                                     <div class="info"></div>
                                                 </a>
@@ -105,7 +105,7 @@
                                         </div>
                                     <?php else: ?>
                                         <div class="img-album">
-                                            <a href="<?php echo site_url('/gadmin/media_manager/album/' . $image['id']) ?>">
+                                            <a href="<?php echo site_url('/manage/media_manager/album/' . $image['id']) ?>">
                                                 <img src="<?php echo media_url('image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
                                                 <div class="info_album">
                                                     <div class="info_name"><?php echo $image['label'] ?></div>
@@ -122,10 +122,10 @@
                                                 <?php if ($type == 'image'): ?>
                                                     <a href="" class="zoomin"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i><input type="hidden" value="<?php echo upload_url($image['name']) . '?' . uniqid() ?>" /></a>
                                                 <?php else : ?>
-                                                    <a href="javascript:window.open('<?php echo site_url('/gadmin/media_manager/viewapp/' . $image['id']) ?>','<?php echo $image['label'] ?>','width=600,height=550');"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i></a>
+                                                    <a href="javascript:window.open('<?php echo site_url('/manage/media_manager/viewapp/' . $image['id']) ?>','<?php echo $image['label'] ?>','width=600,height=550');"><i class="glyphicon glyphicon-zoom-in icon-white" title="zoom in"></i></a>
                                                 <?php endif; ?>
-                                                <!--<a href="<?php echo site_url('/gadmin/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>-->
-                                                <a href="<?php echo site_url('/gadmin/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="delete"></i></a>
+                                                <!--<a href="<?php echo site_url('/manage/media_manager/edit/' . $image['id']) ?>"><i class="glyphicon glyphicon-edit icon-white" title="edit"></i></a>-->
+                                                <a href="<?php echo site_url('/manage/media_manager/delete/' . $image['id']) ?>"><i class="glyphicon glyphicon-remove icon-white" title="delete"></i></a>
                                             </div>
                                         </div>
                                     <?php endif ?>

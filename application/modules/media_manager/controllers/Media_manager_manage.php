@@ -11,7 +11,7 @@ class Media_manager_manage extends CI_Controller {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
 
-        $this->load->model('Media_manager_model');
+        $this->load->model(array('Media_manager_model', 'media_album/Media_album_model'));
         $this->load->model('activity_log/Activity_log_model');
     }
 
@@ -31,7 +31,7 @@ class Media_manager_manage extends CI_Controller {
         $data['main'] = 'media_manager/list';
 
         // list album
-        $this->load->model('Media_album_model');
+        $this->load->model('media_album/Media_album_model');
         $data['albums'] = $this->Media_album_model->gets($offset);
 
         $this->load->view('manage/layout', $data);
@@ -358,11 +358,11 @@ class Media_manager_manage extends CI_Controller {
         // activity log
         $this->Activity_log_model->add(
                 array(
-                    'activity_log_date' => date('Y-m-d H:i'),
-                    'user_id' => $this->session->userdata('user_id_admin'),
-                    'activity_log_module' => 'Media manager',
-                    'activity_log_action' => 'Hapus',
-                    'activity_log_info' => 'ID:' . $id . ';Title:' . $id
+                    'log_date' => date('Y-m-d H:i'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Media manager',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $id . ';Title:' . $id
                 )
         );
 

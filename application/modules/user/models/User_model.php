@@ -136,6 +136,10 @@ class User_model extends CI_Model {
          if(isset($data['user_email'])) {
             $this->db->set('user_email', $data['user_email']);
         }
+
+        // if (isset($data['user_image'])) {
+        //     $this->db->set('user_image', $data[''])
+        // }
         
          if(isset($data['user_description'])) {
             $this->db->set('user_description', $data['user_description']);
