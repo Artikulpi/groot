@@ -121,7 +121,7 @@
                     <?php
                     if ($this->session->flashdata('success')) {
                         $data['message'] = $this->session->flashdata('success');
-                        $this->load->view('admin/notification_success', $data);
+                        $this->load->view('manage/notification_success', $data);
                     }
                     ?>
                 </nav>

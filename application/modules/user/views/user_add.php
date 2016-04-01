@@ -16,7 +16,6 @@ if (isset($user)) {
     $user_description = set_value('user_description');
 }
 ?>
-    <?php echo isset($alert) ? ' ' . $alert : null; ?>
     <?php echo validation_errors(); ?>
 
             <h2 class="page-header" ><?php echo $operation; ?> Pengguna</h2>
@@ -61,14 +60,14 @@ if (isset($user)) {
                 <button name="action" type="submit" value="save" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
                 <a href="<?php echo site_url('manage/user'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
                 <?php if (isset($user)): ?>
-                    <?php if ($this->session->userdata('user_id_admin') != $id) {
+                    <?php if ($this->session->userdata('uid') != $id) {
                         ?>
                         <a style="margin-top: 3px" href="<?php echo site_url('manage/user/delete/' . $user['user_id']); ?>" class="btn btn-danger"><i class="ion-trash-a"></i> Hapus</a>
                     <?php } ?>
-                    <?php if ($this->session->userdata('user_id_admin') == $id) {
+                    <?php if ($this->session->userdata('uid') == $id) {
                         ?>
                         <a href="<?php echo site_url('manage/profile/cpw') ?>" class="btn btn-primary" style="margin-top: 3px"> Ubah password</a>
-                    <?php } elseif ($this->session->userdata('user_id_admin') != $id) { ?>
+                    <?php } elseif ($this->session->userdata('uid') != $id) { ?>
                         <a style="margin-top: 3px" class="btn btn-primary" href="<?php echo site_url('manage/user/rpw/' . $user['user_id']); ?>" > Reset Password</a>
                     <?php } ?>
                 <?php endif; ?>
@@ -101,7 +100,7 @@ if (isset($user)) {
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <?php if ($this->session->flashdata('message')) { ?>
+    <?php if ($this->session->flashdata('delete')) { ?>
         <script type = "text/javascript">
             $(window).load(function () {
                 $('#confirm-del').modal('show');

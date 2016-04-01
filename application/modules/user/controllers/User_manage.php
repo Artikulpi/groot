@@ -110,7 +110,7 @@ class User_manage extends CI_Controller {
             $this->Activity_log_model->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
-                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_user_id' => $this->session->userdata('uid'),
                         'log_module' => 'Pengguna',
                         'log_action' => 'Reset Password',
                         'log_info' => 'ID:null;Title:' . $this->input->post('user_name')
@@ -141,7 +141,7 @@ class User_manage extends CI_Controller {
             $this->Activity_log_model->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
-                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_user_id' => $this->session->userdata('uid'),
                         'log_module' => 'Pengguna',
                         'log_action' => 'Hapus',
                         'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')

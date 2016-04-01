@@ -4,7 +4,7 @@ if (isset($user)) {
     $id = $user['user_id'];
     $inputNameValue = $user['user_name'];
     $inputJudulValue = $user['user_full_name'];
-    $inputRoleValue = $user['user_role'];
+    $inputRoleValue = $user['user_role_id'];
     $inputEmailValue = $user['user_email'];
     $inputDescValue = $user['user_description'];
 } else {

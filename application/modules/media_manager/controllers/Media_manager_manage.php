@@ -12,7 +12,7 @@ class Media_manager_manage extends CI_Controller {
         }
 
         $this->load->model('Media_manager_model');
-        //$this->load->model('Activity_log_model');
+        $this->load->model('activity_log/Activity_log_model');
     }
 
     public function index($offset = 0) {

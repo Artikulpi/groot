@@ -6,7 +6,6 @@ class Auth extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model');
 	}
 
 	public function index()
@@ -41,16 +40,18 @@ class Auth extends CI_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			$username = $this->input->post('username', TRUE);
             $password = $this->input->post('password', TRUE);
+            $this->db->from('user');
+            $this->db->where('user_name', $username);
+            $this->db->where('user_password', sha1($password));
+            $query = $this->db->get();
             
-            $user = $this->User_model->get(array('username' => $username, 'password' => sha1($password)));
-
-            if (count($user) > 0) {
+            if ($query->num_rows() > 0) {
             	$this->session->set_userdata('logged', TRUE);
-                $this->session->set_userdata('uid', $user[0]['user_id']);
-                $this->session->set_userdata('uname', $user[0]['user_name']);
-                $this->session->set_userdata('urole', $user[0]['user_role_id']);
-                $this->session->set_userdata('uemail', $user[0]['user_email']);
-                $this->session->set_userdata('ufullname', $user[0]['user_full_name']);
+                $this->session->set_userdata('uid', $query->row('user_id'));
+                $this->session->set_userdata('uname', $query->row('user_name'));
+                $this->session->set_userdata('urole', $query->row('user_role_id'));
+                $this->session->set_userdata('uemail', $query->row('user_email'));
+                $this->session->set_userdata('ufullname', $query->row('user_full_name'));
                 if ($lokasi != '') {
                     header("Location:" . htmlspecialchars($lokasi));
                 } else {

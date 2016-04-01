@@ -14,7 +14,7 @@ class Profile_manage extends CI_Controller {
 	}
 	
 	public function index($offset = NULL) {
-        $data['user'] = $this->User_model->get(array('id' => $this->session->userdata('user_id_admin')));
+        $data['user'] = $this->User_model->get(array('id' => $this->session->userdata('uid')));
         $data['title'] = 'Detail Profil';
         $data['main'] = 'profile/profile';
         $this->load->view('manage/layout', $data);
@@ -45,7 +45,7 @@ class Profile_manage extends CI_Controller {
             $this->Activity_log_model->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
-                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_user_id' => $this->session->userdata('uid'),
                         'log_module' => 'Pengguna',
                         'log_action' => $data['operation'],
                         'log_info' => 'ID:null;Title:' . $params['user_name']
@@ -55,7 +55,7 @@ class Profile_manage extends CI_Controller {
             $this->session->set_flashdata('success', $data['operation'] . ' Pengguna berhasil');
             redirect('manage/profile');
         } else {
-            $data['user'] = $this->User_model->get(array('id' => $this->session->userdata('user_id_admin')));
+            $data['user'] = $this->User_model->get(array('id' => $this->session->userdata('uid')));
             $data['role'] = $this->User_model->get_role();
             $data['title'] = $data['operation'] . ' User';
             $data['main'] = 'profile/edit';
@@ -74,13 +74,13 @@ class Profile_manage extends CI_Controller {
             $old_password = $this->input->post('user_current_password');
 
             $params['user_password'] = sha1($this->input->post('user_password'));
-            $status = $this->User_model->change_password($this->session->userdata('user_id_admin'), $params);
+            $status = $this->User_model->change_password($this->session->userdata('uid'), $params);
 
             // activity log
             $this->Activity_log_model->add(
                 array(
                     'log_date' => date('Y-m-d H:i:s'),
-                    'log_user_id' => $this->session->userdata('user_id_admin'),
+                    'log_user_id' => $this->session->userdata('uid'),
                     'log_module' => 'Pengguna',
                     'log_action' => 'Ganti Password',
                     'log_info' => 'ID:null;Title:' . $this->input->post('user_name')
@@ -89,7 +89,7 @@ class Profile_manage extends CI_Controller {
             $this->session->set_flashdata('success', 'Ubah password pengguna berhasil');
             redirect('manage/profile');
         } else {
-            if ($this->User_model->get(array('id' => $this->session->userdata('user_id_admin'))) == NULL) {
+            if ($this->User_model->get(array('id' => $this->session->userdata('uid'))) == NULL) {
                 redirect('manage');
             }
             $data['title'] = 'Ganti Password Pengguna';
@@ -101,7 +101,7 @@ class Profile_manage extends CI_Controller {
     function check_current_password() {
 
         $pass = $this->input->post('user_current_password');
-        $user = $this->User_model->get(array('id' => $this->session->userdata('user_id_admin')));
+        $user = $this->User_model->get(array('id' => $this->session->userdata('uid')));
         if (sha1($pass) == $user['user_password']) {
             return TRUE;
         } else {

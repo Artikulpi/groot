@@ -1,6 +1,6 @@
             <h2 class="page-header">
                 <?php echo $title ?>
-                <a href="<?php echo site_url('manage/user/add'); ?>" ><button type="button" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+                <a href="<?php echo site_url('manage/user/edit/'.$user['user_id']); ?>" ><button type="button" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
                 <a href="<?php echo site_url('manage/user'); ?>" ><button type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-arrow-left"></span> Kembali</button></a>&nbsp;&nbsp;
             </h2>
 
