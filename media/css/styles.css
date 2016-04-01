@@ -699,12 +699,12 @@ a.bg-danger:hover {
 
 	#wrapper.active {
 		position: relative;
-		left: 250px;
+		left: 220px;
 	}
 
 	#wrapper.active #sidebar-wrapper {
 		left: 250px;
-		width: 250px;
+		width: 230px;
 		transition: all 0.4s ease 0s;
 	}
 

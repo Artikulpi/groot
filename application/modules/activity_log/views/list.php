@@ -1,4 +1,4 @@
-<h2 class="page-header"><?php echo $title ?></h2>
+<h3 class="page-header"><?php echo $title ?></h3>
 
 <table class="table table-striped">
 	<thead>
