@@ -141,7 +141,7 @@
                             <div class="row">
                                 <ol class="breadcrumb">
                                     <a id="menu-toggle" data-toggle="collapse" data-target="#menu-content" href="#" class="btn-outline"><i class="glyphicon glyphicon-th-list"></i></a>
-                                    <li><a href="#"><i class="ion-home"></i></a></li>
+                                    <li><a href="<?php echo base_url('#'); ?>"><i class="ion-home"></i></a></li>
                                     <li class="active">Beranda</li>
                                 </ol>
                             </div><!--/.row-->
