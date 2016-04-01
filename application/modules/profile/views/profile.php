@@ -33,6 +33,16 @@
                         <td>:</td>
                         <td><?php echo $user['role_name']; ?></td>
                     </tr>
+                    <tr>
+                        <td>Deskripsi</td>
+                        <td>:</td>
+                        <td><?php echo $user['user_description']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Terakhir diubah</td>
+                        <td>:</td>
+                        <td><?php echo $user['user_last_update']; ?></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
