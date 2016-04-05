@@ -6,6 +6,8 @@ class Page_manage extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+
+        $this->load->model(array('Page_model', 'user/User_model', 'activity_log/Activity_log_model'));
         
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
@@ -55,7 +57,7 @@ class Page_manage extends CI_Controller {
                 }
 
                 $params['page_last_update'] = date('Y-m-d H:i:s');
-                $params['user_id'] = $this->session->userdata('user_id_admin');
+                $params['user_id'] = $this->session->userdata('uid');
                 $params['page_publish_date'] = ($this->input->post('page_publish_date')) ? $this->input->post('page_publish_date') : date('Y-m-d H:i:s');
                 $params['page_name'] = $this->input->post('page_name');
                 $params['page_content'] = $this->input->post('page_content');
@@ -68,7 +70,7 @@ class Page_manage extends CI_Controller {
                 $this->Activity_log_model->add(
                         array(
                             'log_date' => date('Y-m-d H:i:s'),
-                            'log_user_id' => $this->session->userdata('user_id_admin'),
+                            'log_user_id' => $this->session->userdata('uid'),
                             'log_module' => 'Halaman',
                             'log_action' => $data['operation'],
                             'log_info' => 'ID:null;Title:' . $params['page_name']
@@ -101,7 +103,7 @@ class Page_manage extends CI_Controller {
                 $this->Activity_log_model->add(
                         array(
                             'log_date' => date('Y-m-d H:i:s'),
-                            'log_user_id' => $this->session->userdata('user_id_admin'),
+                            'log_user_id' => $this->session->userdata('uid'),
                             'log_module' => 'Page',
                             'log_action' => 'Hapus',
                             'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
@@ -131,7 +133,7 @@ class Page_manage extends CI_Controller {
                     $this->Activity_log_model->add(
                             array(
                                 'log_date' => date('Y-m-d H:i:s'),
-                                'log_user_id' => $this->session->userdata('user_id_admin'),
+                                'log_user_id' => $this->session->userdata('uid'),
                                 'log_module' => 'Page Tree',
                                 'log_action' => $data['operation'],
                                 'log_info' => 'ID:' . $id . ';Title:' .$this->input->post('inputJudul')
@@ -187,7 +189,7 @@ class Page_manage extends CI_Controller {
             $this->Activity_log_model->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
-                        'log_user_id' => $this->session->userdata('user_id_admin'),
+                        'log_user_id' => $this->session->userdata('uid'),
                         'log_module' => 'Page Tree',
                         'log_action' => 'Hapus Page Tree',
                         'log_info' => 'ID:' . $id . ';Title:' . $tree[$id]['title']

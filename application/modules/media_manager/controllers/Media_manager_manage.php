@@ -1,9 +1,22 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+/** 
+* Media manager controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
+ini_set('display_errors', true);
 
 class Media_manager_manage extends CI_Controller {
 
-	private $_select = '*';
+    private $_select = '*';
 
     public function __construct() {
         parent::__construct(TRUE);
@@ -11,7 +24,7 @@ class Media_manager_manage extends CI_Controller {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
 
-        $this->load->model(array('Media_manager_model', 'media_album/Media_album_model'));
+        $this->load->model('Mediamanager_model');
         $this->load->model('activity_log/Activity_log_model');
     }
 
@@ -19,8 +32,8 @@ class Media_manager_manage extends CI_Controller {
 
         $this->load->library('pagination');
 
-        $data['images'] = $this->Media_manager_model->getImage(array('limit' => 16, 'offset' => $offset));
-        $data['total_images'] = $this->Media_manager_model->count();
+        $data['images'] = $this->Mediamanager_model->getImage(array('limit' => 16, 'offset' => $offset));
+        $data['total_images'] = $this->Mediamanager_model->count();
 
         $config['base_url'] = site_url('manage/media_manager/index/');
         $config['total_rows'] = $data['total_images'];
@@ -31,8 +44,8 @@ class Media_manager_manage extends CI_Controller {
         $data['main'] = 'media_manager/list';
 
         // list album
-        $this->load->model('media_album/Media_album_model');
-        $data['albums'] = $this->Media_album_model->gets($offset);
+        $this->load->model('Mediaalbum_model');
+        $data['albums'] = $this->Mediaalbum_model->gets($offset);
 
         $this->load->view('manage/layout', $data);
     }
@@ -41,22 +54,22 @@ class Media_manager_manage extends CI_Controller {
 
         $this->load->library('pagination');
 
-        $images = $this->Media_manager_model->getFromAlbum($album_id, $offset);
+        $images = $this->Mediamanager_model->getFromAlbum($album_id, $offset);
 
         $data['images'] = $images['data'];
-        $data['total_images'] = $images['count']; //$this->Media_manager_model->count();
+        $data['total_images'] = $images['count']; //$this->Mediamanager_model->count();
 
         $config['base_url'] = site_url('manage/media_album/index/');
         $config['total_rows'] = $data['total_images'];
-        $config['per_page'] = $this->Media_manager_model->limit;
+        $config['per_page'] = $this->Mediamanager_model->limit;
 
         $this->pagination->initialize($config);
         $data['id'] = $album_id;
         $data['main'] = 'media_manager/list';
 
         // list album
-        $this->load->model('Media_album_model');
-        $data['albums'] = $this->Media_album_model->gets($offset);
+        $this->load->model('Mediaalbum_model');
+        $data['albums'] = $this->Mediaalbum_model->gets($offset);
 
         $this->load->view('manage/layout', $data);
     }
@@ -65,7 +78,7 @@ class Media_manager_manage extends CI_Controller {
 
         $id = (int) $id;
 
-        $image = $this->Media_manager_model->get($id);
+        $image = $this->Mediamanager_model->get($id);
 
         if ($image) {
             $imgInfo = unserialize($image['info']);
@@ -136,7 +149,7 @@ class Media_manager_manage extends CI_Controller {
 
         $id = (int) $id;
 
-        $image = $this->Media_manager_model->get($id);
+        $image = $this->Mediamanager_model->get($id);
         $message = array(
             'type' => 'danger',
             'data' => 'Image not found.'
@@ -164,7 +177,7 @@ class Media_manager_manage extends CI_Controller {
     public function upload() {
         $config['upload_path'] = FCPATH . './uploads/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|pdf|doc|docx';
-        //$config['file_name'] = 'Media_manager-'.date('Y-m-d_His');
+        //$config['file_name'] = 'mediamanager-'.date('Y-m-d_His');
         //~ $config['max_size']	= '100';
         //~ $config['max_width']  = '1024';
         //~ $config['max_height']  = '768';
@@ -201,7 +214,7 @@ class Media_manager_manage extends CI_Controller {
                     'upload_at' => $now->format('Y-m-d H:i:s')
                 );
 
-                $this->Media_manager_model->add($data);
+                $this->Mediamanager_model->add($data);
                 $this->session->set_flashdata('success', 'Success upload file.');
             }
         }
@@ -223,7 +236,7 @@ class Media_manager_manage extends CI_Controller {
 
         $config['upload_path'] = FCPATH . './uploads/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|pdf|doc|docx';
-        //$config['file_name'] = 'Media_manager-'.date('Y-m-d_His');
+        //$config['file_name'] = 'mediamanager-'.date('Y-m-d_His');
         //~ $config['max_size']	= '100';
         //~ $config['max_width']  = '1024';
         //~ $config['max_height']  = '768';
@@ -255,7 +268,7 @@ class Media_manager_manage extends CI_Controller {
                     'upload_at' => $now->format('Y-m-d H:i:s')
                 );
 
-                $this->Media_manager_model->add($data);
+                $this->Mediamanager_model->add($data);
                 $data = array('files' => $this->upload->data());
             }
             else {
@@ -273,10 +286,10 @@ class Media_manager_manage extends CI_Controller {
           redirect('manage/media_manager');
           } */
 
-        /* $images = $this->Media_manager_model->gets(null);
+        /* $images = $this->Mediamanager_model->gets(null);
           $data = [
           'images' => $images,
-          'total' => $this->Media_manager_model->count(),
+          'total' => $this->Mediamanager_model->count(),
           ]; */
 
         //$this->load->view('manage/media_manager/popup', $data);
@@ -289,7 +302,7 @@ class Media_manager_manage extends CI_Controller {
     }
 
     public function viewapp($id) {
-        $image = $this->Media_manager_model->get($id);
+        $image = $this->Mediamanager_model->get($id);
 
         $filename = $image['name'];
         $file = upload_url($filename);
@@ -306,11 +319,11 @@ class Media_manager_manage extends CI_Controller {
 
         $this->load->library('pagination');
         $keyword = '';
-        $this->Media_manager_model->limit = $limit = 15;
+        $this->Mediamanager_model->limit = $limit = 15;
         $offset_ex = ($offset - 1) * $limit;
         $params['isfile'] = $isfile;
 
-        $images = $this->Media_manager_model->gets($offset_ex, $keyword, $params);
+        $images = $this->Mediamanager_model->gets($offset_ex, $keyword, $params);
         if ($images['count'] > 0) {
             foreach ($images['data'] as $index => $value) {
                 if ($value['info'] != '0')
@@ -319,14 +332,14 @@ class Media_manager_manage extends CI_Controller {
         }
 
         $data['images'] = $images['data'];
-        $data['total_images'] = $total = $this->Media_manager_model->count($isfile);
-        $data['pages'] = $this->Media_manager_model->createPage($offset, $this->Media_manager_model->limit, $total);
+        $data['total_images'] = $total = $this->Mediamanager_model->count($isfile);
+        $data['pages'] = $this->Mediamanager_model->createPage($offset, $this->Mediamanager_model->limit, $total);
 
         //if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
 
         $config['base_url'] = site_url('manage/media_manager/popup/');
         $config['total_rows'] = $data['total_images'];
-        $config['per_page'] = $this->Media_manager_model->limit;
+        $config['per_page'] = $this->Mediamanager_model->limit;
 
         $this->pagination->initialize($config);
         $data['main'] = 'media_manager/list';
@@ -348,13 +361,13 @@ class Media_manager_manage extends CI_Controller {
     }
 
     public function tmp() {
-        $this->Media_manager_model->tempCreateTable();
+        $this->Mediamanager_model->tempCreateTable();
     }
 
     public function delete($id = NULL) {
 
-        $image = $this->Media_manager_model->get($id);
-        $this->Media_manager_model->delete($id);
+        $image = $this->Mediamanager_model->get($id);
+        $this->Mediamanager_model->delete($id);
         // activity log
         $this->Activity_log_model->add(
                 array(
@@ -371,6 +384,3 @@ class Media_manager_manage extends CI_Controller {
     }
 
 }
-
-/* End of file Media_manager_manage.php */
-/* Location: ./application/modules/media_manager/controllers/Media_manager_manage.php */

@@ -1,5 +1,15 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/** 
+* Media album controllers class
+ *
+ * @package     GROOT
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ */
+
+ini_set('display_errors', true);
 
 class Media_album_manage extends CI_Controller {
 
@@ -9,18 +19,18 @@ class Media_album_manage extends CI_Controller {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
 
-        $this->load->model('Media_album_model');
+        $this->load->model('Mediaalbum_model');
     }
 
     public function index($offset=0) {
         $this->load->library('pagination');
-        $albums = $this->Media_album_model->gets($offset);
+        $albums = $this->Mediaalbum_model->gets($offset);
         $data['albums'] = $albums['data'];
         $data['total_albums'] = $albums['count'];//$this->Mediamanage_model->count();
 
         $config['base_url'] = site_url('manage/media_album/index/');
         $config['total_rows'] = $data['total_albums'];
-        $config['per_page'] = $this->Media_album_model->limit;
+        $config['per_page'] = $this->Mediaalbum_model->limit;
 
         $this->pagination->initialize($config);
         $data['title'] = 'Media manager';
@@ -42,7 +52,7 @@ class Media_album_manage extends CI_Controller {
     	);
 
 
-    	$result = $this->Media_album_model->add($data);
+    	$result = $this->Mediaalbum_model->add($data);
 
     	redirect('manage/media_album');
         }else{
@@ -57,7 +67,7 @@ class Media_album_manage extends CI_Controller {
     	$this->Mediamanage_model->limit = $limit = 20;
     	$offset_ex = ($offset - 1) * $limit;
 
-    	$images = $this->Media_album_model->gets($offset_ex);
+    	$images = $this->Mediaalbum_model->gets($offset_ex);
 
     	$data['images'] = $images['data'];
     	$data['total_images'] = $total = $images['count'];
@@ -70,6 +80,3 @@ class Media_album_manage extends CI_Controller {
     }
 
 }
-
-/* End of file Media_album_manage.php */
-/* Location: ./application/modules/media_manager/controllers/Media_album_manage.php */

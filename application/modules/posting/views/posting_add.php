@@ -51,22 +51,22 @@ if (isset($posting)) {
         <textarea name="posting_content" rows="10"><?php echo $posting_content; ?></textarea>
         <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
         <div class="form-group">
-            <div class="box4">
-                <label for="image">Unggah File Gambar</label>
-                <!--<input id="image" type="file" name="inputGambar">-->
-                <a name="action" id="openmm"type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
-                <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
-                <input type="hidden" name="inputGambarExisting">
-                <input type="hidden" name="inputGambarExistingId">
+                <div class="box4">
+                    <label for="image">Unggah File Gambar</label>
+                    <!--<input id="image" type="file" name="inputGambar">-->
+                    <a name="action" id="openmm" type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
+                    <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
+                    <input type="hidden" name="inputGambarExisting">
+                    <input type="hidden" name="inputGambarExistingId">
 
-                <?php if (isset($posting) AND !empty($posting['posting_image'])): ?>
-                    <div class="thumbnail mt10">
-                        <img class="previewTarget" src="<?php echo $posting['posting_image']; ?>" style="width: 280px !important" >
-                    </div>
-                    <input type="hidden" name="inputGambarCurrent" value="<?php echo $posting['posting_image']; ?>">
-                <?php endif; ?>
+                    <?php if (isset($posting) AND !empty($posting['posting_image'])): ?>
+                        <div class="thumbnail mt10">
+                            <img class="previewTarget" src="<?php echo $posting['posting_image']; ?>" style="width: 280px !important" >
+                        </div>
+                        <input type="hidden" name="inputGambarCurrent" value="<?php echo $posting['posting_image']; ?>">
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
     </div>
     <div class="col-sm-9 col-md-3">
         <div class="form-group">
@@ -99,9 +99,9 @@ if (isset($posting)) {
         <div class="form-group" ng-controller="CategoriesCtrl">
             <label>Kategori</label>
             <div class=" input-group">
-                <select name="category_id" class="form-control" id="selectCat">
-                    <option ng-repeat="category in categories" ng-selected="category_data.index == posting_category.category_id" value="{{posting_category.category_id}}">{{posting_category.category_name}}</option>
-                </select>
+                <select name="posting_category_id" class="form-control" id="selectCat">
+                        <option ng-repeat="category in categories" ng-selected="category_data.index == category.category_id" value="{{category.category_id}}">{{category.category_name}}</option>
+                    </select>
                 <div class="input-group-btn">
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#category" aria-expanded="false">
                         <span class="ion-plus"></span>

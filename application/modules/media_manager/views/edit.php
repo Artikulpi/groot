@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-md-3">
-            <a href="<?php echo site_url('gadmin/media_manager/restore/'.$image['id'])?>" class="btn save btn-primary">Restore</a>
+            <a href="<?php echo site_url('manage/media_manager/restore/'.$image['id'])?>" class="btn save btn-primary">Restore</a>
             <button class="btn save btn-primary">Save changes</button><br><br>
             <ul class="nav nav-tabs" id="the-tab">
                 <li class="active" data-toggle="#crop">

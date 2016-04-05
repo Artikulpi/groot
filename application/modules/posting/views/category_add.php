@@ -59,7 +59,7 @@ if (isset($category)) {
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         <?php
-        if ($this->session->flashdata('message')) { {
+        if ($this->session->flashdata('delete')) { {
             ?>
             <script type="text/javascript">
                 $(window).load(function () {

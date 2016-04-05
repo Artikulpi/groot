@@ -3,56 +3,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Posting_manage extends CI_Controller {
 
-	public function __construct()
-	{
-	    parent::__construct();
-		$this->load->model('Posting_model');
-
+    public function __construct() {
+        parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
-            header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
+            header("Location:" . site_url('manage/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-	}
+        $this->load->model(array('Posting_model', 'activity_log/Activity_log_model'));
+        $this->load->library('upload');
+    }
 
-	public function index()
-	{
-        $data['posting'] = $this->Posting_model->get();
-        $data['title'] = 'Indeks Posting';
+    // Posting view in list
+    public function index($offset = NULL) {
+        $this->load->library('pagination');
+        $data['posting'] = $this->Posting_model->get(array('limit' => 10, 'offset' => $offset));
+        $data['category'] = $this->Posting_model->get_category();
+        $config['base_url'] = site_url('manage/posting/index');
+        $config['total_rows'] = $this->db->count_all('posting');
+        $this->pagination->initialize($config);
+
+        $data['title'] = 'Posting';
         $data['main'] = 'posting/posting_list';
         $this->load->view('manage/layout', $data);
-	}
+    }
 
-    public function view($id = NULL)
-    {
+    function view($id = NULL) {
         if ($this->Posting_model->get(array('id' => $id)) == NULL) {
-            redirect('manage/posting','refresh');
+            redirect('manage/posting');
         }
         $data['posting'] = $this->Posting_model->get(array('id' => $id));
-        $data['title'] = 'Detail Posting';
+        $data['title'] = 'Detail posting';
         $data['main'] = 'posting/posting_view';
         $this->load->view('manage/layout', $data);
     }
 
-    public function view_category($id = NULL)
-    {
-        if ($this->Posting_model->get_category(array('id' => $id)) == NULL) {
-            redirect('manage/category','refresh');
-        }
-        $data['category'] = $this->Posting_model->get_category(array('id' => $id));
-        $data['title'] = 'Detail Kategori';
-        $data['main'] = 'posting/category_view';
+    // Category view in list
+    public function category($offset = NULL) {
+        $this->load->library('pagination');
+        $data['categories'] = $this->Posting_model->get_category(array('limit' => 10, 'offset' => $offset));
+        $config['base_url'] = site_url('manage/posting/category');
+        $config['total_rows'] = $this->db->count_all('posting_category');
+        $this->pagination->initialize($config);
+        $data['title'] = 'Kategori Posting';
+        $data['main'] = 'posting/category_list';
         $this->load->view('manage/layout', $data);
     }
 
-	// Add Posts and Update
-    public function add($id = NULL)
-    {
+    // Add Posting and Update
+    public function add($id = NULL) {
+        $this->load->library('form_validation');
         $this->form_validation->set_rules('posting_title', 'Title', 'required');
-        $this->form_validation->set_rules('posting_description', 'Description', 'required');
         $this->form_validation->set_rules('posting_content', 'Content', 'required');
-        $this->form_validation->set_rules('category_id_new', 'Kategori', 'is_unique[posting_category.category_name]');
-        $this->form_validation->set_rules('posting_is_published', 'Publish Status', 'required');
-
-        $data['operation'] = isset($id) ? 'Edit' : 'Tambah';
+        $this->form_validation->set_rules('posting_description', 'Description', 'required');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
+        $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
             if (!empty($_FILES['inputGambar']['name'])) {
@@ -73,18 +76,41 @@ class Posting_manage extends CI_Controller {
                 $params['posting_input_date'] = date('Y-m-d H:i:s');
             }
 
-            $params['posting_user_id'] = $this->session->userdata('user_id_admin');
+            $params['posting_is_published'] = ($this->input->post('posting_is_published', TRUE) == 1);
+            $params['posting_user_id'] = $this->session->userdata('uid');
             $params['posting_last_update'] = date('Y-m-d H:i:s');
             $params['posting_published_date'] = ($this->input->post('posting_published_date')) ? $this->input->post('posting_published_date') : date('Y-m-d H:i:s');
             $params['posting_title'] = $this->input->post('posting_title');
-            $params['posting_description'] = stripslashes($this->input->post('posting_description'));
             $params['posting_content'] = stripslashes($this->input->post('posting_content'));
+            $params['posting_description'] = stripslashes($this->input->post('posting_description'));
             $params['posting_category_id'] = $this->input->post('posting_category_id');
             $params['posting_is_published'] = $this->input->post('posting_is_published');
             $params['posting_is_commentable'] = $this->input->post('posting_is_commentable');
+            
+            // echo "<pre>";
+            // print_r ($params);
+            // echo "</pre>";
+
+            // echo "<pre>";
+            // print_r ($this->input->post());
+            // echo "</pre>";
+            // die();
+
             $status = $this->Posting_model->add($params);
 
-            $this->session->set_flashdata('message', $data['operation'] . ' posting berhasil');
+
+            // activity log
+            $this->Activity_log_model->add(
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Posting',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:null;Title:' . $params['posting_title']
+                    )
+                );
+
+            $this->session->set_flashdata('success', $data['operation'] . ' posting berhasil');
             redirect('manage/posting');
         } else {
             if ($this->input->post('posting_id')) {
@@ -95,52 +121,52 @@ class Posting_manage extends CI_Controller {
             if (!is_null($id)) {
                 $data['posting'] = $this->Posting_model->get(array('id' => $id));
             }
-            $data['category'] = $this->Posting_model->get_category();
+            $data['ngApp'] = 'ng-app';
+            $data['category'] = $this->get_category();
             $data['title'] = $data['operation'] . ' Posting';
             $data['main'] = 'posting/posting_add';
             $this->load->view('manage/layout', $data);
         }
     }
 
-	public function category()
-	{
-		$data['category'] = $this->Posting_model->get_category();
-		$data['title'] = 'Indeks Category';
-		$data['main'] = 'posting/category_list';
-		$this->load->view('manage/layout', $data);
-	}
+    // Add Category
+    public function add_category($id = NULL) {
 
-    protected function get_category() {
-        $res = json_encode($this->Posts_model->get_category());
-        return $res;
-    }
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('category_name', 'Name', 'required|is_unique[posting_category.category_name]');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
+        $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
-	public function add_category($id = NULL)
-	{
-		$data['operation'] = isset($id) ? 'Edit' : 'Tambah';
-		$this->form_validation->set_rules('category_name', 'Name', 'trim|required|is_unique[posting_category.category_name]');
-
-		if ($_POST AND $this->form_validation->run() == TRUE) {
-			if ($this->input->post('category_id')) {
-				$params['category_id'] = $this->input->post('category_id');
-				$params['category_input_date'] = $this->input->post('category_input_date');
-			}
-			else {
-				$params['category_input_date'] = date('Y-m-d H:i:s');
-			}
-			$params['category_last_update'] = date('Y-m-d H:i:s');
-			$params['category_name'] = $this->input->post('category_name');
-			$res = $this->Posting_model->add_category($params);
-
-			if ($this->input->is_ajax_request()) {
-                echo $res;
+        if ($_POST AND $this->form_validation->run() == TRUE) {
+            if ($this->input->post('category_id')) {
+                $params['category_id'] = $this->input->post('category_id');
             } else {
-	            $this->session->set_flashdata('message', $data['operation'] . ' kategori berhasil');
-	            redirect('manage/posting/category');
+                $params['category_input_date'] = date('Y-m-d H:i:s');
             }
-		} else {
-			if ($this->input->post('category_id')) {
-                redirect('manage/category/edit/' . $this->input->post('category_id'));
+            $params['category_last_update'] = date('Y-m-d H:i:s');
+            $params['category_name'] = $this->input->post('category_name');
+            $res = $this->Posting_model->add_category($params);
+
+            // activity log
+            $this->Activity_log_model->add(
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Posting',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:'.$res.';Title:' . $params['category_name']
+                    )
+                );
+
+            if ($this->input->is_ajax_request()) {
+                // echo $res;
+            } else {
+                $this->session->set_flashdata('success', $data['operation'] . ' kategori berhasil');
+                redirect('manage/posting/category');
+            }
+        } else {
+            if ($this->input->post('category_id')) {
+                redirect('manage/posting/category');
             }
 
             // Edit mode
@@ -150,22 +176,63 @@ class Posting_manage extends CI_Controller {
                 }
                 $data['category'] = $this->Posting_model->get_category(array('id' => $id));
             }
-            $data['title'] = $data['operation'] . ' Kategori';
+
+            $data['title'] = 'Tambah Kategori';
             $data['main'] = 'posting/category_add';
             $this->load->view('manage/layout', $data);
-		}
-	}
+        }
+    }
 
-    // Delete Posts
-    public function delete($id = NULL)
-    {
+    public function add_category_ajax($id = NULL) {
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('category_name', 'Name', 'required|is_unique[posting_category.category_name]');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
+        $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
+
+        if ($_POST AND $this->form_validation->run() == TRUE) {
+            $params['category_input_date'] = date('Y-m-d H:i:s');
+            $params['category_last_update'] = date('Y-m-d H:i:s');
+            $params['category_name'] = $this->input->post('category_name');
+            $res = $this->Posting_model->add_category($params);
+
+            $this->Activity_log_model->add(
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Posting',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:'.$res.';Title:' . $params['category_name']
+                    )
+                );
+
+            echo $res;
+        } 
+    }
+
+    protected function get_category() {
+        $res = json_encode($this->Posting_model->get_category());
+        return $res;
+    }
+
+    // Delete Posting
+    public function delete($id = NULL) {
         if ($_POST) {
             $this->Posting_model->delete($this->input->post('del_id'));
-            $this->session->set_flashdata('message', 'Hapus posting berhasil');
+            // activity log
+            $this->Activity_log_model->add(
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Posting',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                    )
+                );
+            $this->session->set_flashdata('success', 'Hapus posting berhasil');
             redirect('manage/posting');
-        }
-        elseif (!$_POST) {
-            $this->session->set_flashdata('message', 'Delete');
+        } elseif (!$_POST) {
+            $this->session->set_flashdata('delete', 'Delete');
             redirect('manage/posting/edit/' . $id);
         }
     }
@@ -173,14 +240,24 @@ class Posting_manage extends CI_Controller {
     // Delete Category
     public function delete_category($id = NULL) {
         if ($_POST) {
-            // $params['category_id'] = '1';
-            // $this->Posting_model->set_default_category($id, $params);
+            $params['posting_category_id'] = '1';
+            $this->Posting_model->set_default_category($id, $params);
 
             $this->Posting_model->delete_category($this->input->post('del_id'));
-            $this->session->set_flashdata('message', 'Hapus kategori posting berhasil');
+            // activity log
+            $this->Activity_log_model->add(
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'log_user_id' => $this->session->userdata('uid'),
+                    'log_module' => 'Kategori Posting',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                    )
+                );
+            $this->session->set_flashdata('success', 'Hapus kategori posting berhasil');
             redirect('manage/posting/category');
         } elseif (!$_POST) {
-            $this->session->set_flashdata('message', 'Delete');
+            $this->session->set_flashdata('delete', 'Delete');
             redirect('manage/posting/category/edit/' . $id);
         }
     }
