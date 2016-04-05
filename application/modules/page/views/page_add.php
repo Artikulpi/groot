@@ -28,15 +28,12 @@ if (isset($page)) {
     $inputImage = set_value('page_image');
 }
 ?>
-<div class="col-sm-9 col-md-10 main">
+
     <?php if (!isset($page)) echo validation_errors(); ?>
     <?php echo form_open_multipart(current_url()); ?>
-    <div class="row page-header">
-        <div class="col-sm-9 col-md-6">
-            <h3 class="page-title"><?php echo $operation; ?> Halaman</h3>
-        </div>
+            <h3 class="page-header"><?php echo $operation; ?> Halaman</h3>
 
-    </div>
+
 
     <div class="row">
         <div class="col-sm-9 col-md-9">

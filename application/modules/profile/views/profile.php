@@ -7,7 +7,7 @@
             <p class="section-description text-center"></p>  
             <div class="row member-content">
                 <div class="col-sm-3 col-sm-offset-1 member-thumb  fade-right in">
-                    <img class="img-responsive img-center img-thumbnail img-circle1" src="<?php echo media_url('image/user_1.jpg') ?>" alt="">
+                    <img class="img-responsive img-center img-thumbnail img-circle1" src="<?php echo media_url('image/profile.png') ?>" alt="">
                     <h4><?php echo $user['user_name'] ?></h4>
                     <p class="title"><?php echo $user['user_email'] ?></p>
                 </div>
