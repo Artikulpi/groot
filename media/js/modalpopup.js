@@ -47,7 +47,7 @@ $(document).ready(function(){
 			
 			if(typeof(start) == 'undefined')
 				start = 1;
-			var tipe_call = 'gadmin/media_manager';
+			var tipe_call = 'manage/media_manager';
 			if(tipe == 'album')
 				tipe_call = 'media_manager/media_album_admin';
 			
@@ -344,7 +344,7 @@ $(document).ready(function(){
 			p_tt		= $('<p/>').html(data.type),
 			d_tt		= $('<div/>').html(data.info_ex.file_name),
 			d_size		= $('<div/>').html(data.info_ex.file_ext),
-			a_view		= $('<a/>').html('View').attr({href: BASEURL+"/index.php/gadmin/media_manager/viewapp/"+data.id, target: '__blank'});
+			a_view		= $('<a/>').html('View').attr({href: BASEURL+"/index.php/manage/media_manager/viewapp/"+data.id, target: '__blank'});
 			var hid_input = $('<input/>').addClass('hid_input').attr({type: 'hidden', name: 'thefiles[]'}).val(data.id);
 			
 			var thumbnail = $('.previewTarget').closest('.thumbnail').removeClass('thumbnail');
@@ -442,7 +442,7 @@ $(document).ready(function(){
 			data.append(token_name, csrf_hash);
 			
 			 $.ajax({
-			     url: BASEURL+'index.php/gadmin/media_manager/uploadAjax?files',
+			     url: BASEURL+'index.php/manage/media_manager/uploadAjax?files',
 			     type: 'POST',
 			     data: data,
 			     cache: false,
@@ -492,7 +492,7 @@ $(document).ready(function(){
 			});
 			
 			$.ajax({
-				url: BASEURL+'index.php/gadmin/media_manager/uploadAjax',
+				url: BASEURL+'index.php/manage/media_manager/uploadAjax',
 		        type: 'POST',
 		        data: formData,
 		        cache: false,

@@ -6,6 +6,7 @@
 <link href="<?php echo base_url('media/css/modalpopup.css'); ?>" rel="stylesheet">
 <link href="<?php echo base_url('media/css/jasny-bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
 <script src="<?php echo base_url('media/js/jasny-bootstrap.min.js'); ?>"></script>
+
 <?php $this->load->view('manage/tinymce_init'); ?>
 <?php $this->load->view('manage/datepicker'); ?>
 
@@ -51,7 +52,7 @@ if (isset($page)) {
             <div class="form-group">
                 <div class="box4">
                     <label for="image">Unggah File Gambar</label>
-                    <a name="action" id="openmm"type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
+                    <a name="action" id="openmm" type="submit" value="save" class="btn btn-info"><i class="icon-ok icon-white"></i> Upload</a>
                     <div style="display: none;" ><a href="" id="opentiny">Open</a></div>
                     <input type="hidden" name="inputGambarExisting">
                     <input type="hidden" name="inputGambarExistingId">
