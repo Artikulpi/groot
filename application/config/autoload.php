@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('email','database', 'form_validation', 'pagination', 'session','template');
+$autoload['libraries'] = array('email','database', 'form_validation', 'pagination', 'session','template', 'upload', 'zebra_mptt');
 
 /*
 | -------------------------------------------------------------------

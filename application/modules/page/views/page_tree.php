@@ -24,7 +24,7 @@
                                         <?php foreach ($node['children'] as $key => $node): ?>
                                             <li class="dd-item" data-id="<?php echo $key; ?>">
                                                 <div class="pull-right tools">
-                                                    <a href="<?php echo site_url('gadmin/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px;"></i></a>
+                                                    <a href="<?php echo site_url('manage/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px;"></i></a>
                                                     <?php if (is_page($node)): ?>
                                                         <a href="<?php echo page_tree_url_to_page_edit_url($node); ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                                                     <?php endif; ?>
@@ -38,7 +38,7 @@
                                                         <?php foreach ($node['children'] as $key => $node): ?>
                                                             <li class="dd-item" data-id="<?php echo $key; ?>">
                                                                 <div class="pull-right tools">
-                                                                    <a href="<?php echo site_url('gadmin/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px"></i></a>
+                                                                    <a href="<?php echo site_url('manage/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px"></i></a>
                                                                     <?php if (is_page($node)): ?>
                                                                         <a href="<?php echo page_tree_url_to_page_edit_url($node); ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                                                                     <?php endif; ?>
@@ -52,7 +52,7 @@
                                                                         <?php foreach ($node['children'] as $key => $node): ?>
                                                                             <li class="dd-item" data-id="<?php echo $key; ?>">
                                                                                 <div class="pull-right tools">
-                                                                                    <a href="<?php echo site_url('gadmin/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px"></i></a>
+                                                                                    <a href="<?php echo site_url('manage/page/remove_node/' . $node['id']); ?>"><i class="glyphicon glyphicon-trash" style="float: right; margin-left: 5px"></i></a>
                                                                                     <?php if (is_page($node)): ?>
                                                                                         <a href="<?php echo page_tree_url_to_page_edit_url($node); ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                                                                                     <?php endif; ?></div>
@@ -86,7 +86,7 @@
         <div class="col-sm-9 col-md-3">
             <div class="form-group">
                 <button name="action" type="submit" value="save" class="btn btn-success"><i class="ion-checkmark"></i> Simpan</button>
-                <a  href="<?php echo site_url('gadmin/page'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
+                <a  href="<?php echo site_url('manage/page'); ?>" class="btn btn-info"><i class="ion-arrow-left-a"></i> Batal</a>
             </div>
             <hr>
             <div class="form-group">

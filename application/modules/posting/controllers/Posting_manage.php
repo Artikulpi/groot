@@ -9,7 +9,6 @@ class Posting_manage extends CI_Controller {
             header("Location:" . site_url('manage/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('Posting_model', 'activity_log/Activity_log_model'));
-        $this->load->library('upload');
     }
 
     // Posting view in list

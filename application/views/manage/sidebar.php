@@ -40,7 +40,7 @@
             <a href="#"><i class="ion-android-folder"></i> Posting <i class="ion-arrow-down-b pull-right"></i></a>
         </li>
 
-        <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'page') ? 'in' : NULL; ?>" id="posting">
+        <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'posting') ? 'in' : NULL; ?>" id="posting">
             <li class="active"><a href="<?php echo site_url('manage/posting'); ?>">
             <i class="ion-clipboard"></i> Daftar Posting</a></li>
              <li class="active"><a href="<?php echo site_url('manage/posting/add'); ?>"> 

@@ -57,8 +57,8 @@ class Page_manage extends CI_Controller {
                 }
 
                 $params['page_last_update'] = date('Y-m-d H:i:s');
-                $params['user_id'] = $this->session->userdata('uid');
-                $params['page_publish_date'] = ($this->input->post('page_publish_date')) ? $this->input->post('page_publish_date') : date('Y-m-d H:i:s');
+                $params['page_user_id'] = $this->session->userdata('uid');
+                $params['page_published_date'] = ($this->input->post('page_published_date')) ? $this->input->post('page_published_date') : date('Y-m-d H:i:s');
                 $params['page_name'] = $this->input->post('page_name');
                 $params['page_content'] = $this->input->post('page_content');
                 $params['page_description'] = $this->input->post('page_description');
@@ -80,7 +80,7 @@ class Page_manage extends CI_Controller {
                 $this->session->set_flashdata('success', $data['operation'] . ' halaman berhasil');
                 redirect('manage/page');
             } else {
-                if ($this->input->post('user_id')) {
+                if ($this->input->post('page_user_id')) {
                     redirect('manage/page/edit/' . $this->input->post('page_id'));
                 }
 
@@ -118,7 +118,7 @@ class Page_manage extends CI_Controller {
     }
 
     public function tree($id=NULL) {
-        $this->load->library('G_mptt');
+        $this->load->library('Zebra_mptt');
         $this->mptt = new Zebra_Mptt();
             if ($_POST) {
                 // Add menu
@@ -180,7 +180,7 @@ class Page_manage extends CI_Controller {
     }
 
     public function remove_node($id = NULL) {
-        $this->load->library('G_mptt');
+        $this->load->library('Zebra_mptt');
         $this->mptt = new Zebra_Mptt();
             $tree = $this->mptt->get_path($id);
             $this->mptt->delete($id);

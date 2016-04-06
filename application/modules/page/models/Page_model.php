@@ -12,17 +12,17 @@ class Page_model extends CI_Model {
     // Get From Databases
     function get($params = array()) {
         if (isset($params['id'])) {
-            $this->db->where('page.page_id', $params['id']);
-        } elseif (isset($params['user_id'])) {
-            $this->db->where('page.page_user_id', $params['user_id']);
+            $this->db->where('page_id', $params['id']);
+        } elseif (isset($params['page_user_id'])) {
+            $this->db->where('page_user_id', $params['page_user_id']);
         } elseif (isset($params['page_name'])) {
-            $this->db->like('page_name', $params['name']);
-        } elseif (isset($params['date'])) {
-            $this->db->where('page_input_date', $params['date']);
+            $this->db->like('page_name', $params['page_name']);
+        } elseif (isset($params['page_input_date'])) {
+            $this->db->where('page_input_date', $params['page_input_date']);
         }
 
-        if (isset($params['status'])) {
-            $this->db->where('page_is_published', $params['status']);
+        if (isset($params['page_is_published'])) {
+            $this->db->where('page_is_published', $params['page_is_published']);
         }
 
         if (isset($params['limit'])) {
@@ -94,8 +94,8 @@ class Page_model extends CI_Model {
             $this->db->set('page_is_commentable', $data['page_is_commentable']);
         }
 
-        if (isset($data['user_id'])) {
-            $this->db->set('user_id', $data['user_id']);
+        if (isset($data['page_user_id'])) {
+            $this->db->set('page_user_id', $data['page_user_id']);
         }
 
         if (isset($data['page_id'])) {
