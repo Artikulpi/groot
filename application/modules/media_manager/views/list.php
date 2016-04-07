@@ -78,11 +78,11 @@
                                 if ($type != '' && $type != 'image') {
                                     switch ($type_ex[1]) {
                                         case 'pdf':
-                                            $imageView = media_url('image/icon_pdf.png');
+                                            $imageView = media_url('/image/icon_pdf.png');
                                             break;
                                         case 'msword':
                                         case 'doc':
-                                            $imageView = media_url('image/icon_word.png');
+                                            $imageView = media_url('/image/icon_word.png');
                                             break;
                                     }
                                 }
@@ -106,7 +106,7 @@
                                     <?php else: ?>
                                         <div class="img-album">
                                             <a href="<?php echo site_url('/manage/media_manager/album/' . $image['id']) ?>">
-                                                <img src="<?php echo media_url('image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
+                                                <img src="<?php echo media_url('/image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
                                                 <div class="info_album">
                                                     <div class="info_name"><?php echo $image['label'] ?></div>
                                                     <div><?php echo $image['count'] ?> images</div>

@@ -34,7 +34,7 @@
                             <div class="col-md-3">
                                 <div class="img-album">
                                     <a href="<?php echo site_url('manage/media_manager/album/' . $album['id']) ?>">
-                                        <img src="<?php echo media_url('media/image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
+                                        <img src="<?php echo media_url('/image/icon-album.png') . '?' . uniqid() ?>" width="128px" >
                                         <div class="info_album">
                                             <div class="info_name"><?php echo $album['label'] ?></div>
                                             <div><?php echo $album['count'] ?> images</div>

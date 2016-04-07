@@ -3,15 +3,6 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/** 
-* Media manager controllers class
- *
- * @package     GROOT
- * @subpackage  Controllers
- * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
- */
-
 ini_set('display_errors', true);
 
 class Media_manager_manage extends CI_Controller {
@@ -175,14 +166,16 @@ class Media_manager_manage extends CI_Controller {
     }
 
     public function upload() {
-        $config['upload_path'] = FCPATH . './uploads/';
+        $this->load->library('upload');
+        $config['upload_path'] = FCPATH . 'uploads/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|pdf|doc|docx';
         //$config['file_name'] = 'mediamanager-'.date('Y-m-d_His');
-        //~ $config['max_size']	= '100';
+        //~ $config['max_size'] = '100';
         //~ $config['max_width']  = '1024';
         //~ $config['max_height']  = '768';
 
-        $this->load->library('upload', $config);
+        // $this->load->library('upload', $config);
+        $this->upload->initialize($config);
         $label = $this->input->post('img_label');
         $album_id = $this->input->post('album_id');
 
@@ -191,6 +184,7 @@ class Media_manager_manage extends CI_Controller {
 
             if (!$this->upload->do_upload('fn')) {
                 $this->session->set_flashdata('error', $this->upload->display_errors());
+                $this->session->set_flashdata('error', $config['upload_path']);
             } else {
 
                 $info = $this->upload->data();
@@ -234,14 +228,16 @@ class Media_manager_manage extends CI_Controller {
         $error = 1;
         $files = array();
 
-        $config['upload_path'] = FCPATH . './uploads/';
+        $this->load->library('upload');
+        $config['upload_path'] = FCPATH . 'uploads/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|pdf|doc|docx';
         //$config['file_name'] = 'mediamanager-'.date('Y-m-d_His');
-        //~ $config['max_size']	= '100';
+        //~ $config['max_size'] = '100';
         //~ $config['max_width']  = '1024';
         //~ $config['max_height']  = '768';
 
-        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        //$this->load->library('upload', $config);
 
         if (isset($_GET['files'])) {
 

@@ -1,19 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/** 
-* Media album controllers class
- *
- * @package     GROOT
- * @subpackage  Controllers
- * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
- */
-
 ini_set('display_errors', true);
 
 class Media_album_manage extends CI_Controller {
 
-	public function __construct () {
+    public function __construct () {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
@@ -43,18 +34,18 @@ class Media_album_manage extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('album_name', 'Judul album', 'required');
         if($_POST AND $this->form_validation->run() == TRUE){
-    	$now = new Datetime('now');
-    	$name = $this->input->post('album_name');
+        $now = new Datetime('now');
+        $name = $this->input->post('album_name');
 
-    	$data = array(
-	    	'label' => $name,
-	    	'upload_at' => $now->format('Y-m-d H:i:s')
-    	);
+        $data = array(
+            'label' => $name,
+            'upload_at' => $now->format('Y-m-d H:i:s')
+        );
 
 
-    	$result = $this->Mediaalbum_model->add($data);
+        $result = $this->Mediaalbum_model->add($data);
 
-    	redirect('manage/media_album');
+        redirect('manage/media_album');
         }else{
             $this->session->set_flashdata('error', 'Judul album tidak boleh kosong');
             redirect('manage/media_album');
@@ -62,20 +53,20 @@ class Media_album_manage extends CI_Controller {
     }
 
     public function listAjax ($offset=1) {
-    	$this->load->library('pagination');
-    	$keyword = '';
-    	$this->Mediamanage_model->limit = $limit = 20;
-    	$offset_ex = ($offset - 1) * $limit;
+        $this->load->library('pagination');
+        $keyword = '';
+        $this->Mediamanage_model->limit = $limit = 20;
+        $offset_ex = ($offset - 1) * $limit;
 
-    	$images = $this->Mediaalbum_model->gets($offset_ex);
+        $images = $this->Mediaalbum_model->gets($offset_ex);
 
-    	$data['images'] = $images['data'];
-    	$data['total_images'] = $total = $images['count'];
-    	$data['type']	= 'album';
+        $data['images'] = $images['data'];
+        $data['total_images'] = $total = $images['count'];
+        $data['type']   = 'album';
 
-    	$this->output
-    	->set_content_type('application/json')
-    	->set_output(json_encode($data));
+        $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($data));
 
     }
 
