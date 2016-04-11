@@ -7,7 +7,7 @@
 <link href="<?php echo base_url('media/css/jasny-bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
 <script src="<?php echo base_url('media/js/jasny-bootstrap.min.js'); ?>"></script>
 
-<div class="col-sm-9 col-md-10 main">
+
 
     <h3 class="page-header">
         Daftar Pengaturan
@@ -54,7 +54,7 @@
             Kolom tidak boleh kosong, Jika ingin di nonaktifkan silakan beri tanda ( - ) pada kolom yang tersedia.
         </div>
     </div>
-</div>
+
 
 <script>
     $('#check').change(function(checked) {

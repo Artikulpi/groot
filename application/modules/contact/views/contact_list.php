@@ -61,6 +61,7 @@
         <div class="row">
             <div class="col-md-12">
                 <input type="submit" value="Simpan" class="btn btn-primary pull-right">
+                <br><br>
             </div>
         </div>
     </div>
@@ -70,3 +71,5 @@
             Kolom tidak boleh kosong, Jika ingin di nonaktifkan silakan beri tanda ( - ) pada kolom yang tersedia.
         </div>
     </div>
+
+

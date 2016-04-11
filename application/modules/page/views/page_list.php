@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-md-10 main">
+
 
     <h3 class="page-header">
         Daftar Halaman
@@ -43,4 +43,6 @@
         <div >
             <?php echo $this->pagination->create_links(); ?>
     </div>
-</div>
+
+
+
