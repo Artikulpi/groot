@@ -17,7 +17,6 @@ class Activity_log_manage extends CI_Controller {
 		$data['log'] = $this->Activity_log_model->get(array('limit' => 10, 'offset' => $offset));
         $data['title'] = 'Log Aktivitas';
         $data['main'] = 'activity_log/list';
-        $config['per_page'] = 10;
         $config['base_url'] = site_url('manage/activity_log/index');
         $config['total_rows'] = $this->db->count_all('activity_log');
         $this->pagination->initialize($config);

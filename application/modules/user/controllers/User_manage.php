@@ -14,11 +14,17 @@ class User_manage extends CI_Controller {
     }
 
     // User_customer view in list
-    public function index()
+    public function index($offset = NULL)
     {
-        $data['user'] = $this->User_model->get();
+        $this->load->library('pagination');
+
+        $data['user'] = $this->User_model->get(array('limit' => 10, 'offset' => $offset));
         $data['title'] = 'Pengguna';
         $data['main'] = 'user/user_list';
+        $config['base_url'] = site_url('manange/user/index');
+        $config['total_rows'] = $this->db->count_all('user');
+        $this->pagination->initialize($config);
+
         $this->load->view('manage/layout', $data);
     }
 
