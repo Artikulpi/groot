@@ -90,13 +90,13 @@ if (!function_exists('page_url')) {
 
 if (!function_exists('posting_url')) {
 
-    function posts_url($posts = array()) {
-        if (isset($posts['posting_url'])) {
-            return $posts['posting_url'];
+    function posting_url($posting = array()) {
+        if (isset($posting['posting_url'])) {
+            return $posting['posting_url'];
         } else {
-            list($date, $time) = explode(' ', $posts['posting_published_date']);
+            list($date, $time) = explode(' ', $posting['posting_published_date']);
             list($year, $month, $day) = explode('-', $date);
-            return site_url('posting/read/' . $year . '/' . $month . '/' . $day . '/' . $posts['posting_id'] . '/' . url_title($posts['posting_title'], '-', TRUE) . '.html');
+            return site_url('posting/read/' . $year . '/' . $month . '/' . $day . '/' . $posting['posting_id'] . '/' . url_title($posting['posting_title'], '-', TRUE) . '.html');
         }
     }
 

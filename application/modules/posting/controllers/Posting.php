@@ -28,7 +28,7 @@ class Posting extends CI_Controller {
     public function category($id = NULL, $offset = NULL)
     {
         $this->load->library('pagination');
-        $data['posting'] = $this->Posting_model->get(array('category_id' => $id, 'status' => 1, 'limit' => 10, 'offset' => $offset));
+        $data['posting'] = $this->Posting_model->get(array('posting_category_id' => $id, 'status' => 1, 'limit' => 10, 'offset' => $offset));
         $data['title'] = 'Posting';
         $data['category_name'] = isset($data['posting'][0]) ? $data['posting'][0]['category_name'] : 'Not Found';
         $config['uri_segment'] = 4;

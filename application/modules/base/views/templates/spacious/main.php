@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="tag">
-                                        <h2><a href="<?php echo posts_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
+                                        <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
                                         <div class="row-fluid">
                                             <h5>
                                                 <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
