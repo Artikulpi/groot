@@ -25,6 +25,10 @@ class Page_model extends CI_Model {
             $this->db->where('page_is_published', $params['page_is_published']);
         }
 
+        if (isset($params['status'])) {
+            $this->db->where('page_is_published', $params['status']);
+        }
+
         if (isset($params['limit'])) {
             if (!isset($params['offset'])) {
                 $params['offset'] = NULL;

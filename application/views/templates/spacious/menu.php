@@ -1,7 +1,8 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <?php $mptt = new Zebra_Mptt(); ?>
     <ul class="nav navbar-nav navbar-right">
-        <?php foreach ($mptt->get_tree(1) as $tree): ?>
+        <li><a href="<?php echo site_url() ?>">Home</a></li>
+        <?php foreach ($mptt->get_tree() as $tree): ?>
             <li><a href="<?php echo menu_url($tree); ?>"><?php echo $tree['title']; ?></a>
                 <?php if (count($tree['children']) > 0): ?>
                     <ul class="dropdown-menu">

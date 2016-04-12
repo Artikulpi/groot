@@ -30,6 +30,10 @@ class Posting_model extends CI_Model {
 			$this->db->like('posting_title', $params['posting_title']);
 		}
 
+		if (isset($params['status'])) {
+			$this->db->where('posting_is_published', $params['status']);
+		}
+
 		if(isset($params['date_start']) AND isset($params['date_end']))
 		{
 			$this->db->where('posting_input_date', $params['date_start']);
