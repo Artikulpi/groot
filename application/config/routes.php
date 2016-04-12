@@ -50,6 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['(:any)/category/(:num)/(:any).html'] = "$1/category/$2/$3";
+$route['(:any)/view/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
+$route['(:any)/view/(:num)/(:any).html'] = "$1/detail/$2/$3";
+$route['(:any)/read/(:num)/(:num)/(:num)/(:num)/(:any).html'] = "$1/detail/$5/$6";
+$route['(:any)/read/(:num)/(:any).html'] = "$1/detail/$2/$3";
+$route['page/(:num)/(:any)'] = "page/detail/$1/$2";
+
 $route['manage/(:any)/edit/(:num)'] = "$1/$1_manage/add/$2";
 $route['manage/(:any)/(:any)/edit/(:num)'] = "$1/$1_manage/add_$2/$3";
 $route['manage/(:any)/(:any)/(:num)'] = "$1/$1_manage/$2/$3";
