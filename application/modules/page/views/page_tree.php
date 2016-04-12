@@ -1,11 +1,6 @@
-<div class="col-sm-9 col-md-10 main">
-    <?php echo form_open_multipart(current_url()); ?>
-    <div class="row page-header">
-        <div class="col-sm-9 col-md-6">
-            <h3 class="page-title">Susunan Halaman</h3>
-        </div>
 
-    </div>
+    <?php echo form_open_multipart(current_url()); ?>
+            <h3 class="page-header">Susunan Halaman</h3>
 
     <div class="row">
         <div class="col-sm-9 col-md-9">
@@ -118,7 +113,7 @@
             </div>
         </div>
     </div>
-</div>
+
 <script src="<?php echo base_url('media/js/jquery.nestable.js');?>"></script>
 <script>
 
