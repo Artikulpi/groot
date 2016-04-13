@@ -3,25 +3,24 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo site_url() ?>">Home</a></li>
         <?php foreach ($mptt->get_tree() as $tree): ?>
-            <li><a href="<?php echo menu_url($tree); ?>"><?php echo $tree['title']; ?></a>
-                <?php if (count($tree['children']) > 0): ?>
+        <li class="dropdown"><a href="<?php echo menu_url($tree); ?>"><?php echo $tree['title']; ?></a>
+            <?php if (count($tree['children']) > 0): ?>
+            <ul class="dropdown-menu">
+                <?php foreach ($tree['children'] as $key => $node): ?>
+                <li class="dropdown item">
+                    <a class="dropdown-toggle" href="<?php echo menu_url($node); ?>"><?php echo $node['title']; ?></a>
+                    <?php if (count($node['children']) > 0): ?>
                     <ul class="dropdown-menu">
-                        <?php foreach ($tree['children'] as $key => $node): ?>
-                            <li class="dropdown item">
-                                <a class="dropdown-toggle" href="<?php echo menu_url($node); ?>"><?php echo $node['title']; ?></a>
-                                <?php if (count($node['children']) > 0): ?>
-                                    <ul class="dropdown-menu">
-                                        <?php foreach ($node['children'] as $key => $grandchild): ?>
-                                            <li class="dropdown item">
-                                                <a class="dropdown-toggle" href="<?php echo menu_url($grandchild); ?>"><?php echo $grandchild['title']; ?></a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
-                            </li>
+                        <?php foreach ($node['children'] as $key => $grandchild): ?>
+                        <li class="dropdown item"><a class="dropdown-toggle" href="<?php echo menu_url($grandchild); ?>"><?php echo $grandchild['title']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
-                <?php endif; ?></li>
+                    <?php endif; ?>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </li>
         <?php endforeach; ?>
         <form  action="<?php echo site_url('search'); ?>" method="post" class="navbar-form navbar-left" role="search">
             <div class="form-group">
