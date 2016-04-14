@@ -1,4 +1,4 @@
-<h1 class="section-title text-center page-title"><?php echo $title ?></h1>
+<h2 class="section-title text-center page-title"><?php echo $title ?></h2>
 <div class="row bootstrap snippets">
    <div class="col-md-6 col-md-offset-3">
        <div class="panel widget">
