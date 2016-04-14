@@ -1,6 +1,16 @@
- <h1 class="section-title text-center page-title"><?php echo $title ?></h1>
+ <h2 class="section-title text-center page-title"><?php echo $title ?></h2>
 <div class="row bootstrap snippets">
- <div class="col-md-6 col-md-offset-3">
+ <div class="col-md-4 col-md-offset-4">
+      <div class="panel widget">
+        <div class="widget-header bg-purple">
+        <img class="widget-bg img-responsive" src="<?php echo media_url('image/blur.jpg') ?>" alt="Image">
+        </div>
+        <div class="widget-body text-center">
+            <img alt="Profile Picture" class="widget-img img-border-light" src="<?php echo media_url('image/profile.png') ?>">
+            <h4 class="mar-no"><?php echo $text = ucfirst($this->session->userdata('uname')); ?></h4>
+            <p class="text-muted mar-btm"><?php echo $this->session->userdata('uemail'); ?></p>
+        </div>
+    </div>
   <div class="panel">
             <div class="pad-all">
              <div class="user-info-right">
