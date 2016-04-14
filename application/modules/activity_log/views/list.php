@@ -16,7 +16,7 @@
 							<div class="media">
 								<div class="media-left">
 									<a class="avatar1 avatar-online" href="javascript:void(0)">
-										<img src="<?php echo media_url('image/avatar1.png') ?>" alt="...">
+										<img src="<?php echo media_url('image/profile.png') ?>" alt="...">
 										<i></i>
 									</a>
 								</div>
@@ -39,7 +39,7 @@
 						<div class="media">
 							<div class="media-left">
 								<a class="avatar1 avatar-online" href="javascript:void(0)">
-									<img src="<?php echo media_url('image/avatar1.png') ?>" alt="...">
+									<img src="<?php echo media_url('image/profile.png') ?>" alt="...">
 									<i></i>
 								</a>
 							</div>
