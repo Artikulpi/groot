@@ -1,16 +1,9 @@
-<div class="bootstrap snippet">
-	<section id="team" class="white-bg padding-top-bottom">
-		<div class="bootstrap snippet">
-			<h1 class="section-title text-center page-title"><?php echo $title ?></h1>
-			<p class="section-description text-center"></p>  
-			<div class="row member-content">
-				<div class="col-sm-3 col-sm-offset-1 member-thumb  fade-right in">
-					<img class="img-responsive img-center img-thumbnail img-circle1" src="<?php echo media_url('image/profile.png') ?>" alt="">
-					<p class="title">Ganti password</p>
-				</div>
-				<div class="col-sm-7">
-					<div class="details">
-						<div class="user-info-right">
+ <h1 class="section-title text-center page-title"><?php echo $title ?></h1>
+<div class="row bootstrap snippets">
+ <div class="col-md-6 col-md-offset-3">
+  <div class="panel">
+            <div class="pad-all">
+             <div class="user-info-right">
 							<?php echo form_open(current_url()); ?>
 							<?php echo validation_errors(); ?>
 							<div class="form-group">
@@ -30,13 +23,11 @@
 							<a href="<?php echo site_url('manage/profile'); ?>" class="btn btn-block btn-info"><i class="ion-arrow-left-a"></i> Batal</button></a>
 							<?php form_close() ?>
 						</div>
-					</div>
-				</div>
-			</div>
+            </div>
+        </div>
+</div>
+</div>
 
-		</div>
-	</section>    
-</div>                    
 
 
 
