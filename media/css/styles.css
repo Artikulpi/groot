@@ -12,7 +12,7 @@ body {
 	padding-top: 50px;
 	color: #474747; 
 	/*	background-image: url(../image/blur.jpg);*/
-	background-color: #f6f7f7;
+	background-color: #eee;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -27,7 +27,7 @@ a, a:hover, a:focus {
 }
 
 h1, h3, h4, h5, h6 {
-	color: #5b9bd1;
+	color: #00a0d8;
 }
 
 h1 {
@@ -382,7 +382,18 @@ a.bg-danger:hover {
 }
 
 /*Panels*/
-
+.card-3 {
+    background: #fff;
+    font-size: 14px;
+    padding: 10px 10px 10px 10px;
+    width: auto;
+    margin: 5px 10px 0px 10px;
+    height: auto;
+    position: relative;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.16);
+}
 .panel {
 	border: 0;
 	color: #333;
@@ -685,7 +696,7 @@ a.bg-danger:hover {
 }
 
 .inset {
-	padding: 0px 20px 0px 30px;
+	padding: 0px 15px 0px 25px;
 }
 
 @media (max-width:767px) {
@@ -884,8 +895,7 @@ a.bg-danger:hover {
 		display: table-cell;
 		vertical-align: top;
 		background: #fff;
-		border-bottom:1px solid #eee;
-		/*border-top:1px solid #eee; */
+		/**/
 	}
 	.media-body {
 		width: 10000px;
@@ -1836,12 +1846,21 @@ span.tags
 }
 
 .data-row .data-name {
-  width: 12em;
-    color: #fff;
-  background-color: #23c6c8;
-  border-color: #4cae4c;
-  font-size: 0.9em;
-  vertical-align: top;
+	border-radius: 50px;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	padding: 12px 0px 0px 0px;
+	background-color: #23c6c8;
+	border-color: #4cae4c;
+	font-size: 11px;
+	vertical-align: top;
+}
+.data-row .data-name2 {
+	color: #00a0d8;
+	border-color: #4cae4c;
+	font-size: 12px;
+	vertical-align: top;
 }
 
 

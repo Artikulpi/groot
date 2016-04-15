@@ -106,7 +106,7 @@
                                     </li>
                                     <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'activity_log') ? 'in' : NULL; ?>" id="log">
                                         <li class="active"><a href="<?php echo site_url('manage/activity_log'); ?>">
-                                          <i class="ion-magnet"></i> Daftar Log Aktivitas</a></li>
+                                          <i class="ion-android-search"></i> Daftar Log Aktivitas</a></li>
                                        </ul>
 
                                        <br><br><br><br><br><br>
