@@ -1850,11 +1850,12 @@ span.tags
 	color: #fff;
 	width: 40px;
 	height: 40px;
-	padding: 12px 0px 0px 0px;
+	padding: 13px 0px 0px 0px;
 	background-color: #23c6c8;
 	border-color: #4cae4c;
 	font-size: 11px;
 	vertical-align: top;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.16);
 }
 .data-row .data-name2 {
 	color: #00a0d8;
