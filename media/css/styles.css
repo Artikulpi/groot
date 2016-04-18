@@ -229,6 +229,7 @@ fieldset[disabled] .btn-default.active {
 	background-color: #e9ecf2;
 	border-color: #e9ecf2;
 	color: #1b3548;
+	border-radius: 1px;
 }
 
 .btn-primary,
@@ -254,6 +255,7 @@ fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
 	background-color: #30a5ff;
 	border-color: #30a5ff;
+	border-radius: 1px;
 }
 
 .btn-success,
@@ -279,6 +281,7 @@ fieldset[disabled] .btn-success:active,
 fieldset[disabled] .btn-success.active {
 	background-color: #8ad919;
 	border-color: #8ad919;
+	border-radius: 1px;
 }
 
 .btn-warning,
@@ -304,6 +307,7 @@ fieldset[disabled] .btn-warning:active,
 fieldset[disabled] .btn-warning.active {
 	background-color: #ffb53e;
 	border-color: #ffb53e;
+	border-radius: 1px;
 }
 
 .btn-danger,
@@ -329,6 +333,7 @@ fieldset[disabled] .btn-danger:active,
 fieldset[disabled] .btn-danger.active {
 	background-color: #f9243f;
 	border-color: #f9243f;
+	border-radius: 1px;
 }
 
 /*Backgrounds*/
@@ -1847,6 +1852,7 @@ span.tags
 
 .data-row .data-name {
 	border-radius: 50px;
+	position: relative;
 	color: #fff;
 	width: 40px;
 	height: 40px;
@@ -1856,6 +1862,11 @@ span.tags
 	font-size: 11px;
 	vertical-align: top;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.16);
+}
+
+.data-name:hover
+{
+	opacity: 0.8;
 }
 .data-row .data-name2 {
 	color: #00a0d8;
