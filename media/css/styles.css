@@ -2193,7 +2193,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .member-entry {
   border: 1px solid #ebebeb;
-  padding: 15px;
+  padding: 10px;
   margin-top: 1px;
   margin-bottom: 10px;
   -moz-box-shadow: 1px 1px 1px rgba(0, 1, 1, 0.02);
@@ -2360,5 +2360,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: 10px;
   }
 }
+
+
+
+
 
                     

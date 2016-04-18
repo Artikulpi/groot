@@ -6,7 +6,7 @@
     <?php if (!empty($user)) {
         foreach ($user as $row) { ?>
         <div class="member-entry"> 
-            <a href="#" class="member-img"> 
+            <a href="#" class="member-img hidden-xs"> 
                 <img src="<?php echo media_url('image/profile.png') ?>" class="img-rounded"> 
                 <i class="fa fa-forward"></i> 
             </a> 
