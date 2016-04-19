@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script are allowed');
 
 class Contact_model extends CI_Model {
 
-	public function get($param = array()) {
+    public function get($param = array()) {
 
         if (isset($param['id'])) {
             $this->db->where('contact_id', $param['id']);
@@ -69,6 +71,3 @@ class Contact_model extends CI_Model {
     }
 
 }
-
-/* End of file Contact_model.php */
-/* Location: ./application/modules/contact/models/Contact_model.php */

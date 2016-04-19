@@ -1,4 +1,6 @@
-<h3 class="page-header">
+<div class="col-sm-9 col-md-10 main">
+
+    <h3 class="page-header">
         Sunting Contact
     </h3><hr>
 
@@ -61,7 +63,6 @@
         <div class="row">
             <div class="col-md-12">
                 <input type="submit" value="Simpan" class="btn btn-primary pull-right">
-                <br><br>
             </div>
         </div>
     </div>
@@ -72,4 +73,4 @@
         </div>
     </div>
 
-
+</div>

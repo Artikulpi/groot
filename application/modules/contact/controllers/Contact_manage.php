@@ -1,19 +1,19 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Contact_manage extends CI_Controller {
 
-	function __construct() {
+    function __construct() {
         parent::__construct();
+        if ($this->session->userdata('logged') == NULL) {
+            header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
+        }
         $this->load->model('Contact_model');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('upload');
-
-        
-        if ($this->session->userdata('logged') == NULL) {
-            header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
-        }
     }
 
     public function index() {
@@ -48,6 +48,3 @@ class Contact_manage extends CI_Controller {
     }
 
 }
-
-/* End of file Contact_manage.php */
-/* Location: ./application/modules/contact/controllers/Contact_manage.php */

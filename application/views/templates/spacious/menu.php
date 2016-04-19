@@ -2,6 +2,8 @@
     <?php $mptt = new Zebra_Mptt(); ?>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo site_url() ?>">Home</a></li>
+        <li><a href="<?php echo site_url('page/about') ?>">About</a></li>
+        <li><a href="<?php echo site_url('contact') ?>">Contact</a></li>
         <?php foreach ($mptt->get_tree() as $tree): ?>
         <li class="dropdown"><a href="<?php echo menu_url($tree); ?>"><?php echo $tree['title']; ?></a>
             <?php if (count($tree['children']) > 0): ?>

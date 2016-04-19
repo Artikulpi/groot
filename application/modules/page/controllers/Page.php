@@ -25,6 +25,20 @@ class Page extends CI_Controller {
         $this->load->view('layout', $data);
     }
 
+    public function about()
+    {
+        $data['title'] = 'About';
+        $data['main'] = 'page/about';
+        $this->load->view('layout', $data);
+    }
+
+    public function contact()
+    {
+        $data['title'] = 'Contact';
+        $data['main'] = 'page/contact';
+        $this->load->view('layout', $data);
+    }
+
 }
 
 /* End of file Page.php */
