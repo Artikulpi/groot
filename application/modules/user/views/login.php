@@ -26,20 +26,29 @@
                 <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
                     <div class="login">
                         <h1 class="admin">Hello, Admin!</h1>
-                        <?php echo form_open('user/auth/login_proccess'); ?>
+                         <?php
+                        echo form_open(current_url());
+                        if (isset($_GET['location'])) {
+                            echo '<input type="hidden" name="location" value="';
+                            if (isset($_GET['location'])) {
+                                echo htmlspecialchars($_GET['location']);
+                            }
+                            echo '" />';
+                        }
+                        ?>
                         <div class="form-group forms">
-                            <input name="username" type="text" autofocus class="form-control" id="exampleInputName2" placeholder="Username">
+                            <input name="username" type="text" autofocus class="form-control" id="exampleInputName2" placeholder="Username" required="">
                         </div>
                         <div class="form-group formz">
                             <label class="sr-only" for="exampleInputPassword3">Password</label>
-                            <input name="password" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" required="">
                         </div>
                         <button type="submit" class="btn btn-sunny btn-lg col-md-12 col-sm-12 col-xs-12 col-lg-12">SIGN IN</button>
                         <?php echo form_close(); ?>
                     </div>
-                    <?php if ($this->session->flashdata('message')) { ?>
+                    <?php if ($this->session->flashdata('failed')) { ?>
                         <div class="alert alert-danger form-failed" role="alert">
-                            <center><?php echo $this->session->flashdata('message') ?>
+                            <center><?php echo $this->session->flashdata('failed') ?>
                             </center>
                         </div>
                         <script type="text/javascript">
