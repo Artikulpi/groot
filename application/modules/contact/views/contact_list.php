@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-md-10 main">
+
 
     <h3 class="page-header">
         Sunting Contact
@@ -65,6 +65,7 @@
                 <input type="submit" value="Simpan" class="btn btn-primary pull-right">
             </div>
         </div>
+        <br>
     </div>
     <?php echo form_close() ?>
     <div class="col-md-4">
@@ -73,4 +74,5 @@
         </div>
     </div>
 
-</div>
+
+
