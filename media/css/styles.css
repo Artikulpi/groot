@@ -1331,7 +1331,7 @@ a.bg-danger:hover {
 		-webkit-font-smoothing: antialiased !important;
 	}
 	.nav-side-menu li a i {
-		color: #516173;
+		/*color: #516173;*/
 		font-size: 14px;
 		padding-left: 10px;
 		width: 20px;

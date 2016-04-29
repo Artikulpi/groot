@@ -2,7 +2,7 @@
 <div class="nav-side-menu">
     <div class="menu-list">
 
-      <div class="card hovercard">
+     <!--  <div class="card hovercard">
         <div class="cardheader">
 
         </div>
@@ -27,12 +27,12 @@
                 <i class="ion-locked"></i>
             </a>
         </div>
-    </div>
+    </div> -->
 
     <ul id="menu-content" class="menu-content collapse out">
-        <li class="active">
+        <li class="">
             <a href="<?php echo site_url('manage/dashboard'); ?>">
-                <i class="ion-speedometer"></i> Dashboard
+                <i class="ion-android-folder"></i> Dashboard <i class="ion-speedometer pull-right"></i>
             </a>
         </li>
 
