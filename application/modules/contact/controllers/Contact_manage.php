@@ -27,6 +27,16 @@ class Contact_manage extends CI_Controller {
         $this->load->view('manage/layout', $data);
     }
 
+    function view($id = NULL) {
+        if ($this->Contact_model->get(array('id' => $id)) == NULL) {
+            redirect('manage/contact');
+        }
+        $data['contact'] = $this->Contact_model->get(array('id' => $id));
+        $data['title'] = 'Detail Kontak';
+        $data['main'] = 'contact/contact_view';
+        $this->load->view('manage/layout', $data);
+    }
+
     public function save($id = NULL)
     {
         $this->form_validation->set_rules('contact_name', 'Name', 'required');
@@ -50,6 +60,16 @@ class Contact_manage extends CI_Controller {
             $data['main'] = 'contact_detail';
             $this->load->view('layout', $data);
         }
+    }
+
+    public function delete($id = NULL)
+    {
+        if ($this->Contact_model->get(array('id' => $id)) == NULL) {
+            redirect('manage/contact');
+        }
+        $id = $this->input->post('kode');
+        $this->Contact_model->delete($id);
+        $this->session->set_flashdata('success', 'Hapus Contact berhasil');
     }
 
 }

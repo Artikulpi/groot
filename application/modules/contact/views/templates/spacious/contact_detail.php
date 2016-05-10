@@ -16,7 +16,7 @@
       <div class="col-md-6 col-sm-6">
         <div class="row">
         <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert alert-danger alert-dismissable">
+            <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <?php echo $this->session->flashdata('success') ?>
             </div>
