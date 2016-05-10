@@ -1,14 +1,12 @@
 <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contact extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Setting_model');
         $this->load->model('Contact_model');
+        $this->load->model('setting/Setting_model');
     }
 
     public function index() {
@@ -21,8 +19,6 @@ class Contact extends CI_Controller {
         $this->form_validation->set_rules('message', 'Pesan', 'required');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
-
-
             if ($this->config->item('email')) {
                 $message = $this->input->post(nl2br("Nama Pengirim: " . $this->input->post('name') . "\nEmail Pengirim: " . $this->input->post('email') . "\nPesan: " . $this->input->post('message')));
                 $to = $this->Contact_model->get(array('name' => 'email'))['contact_value'];
@@ -45,13 +41,7 @@ class Contact extends CI_Controller {
         } else {
 
             $data['title'] = 'Contact';
-            $data['name'] = $this->Contact_model->get(array('name' => 'contact_name'));
-            $data['phone'] = $this->Contact_model->get(array('name' => 'phone'));
-            $data['address'] = $this->Contact_model->get(array('name' => 'address'));
-            $data['email'] = $this->Contact_model->get(array('name' => 'email'));
-            // if ($this->Contact_model->get(array('name' => 'email'))['contact_value'] != '-') {
-            //     $data['email'] = $this->Contact_model->get(array('name' => 'email'));
-            // }
+            $data['contact'] = $this->Setting_model->get(array('name' => 'text_contact'));
             $data['main'] = 'contact_detail';
             $this->load->view('layout', $data);
         }
@@ -59,5 +49,5 @@ class Contact extends CI_Controller {
 
 }
 
-/* End of file contact.php */
-/* Location: ./application/controllers/contact.php */
+/* End of file Contact.php */
+/* Location: ./application/modules/contact/controllers/Contact.php */

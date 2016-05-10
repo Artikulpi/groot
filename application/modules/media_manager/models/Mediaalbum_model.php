@@ -1,5 +1,5 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mediaalbum_model extends CI_Model {
     public
@@ -103,3 +103,6 @@ class Mediaalbum_model extends CI_Model {
     }
     
 }
+
+/* End of file Mediaalbum_model.php */
+/* Location: ./application/modules/media_manager/models/Mediaalbum_model.php */

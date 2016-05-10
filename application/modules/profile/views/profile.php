@@ -17,7 +17,7 @@
             <table class="table table-user-information table-striped">
                 <tbody>
                   <tr>
-                    <td>Nama Singakt</td>
+                    <td>Nama Singkat</td>
                     <td>:</td>
                     <td><?php echo $user['user_name'] ?></td>
                 </tr>

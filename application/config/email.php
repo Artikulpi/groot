@@ -1,11 +1,8 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
-
-
-$CI = & get_instance();
-$CI->load->model('contact/Setting_model');
+$CI =& get_instance();
+$CI->load->model('setting/Setting_model');
 
 $config['from'] = $CI->Setting_model->get(array('name' => 'from'))['setting_value'];
 $config['from_name'] = $CI->Setting_model->get(array('name' => 'from_name'))['setting_value'];

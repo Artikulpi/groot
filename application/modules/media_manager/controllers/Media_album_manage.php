@@ -1,4 +1,5 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 ini_set('display_errors', true);
 
@@ -71,3 +72,6 @@ class Media_album_manage extends CI_Controller {
     }
 
 }
+
+/* End of file Media_album_manage.php */
+/* Location: ./application/modules/media_manager/controllers/Media_album_manage.php */

@@ -29,7 +29,7 @@
                                 <td><?php echo pretty_date($user['user_input_date'], 'l, d-m-Y', FALSE) ?></td>
                             </tr>
                             <tr>
-                                <td>Peran</td>
+                                <td>Status</td>
                                 <td>:</td>
                                 <td><?php echo $user['role_name']; ?></td>
                             </tr>

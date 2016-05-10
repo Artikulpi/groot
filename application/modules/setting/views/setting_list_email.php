@@ -1,5 +1,3 @@
-
-
     <h3 class="page-header">
         Pengaturan email
     </h3><hr>

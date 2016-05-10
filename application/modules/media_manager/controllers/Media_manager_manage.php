@@ -1,7 +1,5 @@
 <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 ini_set('display_errors', true);
 
@@ -380,3 +378,6 @@ class Media_manager_manage extends CI_Controller {
     }
 
 }
+
+/* End of file Media_manager_manage.php */
+/* Location: ./application/modules/media_manager/controllers/Media_manager_manage.php */

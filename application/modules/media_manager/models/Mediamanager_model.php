@@ -1,5 +1,5 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mediamanager_model extends CI_Model {
     public
@@ -218,3 +218,6 @@ NULL ,  'alternative_2',  'alternative_2',  '0',  '0'
     }
     
 }
+
+/* End of file Mediamanager_model.php */
+/* Location: ./application/modules/media_manager/models/Mediamanager_model.php */

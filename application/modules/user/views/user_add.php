@@ -41,11 +41,14 @@ if (isset($user)) {
             <?php endif; ?>
             <label >Status Pengguna *</label>
             <select name="user_role_id" class="form-control">
-          <?php foreach ($role as $r): ?>
-          <option value="<?php echo $r['role_id'] ?>"
-          <?php echo (isset($user) AND $user_role_id == $r['role_id']) ? 'selected' : '' ?>>
-          <?php echo $r['role_name'] ?></option>
-        <?php endforeach ?>
+            <?php if (!empty($role)) {
+                foreach ($role as $row):
+                    $select = ($row['role_id'] == $user_role_id) ? 'selected' : NULL; ?>
+                <option value="<?php echo $row['role_id'] ?>" <?php echo $select; ?>><?php echo $row['role_name'] ?></option>
+                <?php
+                endforeach;
+            }
+            ?>
         </select><br>
 
             <label >Email *</label>

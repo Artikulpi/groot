@@ -16,10 +16,10 @@
     <?php echo form_open_multipart(current_url()) ?>
     <div class="col-md-8">
         <div class="row">
-            <div class="col-md-4">
+            <div class="form-group">
                 <label>Favicon</label>
             </div>
-            <div class="col-md-8">
+            <div class="form-group">
                 <input type="checkbox" id="check" <?php echo $favicon['setting_value'] != '-' ? 'checked' : NULL ?> name="upload">
                 <div id="icon" <?php echo $favicon['setting_value'] == '-' ? 'style="display: none;"' : NULL ?>>
                     <div class="form-group">
@@ -41,6 +41,10 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                        <label >Teks Kontak</label>
+        <textarea name="contact"><?php echo $contact['setting_value']; ?></textarea>
+                    </div>
         </div>
         <div class="row">
             <div class="col-md-12">
