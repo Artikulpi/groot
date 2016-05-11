@@ -1,21 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$CI =& get_instance();
+$CI = & get_instance();
 $CI->load->model('setting/Setting_model');
 
-$config['from'] = $CI->Setting_model->get(array('name' => 'from'))['setting_value'];
-$config['from_name'] = $CI->Setting_model->get(array('name' => 'from_name'))['setting_value'];
-$config['protocol'] = $CI->Setting_model->get(array('name' => 'protocol'))['setting_value'];
-$config['smtp_host'] = $CI->Setting_model->get(array('name' => 'smtp_host'))['setting_value'];
-$config['smtp_port'] = $CI->Setting_model->get(array('name' => 'smtp_port'))['setting_value'];
-$config['smtp_user'] = $CI->Setting_model->get(array('name' => 'smtp_user'))['setting_value'];
-$config['smtp_pass'] = $CI->Setting_model->get(array('name' => 'smtp_pass'))['setting_value'];
-$config['smtp_timeout'] = $CI->Setting_model->get(array('name' => 'smtp_timeout'))['setting_value'];
-$config['mailtype'] = $CI->Setting_model->get(array('name' => 'mailtype'))['setting_value'];
-$config['charset'] = $CI->Setting_model->get(array('name' => 'charset'))['setting_value'];
-$config['newline'] = $CI->Setting_model->get(array('name' => 'newline'))['setting_value'];
-$config['crlf'] = $CI->Setting_model->get(array('name' => 'crlf'))['setting_value'];
+$from = $CI->Setting_model->get(array('name' => 'from'));
+$from_name = $CI->Setting_model->get(array('name' => 'from_name'));
+$protocol = $CI->Setting_model->get(array('name' => 'protocol'));
+$smtp_host = $CI->Setting_model->get(array('name' => 'smtp_host'));
+$smtp_port = $CI->Setting_model->get(array('name' => 'smtp_port'));
+$smtp_user = $CI->Setting_model->get(array('name' => 'smtp_user'));
+$smtp_pass = $CI->Setting_model->get(array('name' => 'smtp_pass'));
+$smtp_timeout = $CI->Setting_model->get(array('name' => 'smtp_timeout'));
+
+$config['from'] = $from['setting_value'];
+$config['from_name'] = $from_name['setting_value'];
+$config['protocol'] = $protocol['setting_value'];
+$config['smtp_host'] = $smtp_host['setting_value'];
+$config['smtp_port'] = $smtp_port['setting_value'];
+$config['smtp_user'] = $smtp_user['setting_value'];
+$config['smtp_pass'] = $smtp_pass['setting_value'];
+$config['smtp_timeout'] = $smtp_timeout['setting_value'];
+$config['mailtype'] = 'html';
+$config['charset'] = 'utf-8';
+$config['newline'] = "\r\n";
+$config['crlf'] = "\r\n";
+$config['wordwrap'] = TRUE;
 
 /* End of file email.php */
 /* Location: ./application/config/email.php */
