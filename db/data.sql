@@ -1,4 +1,3 @@
-
 --
 -- Dumping data for table `user_role`
 --
@@ -28,3 +27,11 @@ INSERT INTO `setting` (`setting_id`, `setting_name`, `setting_value`, `setting_d
 (9, 'smtp_user', '-', 'smpt user email'), 
 (10, 'smtp_pass', '-', 'password email'), 
 (11, 'smtp_timeout', '30', 'smtp timeout email'),
+(12, 'template', '', 'template');
+
+--
+-- Dumping data for table `setting_template`
+--
+
+INSERT INTO `template` (`template_id`, `template_name`, `template_value`, `template_description`) VALUES
+(1, 'template', 'spacious', 'Template Spacious');

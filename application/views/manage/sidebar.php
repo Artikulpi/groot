@@ -99,6 +99,8 @@
                                       <i class="ion-settings"></i> General</a></li>
                                        <li class="active"><a href="<?php echo site_url('manage/setting/email'); ?>">
                                           <i class="ion-email"></i> Email</a></li>
+                                          <li class="active"><a href="<?php echo site_url('manage/template'); ?>">
+                                          <i class="ion-email"></i> Template</a></li>
                                        </ul>
 
                                        <li  data-toggle="collapse" data-target="#log" class="collapsed">

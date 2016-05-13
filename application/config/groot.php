@@ -8,6 +8,13 @@
 | 
 |
 */
+// $CI =& get_instance();
+// $CI->load->model('setting/Setting_model');
+
+// $template = $CI->Setting_model->get(array('name' => 'template'));
+
+// $config['template'] = $template['setting_value'];
+
 $config['template'] = 'spacious';
 
 /*
