@@ -28,15 +28,6 @@ class Template_model extends CI_Model {
             return $template['template_value'];
         else
             return '';
-    }
-
-    public function save($param = array())
-    {
-        if (isset($param['template'])) {
-            $this->db->set('template_value', $param['template']);
-            $this->db->where('template_id', 1);
-            $this->db->update('template');
-        }
     }	
 
 }

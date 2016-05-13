@@ -21,7 +21,6 @@ class Template_manage extends CI_Controller {
         
         if ($_POST AND $this->form_validation->run() == TRUE) {
             $param['template'] = $this->input->post('template');
-            $this->Template_model->save($param);
             $this->Setting_model->save($param);
             $this->session->set_flashdata('success', 'Sunting template berhasil');
             redirect('manage/template');
