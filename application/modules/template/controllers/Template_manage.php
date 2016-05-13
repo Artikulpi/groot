@@ -7,6 +7,7 @@ class Template_manage extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Template_model');
+        $this->load->model('Setting_model');
         
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('user/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
@@ -21,10 +22,12 @@ class Template_manage extends CI_Controller {
         if ($_POST AND $this->form_validation->run() == TRUE) {
             $param['template'] = $this->input->post('template');
             $this->Template_model->save($param);
+            $this->Setting_model->save($param);
             $this->session->set_flashdata('success', 'Sunting template berhasil');
             redirect('manage/template');
         } else {
             $data['template'] = $this->Template_model->get(array('name' => 'template'));
+            $data['templates'] = $this->Template_model->get();
             $data['title'] = 'Pengaturan Template';
             $data['main'] = 'template/template_list';
             $this->load->view('manage/layout', $data);

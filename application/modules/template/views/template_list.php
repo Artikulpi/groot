@@ -9,7 +9,16 @@
                 <label>Pilih Template</label>
             </div>
             <div class="col-md-8">
-                <input type="text" name="template" value="<?php echo $template['template_value'] ?>" class="form-control">
+                <select name="template" class="form-control">
+            <?php if (!empty($templates)) {
+                foreach ($templates as $row):
+                    $select = ($row['template_value'] == ) ? 'selected' : NULL; ?>
+                <option value="<?php echo $row['template_value'] ?>" <?php echo $select; ?>><?php echo $row['template_name'] ?></option>
+                <?php
+                endforeach;
+            }
+            ?>
+        </select>
             </div>
         </div>
         <br>

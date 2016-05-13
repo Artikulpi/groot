@@ -95,6 +95,12 @@ class Setting_model extends CI_Model {
             $this->db->where('setting_id', 11);
             $this->db->update('setting');
         }
+
+        if (isset($param['template'])) {
+            $this->db->set('setting_value', $param['template']);
+            $this->db->where('setting_id', 12);
+            $this->db->update('setting');
+        }
     }	
 
 }

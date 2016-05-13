@@ -34,4 +34,6 @@ INSERT INTO `setting` (`setting_id`, `setting_name`, `setting_value`, `setting_d
 --
 
 INSERT INTO `template` (`template_id`, `template_name`, `template_value`, `template_description`) VALUES
-(1, 'template', 'spacious', 'Template Spacious');
+(1, 'Spacious', 'portfolio_flat', 'Template Spacious'),
+(4, 'Portofolio Flat', 'portfolio_flat', NULL),
+(5, 'Portfolio Zero', 'portfolio_zero', NULL);
