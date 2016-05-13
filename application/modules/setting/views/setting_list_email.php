@@ -77,42 +77,6 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-4">
-                <label>Mailtype</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="mailtype" value="<?php echo $mailtype['setting_value'] ?>" class="form-control">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <label>Charset</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="charset" value="<?php echo $charset['setting_value'] ?>" class="form-control">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <label>Newline</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="newline" value="<?php echo $newline['setting_value'] ?>" class="form-control">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <label>Crlf</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="crlf" value="<?php echo $crlf['setting_value'] ?>" class="form-control">
-            </div>
-        </div>
-        <br>
-        <div class="row">
             <div class="col-md-12">
                 <input type="submit" value="Simpan" class="btn btn-primary pull-right">
                 <br><br>

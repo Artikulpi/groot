@@ -95,31 +95,6 @@ class Setting_model extends CI_Model {
             $this->db->where('setting_id', 11);
             $this->db->update('setting');
         }
-        
-        if (isset($param['mailtype'])) {
-            $this->db->set('setting_value', $param['mailtype']);
-            $this->db->where('setting_id', 12);
-            $this->db->update('setting');
-        }
-        
-        if (isset($param['charset'])) {
-            $this->db->set('setting_value', $param['charset']);
-            $this->db->where('setting_id', 13);
-            $this->db->update('setting');
-        }
-        
-        if (isset($param['newline'])) {
-            $this->db->set('setting_value', $param['newline']);
-            $this->db->where('setting_id', 14);
-            $this->db->update('setting');
-        }
-        
-        if (isset($param['crlf'])) {
-            $this->db->set('setting_value', $param['crlf']);
-            $this->db->where('setting_id', 15);
-            $this->db->update('setting');
-        }
-
     }	
 
 }

@@ -21,13 +21,13 @@
                 <?php echo $this->session->flashdata('success') ?>
             </div>
         <?php endif; ?>
-        <?php echo validation_errors(); ?>
-        <?php echo form_open(site_url('manage/contact/save')); ?>
+        <?php //echo validation_errors(); ?>
+        <?php echo form_open('contact/email'); ?>
         <form>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <input type="hidden" name="contact_id" class="form-control">
             <input type="hidden" name="contact_input_date" class="form-control">
-          </div>
+          </div> -->
           <div class="form-group">
             <input type="text" name="contact_name" class="form-control" placeholder="Name">
           </div>
