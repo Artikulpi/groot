@@ -175,7 +175,11 @@ if (!function_exists('posting_url')) {
 if (!function_exists('template_media_url')) {
 
     function template_media_url($name = '') {
-        return base_url('media/templates/' . config_item('template') . '/' . $name);
+        $ci =& get_instance();
+        $ci->load->model('setting/Setting_model');
+        $templates = $ci->Setting_model->get(array('name' => 'template'));
+        $current_template = $templates['setting_value'];
+        return base_url('media/templates/' . $current_template . '/' . $name);
     }
 
 }
