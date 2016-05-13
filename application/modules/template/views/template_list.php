@@ -12,7 +12,7 @@
                 <select name="template" class="form-control">
             <?php if (!empty($templates)) {
                 foreach ($templates as $row):
-                    $select = ($row['template_value'] == ) ? 'selected' : NULL; ?>
+                    $select = ($row['template_value'] == $setting['setting_value']) ? 'selected' : NULL; ?>
                 <option value="<?php echo $row['template_value'] ?>" <?php echo $select; ?>><?php echo $row['template_name'] ?></option>
                 <?php
                 endforeach;

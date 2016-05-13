@@ -28,6 +28,7 @@ class Template_manage extends CI_Controller {
         } else {
             $data['template'] = $this->Template_model->get(array('name' => 'template'));
             $data['templates'] = $this->Template_model->get();
+            $data['setting'] = $this->Setting_model->get(array('name' => 'template'));
             $data['title'] = 'Pengaturan Template';
             $data['main'] = 'template/template_list';
             $this->load->view('manage/layout', $data);
