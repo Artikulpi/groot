@@ -15,7 +15,7 @@ class Posting extends CI_Controller {
         $this->load->library('pagination');
         $this->load->helper('text');
         $data['title'] = 'Indeks Posting';
-        $data['news'] = $this->Posting_model->get(array( 'status' => 1, 'limit' => 10, 'offset' => $offset));
+        $data['posting'] = $this->Posting_model->get(array( 'status' => 1, 'limit' => 10, 'offset' => $offset));
         $config['uri_segment']= 3;
         $config['per_page'] = 10;
         $config['base_url'] = site_url('posting/index');
