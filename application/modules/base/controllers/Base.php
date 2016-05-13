@@ -14,12 +14,12 @@ class Base extends CI_Controller {
 		$data['title'] = 'Home';
 		$data['posting'] = $this->Posting_model->get(array('limit' => 5, 'status' => 1));
 		$data['main'] = 'main';
-		$this->load->view('layout', $data);
-	}
+        $this->template->load_landing($data);
+    }
 
-	public function search($query='', $offset=NULL)
-	{
-        
+    public function search($query='', $offset=NULL)
+    {
+
         if($_POST AND $this->input->post('search', TRUE))
         {
             redirect('search/'.urlencode($this->input->post('search', TRUE)));
@@ -34,7 +34,7 @@ class Base extends CI_Controller {
         $query = urldecode($query);
         $this->load->helper('text');
         if($this->Posting_model->get(array('status' => 1, 'posting_title' => $query)) == !NULL){ 
-        $data['posting'] = $this->Posting_model->get(array('status' => 1, 'posting_title' => $query, 'limit' => 5, 'offset' => $offset));
+            $data['posting'] = $this->Posting_model->get(array('status' => 1, 'posting_title' => $query, 'limit' => 5, 'offset' => $offset));
         }
         $config['base_url'] = site_url('search/'.$query);
         $config['total_rows'] = count($this->Posting_model->get(array('status' => 1, 'posting_title' => $query)));
@@ -44,7 +44,7 @@ class Base extends CI_Controller {
         $data['title'] = 'Pencarian kata '.$query;
         $data['posting_other'] = $this->Posting_model->get(array('status' => 1, 'limit' => 2));
         $data['main'] = 'search';
-        $this->load->view('layout', $data);       
+        $this->template->load_default($data);
     }
 
 }

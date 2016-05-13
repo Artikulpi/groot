@@ -15,14 +15,14 @@ class Posting extends CI_Controller {
         $this->load->library('pagination');
         $this->load->helper('text');
         $data['title'] = 'Indeks Posting';
-        $data['posting'] = $this->Posting_model->get(array( 'status' => 1, 'limit' => 10, 'offset' => $offset));
+        $data['news'] = $this->Posting_model->get(array( 'status' => 1, 'limit' => 10, 'offset' => $offset));
         $config['uri_segment']= 3;
         $config['per_page'] = 10;
         $config['base_url'] = site_url('posting/index');
         $config['total_rows'] = count($this->Posting_model->get(array( 'status' => 1)));
         $this->pagination->initialize($config);
         $data['main'] = 'posting_indeks';
-        $this->load->view('layout', $data);
+        $this->template->load_default($data);
     }
 
     public function category($id = NULL, $offset = NULL)
