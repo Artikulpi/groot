@@ -1,104 +1,70 @@
-
-<!--   /HEADER   -->
-<div class="row">
-    <div class="carousel fade-carousel slide">
-        <!-- Overlay -->
-        <div class="overlay"></div>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item slides active">
-                <div class="slide-1"></div>
-                <div class="hero">
-                    <hgroup>
-                        <h1>We are Groot</h1>        
-                        <h3>Get start your next awesome project</h3>
-                    </hgroup>
-                </div>
-            </div>
-        </div> 
+<section  id="brn-promo" class="iphone-cover" style="background-position: 50% -76px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Promo Heading-->
+        <div class="slider-text">
+          <h1>We are Groot </h1>
+          <p class="lead large">Get start your next awesome project.</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+         <a class="btn btn-link-1" href="#"><span class="glyphicon glyphicon-envelope"></span> Email Me</a>
+       </div>
+       <!-- Promo Heading end-->
+     </div>
+     <!-- /col-md-6-->
+     <div class="col-md-6">
+      <!-- Video Embedding-->
+      <center><img src="<?php echo template_media_url() ?>/image/avatar2.png" class="img-responsive hidden-xs hidden-sm" style="padding-top:90px;" width="65%"></center>
     </div>
+    <!-- /col-md-6-->
+  </div>
+  <!-- /row-->
 </div>
+<!-- /container-->
+</section>
 <!--   /call-out   -->
-<div class="container-fluid">
-    <div class="conts">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <?php foreach ($posting as $row): ?>
-                    <?php if ($row['posting_image'] != NULL) { ?>
-                        <div class="col-md-12">
-                            <div class="post">
-                                <div class="col-md-3">
-                                    <div class="imgLiquidFill imgLiquid" style="width:250px; height:185px;">
-                                        <img src="<?php echo $row['posting_image'] ?>" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="tag">
-                                        <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
-                                        <div class="row-fluid">
-                                            <h5>
-                                                <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                                                <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
-                                            </h5>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="up-teks">
-                                                    <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } else { ?>
-                        <div class="col-md-12">
-                            <div class="post">
-                        <div class="col-md-12">
-                                <div class="tag">
-                                    <h2><a href="<?php echo posts_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
-                                    <div class="row-fluid">
-                                        <h5>
-                                            <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                                            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
-                                        </h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="up-teks">
-                                                <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 600)) ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php endforeach; ?>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="foots">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="foots-icon pull-right">
-                            <span><a href=""><i class="ion-social-github"></i></a></span>
-                            <span><a href=""><i class="ion-social-twitter"></i></a></span>
-                            <span><a href=""><i class="ion-social-facebook"></i></a></span>
-                            <span><a href=""><i class="ion-social-googleplus"></i></a></span>
-                            <span><a href=""><i class="ion-social-instagram"></i></a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+<div class="more-features-container section-container section-container-gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 more-features section-description wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+        <center><h2>Daftar Posting</h2></center>
+        <hr style="width:80px; background:#ddd;">
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12 more-features-box wow fadeInDown animated" style="visibility: visible; animation-name: fadeInLeft;">
+          <?php foreach ($posting as $row): ?>
+            <?php if ($row['posting_image'] != NULL) { ?>
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon">
+                <img class="imgLiquidFill imgLiquid_error" aria-hidden="true" style="max-width:700px; max-height:525px;"
+                src="<?php echo $row['posting_image'] ?>" width="70%" style="display: none;">
+            </div>
+            <h3><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h3>
+            <h5>
+                <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
+            </h5>
+            <div class="more-features-box-text-description">
+                <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
+            </div>
+        </div>
+        <?php } else { ?>
+        <div class="more-features-box-text">
+          <h3><?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></h3>
+          <h5>
+            <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
+        </h5>
+        <div class="more-features-box-text-description">
+            <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
+        </div>
+    </div>
+    <?php } ?>
+<?php endforeach; ?>
+</div>
+    </div>
+  </div>
 </div>
 </div>

@@ -94,7 +94,7 @@
                                    <li  data-toggle="collapse" data-target="#setting" class="collapsed">
                                     <a href="#"><i class="ion-android-folder"></i> Pengaturan <i class="ion-arrow-down-b pull-right"></i></a>
                                 </li>
-                                <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'setting') ? 'in' : NULL; ?>" id="setting">
+                                <ul class="sub-menu collapse <?php echo ($this->uri->segment(2) == 'setting' OR $this->uri->segment(2) == 'template') ? 'in' : NULL; ?>" id="setting">
                                     <li class="active"><a href="<?php echo site_url('manage/setting'); ?>">
                                       <i class="ion-settings"></i> General</a></li>
                                        <li class="active"><a href="<?php echo site_url('manage/setting/email'); ?>">

@@ -15,19 +15,25 @@
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="row">
-        <?php if ($this->session->flashdata('success')): ?>
+        <?php if ($this->session->flashdata('incomplete')) { ?>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?php echo $this->session->flashdata('incomplete') ?>
+            </div>
+        <?php } elseif ($this->session->flashdata('complete')) { ?>
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <?php echo $this->session->flashdata('success') ?>
+                Data diri anda telah kami simpan, silahkan tunggu balasan kami.
             </div>
-        <?php endif; ?>
-        <?php //echo validation_errors(); ?>
-        <?php echo form_open('contact/email'); ?>
+            <?php }
+        ?>
+        <?php echo validation_errors(); ?>
+        <?php echo form_open(current_url()); ?>
         <form>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <input type="hidden" name="contact_id" class="form-control">
             <input type="hidden" name="contact_input_date" class="form-control">
-          </div> -->
+          </div>
           <div class="form-group">
             <input type="text" name="contact_name" class="form-control" placeholder="Name">
           </div>

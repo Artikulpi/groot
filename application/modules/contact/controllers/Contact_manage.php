@@ -37,31 +37,6 @@ class Contact_manage extends CI_Controller {
         $this->load->view('manage/layout', $data);
     }
 
-    public function save($id = NULL)
-    {
-        $this->form_validation->set_rules('contact_name', 'Name', 'required');
-        $this->form_validation->set_rules('contact_email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('contact_message', 'Pesan', 'required');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
-        if ($this->form_validation->run() == TRUE) {
-            if ($this->input->post('contact_id')) {
-                $params['contact_id'] = $this->input->post('contact_id');
-            } else {
-                $params['contact_input_date'] = date('Y-m-d H:i:s');
-            }
-            $params['contact_name'] = $this->input->post('contact_name');
-            $params['contact_email'] = $this->input->post('contact_email');
-            $params['contact_message'] = $this->input->post('contact_message');
-
-            $status = $this->Contact_model->save($params);
-            $this->session->set_flashdata('success', 'Pesan anda telah terkirim !');
-            redirect('contact');
-        } else {
-            $data['main'] = 'contact_detail';
-            $this->load->view('layout', $data);
-        }
-    }
-
     public function delete($id = NULL)
     {
         if ($this->Contact_model->get(array('id' => $id)) == NULL) {
