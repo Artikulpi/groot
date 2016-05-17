@@ -1,5 +1,5 @@
 <div class="container">
-  <br><br><br><br><br>
+  <br><br><br><br><br class="hidden-xs">
   
   <div class="row">
     <div class="col-md-8"> 
