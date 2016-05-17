@@ -33,38 +33,70 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 more-features-box wow fadeInDown animated" style="visibility: visible; animation-name: fadeInLeft;">
-          <?php foreach ($posting as $row): ?>
-            <?php if ($row['posting_image'] != NULL) { ?>
-            <div class="more-features-box-text">
-              <div class="more-features-box-text-icon">
-                <img class="imgLiquidFill imgLiquid_error" aria-hidden="true" style="max-width:700px; max-height:525px;"
-                src="<?php echo $row['posting_image'] ?>" width="70%" style="display: none;">
-            </div>
-            <h3><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h3>
-            <h5>
-                <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
-            </h5>
-            <div class="more-features-box-text-description">
-                <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
-            </div>
+      <div class="col-md-12 col-sm-12 more-features-box wow fadeInDown animated" style="visibility: visible; animation-name: fadeInLeft;">
+
+        <?php foreach ($posting as $row): ?>
+          <?php if ($row['posting_image'] != NULL) { ?>
+
+            <div class="directory-info-row">
+              <div class="row">
+                <div class="col-md-12 col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body">
+                      <div class="media">
+                        <a class="pull-left" href="#">
+                          <img class="thumb media-object" src="<?php echo $row['posting_image'] ?>" alt="">
+                        </a>
+                        <div class="media-body">
+                          <h3><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a> <span class="text-muted small"> - UI Engineer</span></h3>
+                          <address>
+                            <h5>
+                              <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                              <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>">
+                                <?php echo $row['category_name'] ?></a> </span>
+                              </h5>
+                            </address>
+                            <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php } else { ?>
+                <div class="directory-info-row">
+              <div class="row">
+                <div class="col-md-12 col-sm-6">
+                  <div class="panel">
+                    <div class="panel-body">
+                      <div class="media">
+                        <div class="media-body">
+                          <h3><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a> <span class="text-muted small"> - UI Engineer</span></h3>
+                          <address>
+                            <h5>
+                              <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                              <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>">
+                                <?php echo $row['category_name'] ?></a> </span>
+                              </h5>
+                            </address>
+                            <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  <?php } ?>
+                <?php endforeach; ?>
+            
+          </div>
         </div>
-        <?php } else { ?>
-        <div class="more-features-box-text">
-          <h3><?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></h3>
-          <h5>
-            <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
-        </h5>
-        <div class="more-features-box-text-description">
-            <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
         </div>
-    </div>
-    <?php } ?>
-<?php endforeach; ?>
-</div>
-    </div>
-  </div>
-</div>
-</div>
+        </div>
+
+
+
+
+

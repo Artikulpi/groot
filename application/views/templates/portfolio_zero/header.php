@@ -11,6 +11,7 @@
 
         <link href="<?php echo base_url() ?>media/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url() ?>media/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo template_media_url() ?>/css/animate.css" rel="stylesheet" type="text/css">
         <link href="<?php echo template_media_url() ?>/css/style.css" rel="stylesheet" type="text/css">
 
         <script src="<?php echo base_url() ?>media/js/jquery-1.11.1.min.js" type="text/javascript"></script>
