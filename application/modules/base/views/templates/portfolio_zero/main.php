@@ -40,12 +40,15 @@
 
             <div class="directory-info-row">
               <div class="row">
-                <div class="col-md-12 col-sm-6">
+                <div class="col-md-12 col-sm-12">
                   <div class="panel">
                     <div class="panel-body">
                       <div class="media">
-                        <a class="pull-left" href="#">
+                        <a class="pull-left hidden-xs" href="#">
                           <img class="thumb media-object" src="<?php echo $row['posting_image'] ?>" alt="">
+                        </a>
+                         <a class="hidden-sm hidden-md hidden-lg" href="#">
+                          <img class="thumb media-object" src="<?php echo $row['posting_image'] ?>" alt=""><p></p>
                         </a>
                         <div class="media-body">
                           <h3><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a> <span class="text-muted small"> - UI Engineer</span></h3>
