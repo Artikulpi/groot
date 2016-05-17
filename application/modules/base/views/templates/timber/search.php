@@ -1,4 +1,4 @@
-<br><br>
+<br><br><br><br>
 <div class="col-md-12 col-sm-12 col-xs-12">
     <?php if (isset($posting)){ ?>
     <?php foreach ($posting as $row): ?>

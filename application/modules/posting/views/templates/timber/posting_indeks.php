@@ -1,4 +1,3 @@
-<br><br><br>
 <div class="container">
 <h1>Daftar Posting</h1><hr>
     <div class="col-md-12 col-sm-12 col-xs-12">

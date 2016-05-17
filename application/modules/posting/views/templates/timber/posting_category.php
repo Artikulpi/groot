@@ -1,4 +1,3 @@
-<br><br><br>
 <div class="container">
     <h1>Daftar Posting Kategori <?php echo ucfirst($category_name); ?></h1><hr>
 </div>

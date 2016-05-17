@@ -43,7 +43,7 @@
        <div class="col-md-6">
          <div class="add">
           <img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre">
-          <CENTER><h4 class="titles"><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title']; ?></a></h4></CENTER>
+          <CENTER><h3 class="titles"><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title']; ?></a></h3></CENTER>
           <hr class="hrs">
           <CENTER><h5 class="titlesd"><span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
             <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span></h5></CENTER>
