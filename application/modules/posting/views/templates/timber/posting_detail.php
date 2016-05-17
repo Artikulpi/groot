@@ -1,3 +1,4 @@
+<br><br><br>
 <div class="col-md-7 col-sm-12 col-xs-12">
     <div class="col-md-12">
         <div class="">
@@ -26,29 +27,59 @@
             </div>
         </div>
     </div>
-
 </div>
+
 <div class="col-md-5 col-sm-12 col-xs-12">
-    <div class="row">
         <div class="col-md-12">
-            <CENTER>
-                <h3>POSTING LAINNYA</h3>
-            </CENTER>
-            <ul class="event-list">
-                <?php foreach($posting_other as $row): ?>
-                <li>
-                    <time datetime="2014-07-20">
-                        <span class="days"><?php echo pretty_date($row['posting_published_date'], 'd', FALSE) ?></span>
-                        <span class="months"><?php echo pretty_date($row['posting_published_date'], 'M', FALSE) ?></span>
-                        <span class="year"><?php echo pretty_date($row['posting_published_date'], 'Y', FALSE) ?></span>
-                    </time>
-                    <div class="info">
-                        <h4 class="title"><a href="<?php echo posting_url($row); ?>"><?php echo $row['posting_title'] ?></a></h4>
-                        <p class="desc"><?php echo strip_tags(character_limiter($row['posting_description'], 100)) ?></p>
+        <?php foreach ($posting_other as $row): ?>
+            <?php if ($row['posting_image'] != NULL) { ?>
+            <div class="col-md-12">
+                    <div class="col-md-3">
+                        <img src="<?php echo $row['posting_image'] ?>" class="img-responsive" width="200px">
                     </div>
-                </li>
-                <?php endforeach; ?>
-            </ul>
+                    <div class="col-md-9">
+                        <div class="tag">
+                            <h4><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h4>
+                            <div class="row-fluid">
+                                <h6>
+                                    <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                </h6>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="up-teks">
+                                        <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 100)) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <?php } else { ?>
+            <div class="col-md-12">
+                <div class="post">
+                    <div class="col-md-12">
+                        <div class="tag">
+                            <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
+                            <div class="row-fluid">
+                                <h5>
+                                    <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                </h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="up-teks">
+                                        <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 600)) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        <?php endforeach; ?>
         </div>
-    </div>
 </div>
