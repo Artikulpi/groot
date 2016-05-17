@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-4 col-sm-12 col-xs-12">
             <CENTER>
-              <img src="media/image/timber.png" alt="Placeholder" class="img-responsive img-pad">
+              <img src="<?php echo template_media_url('image/timber.png')?>" alt="Placeholder" class="img-responsive img-pad">
             </CENTER>
           </div>
           <div class="col-md-8 col-sm-12 col-xs-12">
