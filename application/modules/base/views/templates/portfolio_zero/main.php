@@ -28,7 +28,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 more-features section-description wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-        <center><h2>Daftar Posting</h2></center>
+        <center><h2><a href="<?php echo site_url("posting"); ?>">Daftar Posting</a></h2></center>
         <hr style="width:80px; background:#ddd;">
       </div>
     </div>
