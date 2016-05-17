@@ -187,6 +187,8 @@ div.clear
     -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
     box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
     margin-bottom:20px;
+    width: 100%;
+    height: 300px;
 }
 
 .imgre:hover {

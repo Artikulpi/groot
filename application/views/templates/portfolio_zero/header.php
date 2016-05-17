@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo site_url(); ?>">GROOT</a>
+          <a class="navbar-brand" href="<?php echo site_url(); ?>"><strong>GROOT</strong></a>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
