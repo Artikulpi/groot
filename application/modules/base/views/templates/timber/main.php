@@ -1,57 +1,47 @@
-<div class="main col-md-9 col-md-offset-3">
-  <br>
-  <section  id="brn-promo" class="iphone-cover" style="background-position: 50% -76px;">
-    <div class="col-md-12">
-      <!-- Promo Heading-->
-      <div class="slider-text">
-        <center>
-          <h1>GROOT </h1>
-          <div class="col-lg-12">
-            <p class="lead large">Get start your next awesome projrct.</p>
-            <div class="btn btn-group pull-right">
-              <div class="btn btn-success toggle-left hidden-lg hidden-md hidden-sm" data-toggle="sidebar" data-target=".sidebar-left">Left Menu</div>
-              <div class="btn btn-info toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Setting Menu</div>
-            </div>
+<div class="container-fluid im-back">
+  <div>
+    <div class="ha-bg-parallax text-center block-margin-none" data-type="background" data-speed="50" style="background-image:media/image/winter.png">
+      <div class="container cont-head">
+        <div class="row">
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <CENTER>
+              <img src="media/image/timber.png" alt="Placeholder" class="img-responsive img-pad">
+            </CENTER>
           </div>
-        </center>
-      </div>
-      <!-- Promo Heading end-->
-    </div>
-  </section>
-<br>
-
-<div class="row">
-  <?php foreach ($posting as $row): ?>
-    <?php if ($row['posting_image'] != NULL) { ?>
-    <div class="col-md-3">
-      <div class="imgLiquidFill imgLiquid" style="width:250px; height:185px;">
-        <img src="<?php echo $row['posting_image'] ?>" class="img-responsive">
+          <div class="col-md-8 col-sm-12 col-xs-12">
+            <CENTER>
+              <div class="col-md-12">
+                <button type="button" class="btn btn-default btn-lg log">LOG IN</button>
+                <button type="button" class="btn btn-default btn-lg sign">SIGN UP AND START COLLECTING</button>
+              </div>
+            </CENTER>
+          </div>
+        </div>
       </div>
     </div>
-  <div class="col-md-9">
-    <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
-    <h5>
-      <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-      <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
-    </h5>
-    <p>
-     <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?>
-   </p>
-</div>
-<?php } else {} ?>
-<?php endforeach ?>
-</div>
-
-</div>
-<div class="col-xs-5 col-sm-3 col-md-2 sidebar sidebar-right sidebar-animate">
-  <div class="grey">
-    <ul class="nav navbar-stacked">
-      <li class="active"><a href="">Profil</a></li>
-      <li><a href="#about">Pengaturan</a></li>
-      <li><a href="">Keluar</a></li>
-    </ul>
   </div>
 </div>
 
+<div class="container content">
+  <div class="row">
+    <div class="col-md-9">
+     <div class="col-md-12">
+       <div class="inspired latest_finds"><i class="ins">Product</i></div>
+     </div>
+     <?php foreach ($posting as $row): ?>
+     <div class="col-md-6">
+     <div class="add">
+        <img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre">
+        <CENTER><h4 class="titles"><?php echo $row['posting_title']; ?></h4></CENTER>
+        <hr class="hrs">
+        <CENTER><h4 class="titlesd">$300</h4></CENTER>
+        <CENTER><p class="conts">It's that time of year again where we feature some of our favorite outdoor gear and apparel, and this boot from Oak Street Bootmakers is a no-brainer. Handcrafted in the U.S., this boot features gorgeous Horween leather and a Calfskin lining for an unparalleled fit.</p></CENTER>
+        <button type="button" class="btn btn-default bot">Readmore</button>
+      </div>
+      </div>
+    <?php endforeach; ?>
+    
+    
+  </div>
 </div>
 </div>
