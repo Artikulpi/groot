@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 col-sm-12 more-features-box wow fadeInDown animated" style="visibility: visible; animation-name: fadeInLeft;">
+      <div class="col-md-8 col-sm-12 col-md-offset-2 more-features-box wow fadeInDown animated" style="visibility: visible; animation-name: fadeInLeft;">
 
         <?php foreach ($posting as $row): ?>
           <?php if ($row['posting_image'] != NULL) { ?>
