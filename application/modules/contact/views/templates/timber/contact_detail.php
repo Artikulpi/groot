@@ -1,3 +1,9 @@
+<br><br><br>
+<div class="container">
+  <h1>Contact</h1><hr>
+</div>
+
+<div class="container">
       <div class="row">
       <div class="col-md-6 col-sm-6">
 
@@ -22,7 +28,7 @@
             </div>
         <?php endif; ?>
         <?php //echo validation_errors(); ?>
-        <?php echo form_open('contact/email'); ?>
+        <?php echo form_open(current_url()); ?>
         <form>
           <!-- <div class="form-group">
             <input type="hidden" name="contact_id" class="form-control">
@@ -34,7 +40,7 @@
           <div class="form-group">
             <input type="email" name="contact_email" class="form-control" placeholder="Email">
           </div>
-          <textarea name="contact_message" class="form-control" rows="7" placeholder="Massage"></textarea>
+          <textarea name="contact_message" class="form-control" rows="7" placeholder="Message"></textarea>
           <br/>
           <button type="submit" class="btn btn-default col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">Submit</button>
         </form>
@@ -42,3 +48,4 @@
     </div>
       </div>
     </div>
+  </div>

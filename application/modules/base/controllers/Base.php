@@ -12,7 +12,8 @@ class Base extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Home';
-		$data['posting'] = $this->Posting_model->get(array('limit' => 5, 'status' => 1));
+		$data['posting'] = $this->Posting_model->get(array('limit' => 10, 'status' => 1));
+        $data['category'] = $this->Posting_model->get_category(array('limit' => 7, 'status' => 1));
 		$data['main'] = 'main';
         $this->template->load_landing($data);
     }

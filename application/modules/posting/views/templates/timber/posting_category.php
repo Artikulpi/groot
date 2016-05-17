@@ -1,7 +1,6 @@
-<div class="col-md-12">
-    <div class="produk">
-        <h1 class="menu">Daftar Posting Kategori <?php echo ucfirst($category_name); ?></h1><hr>
-    </div>
+<br><br><br>
+<div class="container">
+    <h1>Daftar Posting Kategori <?php echo ucfirst($category_name); ?></h1><hr>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12">
     <?php foreach ($posting as $row): ?>
@@ -59,3 +58,10 @@
         <?php } ?>
     <?php endforeach; ?>
 </div>
+<div class="row">
+        <div class="col-md-12">
+            <div >
+                <?php echo $this->pagination->create_links(); ?>
+            </div>
+        </div>
+    </div> 

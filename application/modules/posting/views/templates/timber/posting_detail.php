@@ -1,3 +1,4 @@
+<br><br><br>
 <div class="col-md-7 col-sm-12 col-xs-12">
     <div class="col-md-12">
         <div class="">
@@ -43,7 +44,7 @@
                         <span class="year"><?php echo pretty_date($row['posting_published_date'], 'Y', FALSE) ?></span>
                     </time>
                     <div class="info">
-                        <h3 class="title"><a href="<?php echo posting_url($row); ?>"><?php echo $row['posting_title'] ?></a></h3>
+                        <h4 class="title"><a href="<?php echo posting_url($row); ?>"><?php echo $row['posting_title'] ?></a></h4>
                         <p class="desc"><?php echo strip_tags(character_limiter($row['posting_description'], 100)) ?></p>
                     </div>
                 </li>

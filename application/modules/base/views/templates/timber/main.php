@@ -24,24 +24,46 @@
 
 <div class="container content">
   <div class="row">
+    <div class="col-md-3 hidden-xs">
+      <div class="kiri">
+        <div class="inspired latest_finds"><i class="ins">Kategori Berita</i></div>
+        <?php foreach ($category as $row): ?>
+          <div class="ad">
+            <CENTER><h4 class="title"><a href="<?php echo site_url('posting/category/' . $row['category_id']) ?>"><?php echo $row['category_name']; ?></a></h4></CENTER>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
     <div class="col-md-9">
      <div class="col-md-12">
-       <div class="inspired latest_finds"><i class="ins">Product</i></div>
+       <div class="inspired latest_finds"><i class="ins"><a href="<?php echo site_url('posting') ?>">Daftar Berita</a></i></div>
      </div>
      <?php foreach ($posting as $row): ?>
-     <div class="col-md-6">
-     <div class="add">
-        <img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre">
-        <CENTER><h4 class="titles"><?php echo $row['posting_title']; ?></h4></CENTER>
-        <hr class="hrs">
-        <CENTER><h4 class="titlesd">$300</h4></CENTER>
-        <CENTER><p class="conts">It's that time of year again where we feature some of our favorite outdoor gear and apparel, and this boot from Oak Street Bootmakers is a no-brainer. Handcrafted in the U.S., this boot features gorgeous Horween leather and a Calfskin lining for an unparalleled fit.</p></CENTER>
-        <button type="button" class="btn btn-default bot">Readmore</button>
-      </div>
-      </div>
-    <?php endforeach; ?>
-    
-    
+      <?php if ($row['posting_image'] != NULL) { ?>
+       <div class="col-md-6">
+         <div class="add">
+          <img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre">
+          <CENTER><h4 class="titles"><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title']; ?></a></h4></CENTER>
+          <hr class="hrs">
+          <CENTER><h5 class="titlesd"><span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span></h5></CENTER>
+            <CENTER><p class="conts"><?php echo strip_tags(character_limiter($row['posting_description'], 200)) ?></p></CENTER>
+            <a href="<?php echo posting_url($row) ?>" class="btn btn-default bot">Readmore</a>
+          </div>
+        </div>
+        <?php } else { ?>
+        <div class="col-md-6">
+         <div class="add">
+          <CENTER><h4 class="titles"><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title']; ?></a></h4></CENTER>
+          <hr class="hrs">
+          <CENTER><h5 class="titlesd"><span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span></h5></CENTER>
+            <CENTER><p class="conts"><?php echo strip_tags(character_limiter($row['posting_description'], 200)) ?></p></CENTER>
+            <a href="<?php echo posting_url($row) ?>" class="btn btn-default bot">Readmore</a>
+          </div>
+        </div>
+        <?php } ?>
+      <?php endforeach; ?>     
+    </div>
   </div>
-</div>
 </div>

@@ -1,35 +1,62 @@
-<div class="container ukms">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="produk">
-                <h1 class="menu">Daftar Berita</h1><hr>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-
-            <ul class="event-list">
-                <?php foreach ($posting as $row): ?>
-
-                    <li>
-                        <time datetime="2014-07-20">
-                            <span class="days"><?php echo pretty_date($row['posting_published_date'], 'd', FALSE) ?></span>
-                            <span class="months"><?php echo pretty_date($row['posting_published_date'], 'M', FALSE) ?></span>
-                        </time>
-                        <?php if ($row['posting_image'] != NULL) { ?>
-                            <img src="<?php echo $row['posting_image'] ?>" />
-                        <?php } ?>
-                        <div class="info">
-                            <h3 class="title"><a href="<?php echo posting_url($row) ?>" > <?php echo character_limiter($row['posting_title'], 40) ?></a></h3>
-                            <p><span class="ion-pricetags"></span> Kategori: <a href="<?php echo site_url('news/category/' . $row['posting_category_id']); ?>"><?php echo $row['category_name'] ?></a></p>
-                            <p class="desc"><?php echo strip_tags(character_limiter($row['posting_description'], 130)) ?></p>
+<br><br><br>
+<div class="container">
+<h1>Daftar Posting</h1><hr>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <?php foreach ($posting as $row): ?>
+            <?php if ($row['posting_image'] != NULL) { ?>
+            <div class="col-md-12">
+                <div class="post">
+                    <div class="col-md-3">
+                        <div class="imgLiquidFill imgLiquid" style="width:250px; height:185px;">
+                            <img src="<?php echo $row['posting_image'] ?>" class="img-responsive">
                         </div>
-                    </li>
-                <?php endforeach ?>
-
-            </ul>
-        </div>
-
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tag">
+                            <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
+                            <div class="row-fluid">
+                                <h5>
+                                    <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                </h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="up-teks">
+                                        <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <?php } else { ?>
+            <div class="col-md-12">
+                <div class="post">
+                    <div class="col-md-12">
+                        <div class="tag">
+                            <h2><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a></h2>
+                            <div class="row-fluid">
+                                <h5>
+                                    <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                </h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="up-teks">
+                                        <p align="justify"><?php echo strip_tags(character_limiter($row['posting_description'], 600)) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        <?php endforeach; ?>
     </div>
     <div class="row">
         <div class="col-md-12">

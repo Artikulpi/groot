@@ -22,7 +22,7 @@
             </div>
         <?php endif; ?>
         <?php //echo validation_errors(); ?>
-        <?php echo form_open('contact/email'); ?>
+        <?php echo form_open(current_url()); ?>
         <form>
           <!-- <div class="form-group">
             <input type="hidden" name="contact_id" class="form-control">
