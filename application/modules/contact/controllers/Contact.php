@@ -32,7 +32,7 @@ class Contact extends CI_Controller {
             $status = $this->Contact_model->save($params);
 
             // configurasi kirim email
-            $to = $this->config->item('from');
+            $to = $this->config->item('email_contact');
             $subject = 'Notifikasi';
             $message = nl2br("Nama Pengirim: " . $this->input->post('contact_name') . "\nEmail Pengirim: " . $this->input->post('contact_email') . "\nPesan: " . $this->input->post('contact_message'));
             
@@ -52,7 +52,9 @@ class Contact extends CI_Controller {
             $this->session->set_flashdata('incomplete', 'Form harus diisi secara lengkap!');
             redirect('contact');
         } else {
-            $data['contact'] = $this->Setting_model->get(array('name' => 'text_contact'));
+            $data['address'] = $this->Setting_model->get(array('name' => 'address'));
+            $data['phone'] = $this->Setting_model->get(array('name' => 'phone'));
+            $data['email_contact'] = $this->Setting_model->get(array('name' => 'email_contact'));
             $data['title'] = 'Hubungi Kami';
             $data['main'] = 'contact_detail';
             $this->load->view('layout', $data);

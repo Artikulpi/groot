@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $CI = & get_instance();
 $CI->load->model('setting/Setting_model');
 
-$from = $CI->Setting_model->get(array('name' => 'from'));
+$email_contact = $CI->Setting_model->get(array('name' => 'email_contact'));
 $from_name = $CI->Setting_model->get(array('name' => 'from_name'));
 $protocol = $CI->Setting_model->get(array('name' => 'protocol'));
 $smtp_host = $CI->Setting_model->get(array('name' => 'smtp_host'));
@@ -13,7 +13,7 @@ $smtp_user = $CI->Setting_model->get(array('name' => 'smtp_user'));
 $smtp_pass = $CI->Setting_model->get(array('name' => 'smtp_pass'));
 $smtp_timeout = $CI->Setting_model->get(array('name' => 'smtp_timeout'));
 
-$config['from'] = $from['setting_value'];
+$config['email_contact'] = $email_contact['setting_value'];
 $config['from_name'] = $from_name['setting_value'];
 $config['protocol'] = $protocol['setting_value'];
 $config['smtp_host'] = $smtp_host['setting_value'];

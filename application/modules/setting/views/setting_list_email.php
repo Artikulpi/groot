@@ -15,15 +15,6 @@
         <br>
         <div class="row">
             <div class="col-md-4">
-                <label>Email Pengirim</label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="from" value="<?php echo $from['setting_value'] ?>" class="form-control">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
                 <label>Protocol</label>
             </div>
             <div class="col-md-8">

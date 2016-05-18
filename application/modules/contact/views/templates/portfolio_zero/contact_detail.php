@@ -1,10 +1,12 @@
  <br><br><br><br><br class="hidden-xs">
-<div class="container down">
+ <div class="container down">
   <div class="row">
     <div class="col-md-6 col-sm-6">
 
       <div class="box">
-        <?php echo $contact['setting_value'] ?>
+        <?php echo $address['setting_value']; ?>
+        <?php echo $phone['setting_value']; ?><br>
+        <?php echo $email_contact['setting_value']; ?><br>
         <div class="hidden-sm hidden-xs">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d628.5137970305132!2d106.82178268977607!3d-6.324349403127491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eddebbd20e67%3A0xd2463beb183e900e!2sJl.+Kecapi+No.52%2C+Jagakarsa%2C+Kota+Jakarta+Selatan%2C+Daerah+Khusus+Ibukota+Jakarta+12620!5e0!3m2!1sid!2sid!4v1441773737374" 
           width="459" height="220" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -17,19 +19,25 @@
     </div>
     <div class="col-md-6 col-sm-6">
       <div class="row">
-        <?php if ($this->session->flashdata('success')): ?>
-          <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <?php echo $this->session->flashdata('success') ?>
-          </div>
-        <?php endif; ?>
-        <?php //echo validation_errors(); ?>
+        <?php if ($this->session->flashdata('incomplete')) { ?>
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <?php echo $this->session->flashdata('incomplete') ?>
+        </div>
+        <?php } elseif ($this->session->flashdata('complete')) { ?>
+        <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          Data diri anda telah kami simpan, silahkan tunggu balasan kami.
+        </div>
+        <?php }
+        ?>
+        <?php echo validation_errors(); ?>
         <?php echo form_open(current_url()); ?>
         <form>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <input type="hidden" name="contact_id" class="form-control">
             <input type="hidden" name="contact_input_date" class="form-control">
-          </div> -->
+          </div>
           <div class="form-group">
             <input type="text" name="contact_name" class="form-control" placeholder="Name">
           </div>

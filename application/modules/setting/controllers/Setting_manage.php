@@ -30,14 +30,24 @@ class Setting_manage extends CI_Controller {
             } else {
                 $param['favicon'] = '-';
             }
-            $param['contact'] = $this->input->post('contact');
+            $param['name_contact'] = $this->input->post('name_contact');
+            $param['email_contact'] = $this->input->post('email_contact');
+            $param['phone'] = $this->input->post('phone');
+            $param['address'] = $this->input->post('address');
+            $param['facebook'] = $this->input->post('facebook');
+            $param['twitter'] = $this->input->post('twitter');
             $this->Setting_model->save($param);
             $this->session->set_flashdata('success', 'Sunting pengaturan berhasil');
             redirect('manage/setting');
         } else {
             $data['title'] = 'Pengaturan';
             $data['favicon'] = $this->Setting_model->get(array('id' => 1));
-            $data['contact'] = $this->Setting_model->get(array('name' => 'text_contact'));
+            $data['name_contact'] = $this->Setting_model->get(array('name' => 'name_contact'));
+            $data['email_contact'] = $this->Setting_model->get(array('name' => 'email_contact'));
+            $data['phone'] = $this->Setting_model->get(array('name' => 'phone'));
+            $data['address'] = $this->Setting_model->get(array('name' => 'address'));
+            $data['facebook'] = $this->Setting_model->get(array('name' => 'facebook'));
+            $data['twitter'] = $this->Setting_model->get(array('name' => 'twitter'));
             $data['setting'] = $this->Setting_model->get();
             $data['main'] = 'setting/setting_list';
             $this->load->view('manage/layout', $data);
@@ -46,7 +56,6 @@ class Setting_manage extends CI_Controller {
     
     public function email()
     {
-        $this->form_validation->set_rules('from', 'Pengirim', 'required');
         $this->form_validation->set_rules('from_name', 'Nama', 'required');
         $this->form_validation->set_rules('protocol', 'Protocol', 'required');
         $this->form_validation->set_rules('smtp_host', 'smtp host', 'required');
@@ -57,7 +66,6 @@ class Setting_manage extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         
         if ($_POST AND $this->form_validation->run() == TRUE) {
-            $param['from'] = $this->input->post('from');
             $param['from_name'] = $this->input->post('from_name');          
             $param['protocol'] = $this->input->post('protocol');
             $param['smtp_host'] = $this->input->post('smtp_host');
@@ -69,7 +77,6 @@ class Setting_manage extends CI_Controller {
             $this->session->set_flashdata('success', 'Sunting email berhasil');
             redirect('manage/setting/email');
         } else {
-            $data['from'] = $this->Setting_model->get(array('name' => 'from'));
             $data['from_name'] = $this->Setting_model->get(array('name' => 'from_name'));
             $data['protocol'] = $this->Setting_model->get(array('name' => 'protocol'));
             $data['smtp_host'] = $this->Setting_model->get(array('name' => 'smtp_host'));

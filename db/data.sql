@@ -17,17 +17,21 @@ INSERT INTO `user` (`user_id`, `user_name`, `user_full_name`, `user_password`, `
 
 INSERT INTO `setting` (`setting_id`, `setting_name`, `setting_value`, `setting_description`) VALUES
 (1, 'Favicon', '-', 'Favicon'),
-(2, 'text_contact', '-', 'Contact'),
-(3, 'google', '-', 'Google Analytics ID'),
-(4, 'from', '-', 'email'),
-(5, 'from_name', '-', 'name'),
-(6, 'protocol', 'smtp', 'protocol email'), 
-(7, 'smtp_host', 'ssl://smtp.gmail.com', 'smpt host email'), 
-(8, 'smtp_port', '465', 'smpt port email'), 
-(9, 'smtp_user', '-', 'smpt user email'), 
-(10, 'smtp_pass', '-', 'password email'), 
-(11, 'smtp_timeout', '30', 'smtp timeout email'),
-(12, 'template', '', 'template');
+(2, 'google', '-', 'Google Analytics ID'),
+(3, 'name_contact', '-', 'Contact Name'),
+(4, 'email_contact', '-', 'Contact Email'), 
+(5, 'phone', '-', 'Contact Phone Number'), 
+(6, 'address', '-', 'Contact Address'), 
+(7, 'facebook', '-', 'Facebook'), 
+(8, 'twitter', '-', 'Twitter'),
+(9, 'from_name', '-', 'Name sender'),
+(10, 'protocol', 'smtp', 'protocol email'), 
+(11, 'smtp_host', 'ssl://smtp.gmail.com', 'smpt host email'), 
+(12, 'smtp_port', '465', 'smpt port email'), 
+(13, 'smtp_user', '-', 'smpt user email'), 
+(14, 'smtp_pass', '-', 'password email'), 
+(15, 'smtp_timeout', '30', 'smtp timeout email'),
+(16, 'template', '', 'template');
 
 --
 -- Dumping data for table `setting_template`
