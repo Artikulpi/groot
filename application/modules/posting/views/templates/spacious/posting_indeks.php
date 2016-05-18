@@ -17,7 +17,7 @@
                             <span class="months"><?php echo pretty_date($row['posting_published_date'], 'M', FALSE) ?></span>
                         </time>
                         <?php if ($row['posting_image'] != NULL) { ?>
-                            <img src="<?php echo $row['posting_image'] ?>" />
+                        <a href="<?php echo posting_url($row) ?>"><img src="<?php echo $row['posting_image'] ?>" /></a>
                         <?php } ?>
                         <div class="info">
                             <h3 class="title"><a href="<?php echo posting_url($row) ?>" > <?php echo character_limiter($row['posting_title'], 40) ?></a></h3>

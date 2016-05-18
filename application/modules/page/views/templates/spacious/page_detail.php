@@ -5,9 +5,9 @@
                 <h1><?php echo $page['page_name'] ?></h1>
                 <div class="row">
                     <?php if ($page['page_image'] != NULL) { ?>
-                        <div class="col-md-12">
-                            <img src="<?php echo $page['page_image'] ?>" alt="Placeholder" class="img-responsive imageds">
-                        </div>
+                    <div class="col-md-12">
+                        <img src="<?php echo $page['page_image'] ?>" alt="Placeholder" class="img-responsive imageds">
+                    </div>
                     <?php } ?>
                 </div>
                 <div class="row-fluid">

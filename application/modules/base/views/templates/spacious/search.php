@@ -7,7 +7,7 @@
                 <div class="post">
                     <div class="col-md-3">
                         <div class="imgLiquidFill imgLiquid" style="width:250px; height:185px;">
-                            <img src="<?php echo $row['posting_image'] ?>" class="img-responsive">
+                            <a href="<?php echo posting_url($row) ?>"><img src="<?php echo $row['posting_image'] ?>" class="img-responsive"></a>
                         </div>
                     </div>
                     <div class="col-md-9">

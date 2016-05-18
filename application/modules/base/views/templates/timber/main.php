@@ -46,7 +46,7 @@
       <?php if ($row['posting_image'] != NULL) { ?>
        <div class="col-md-6">
          <div class="add">
-          <img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre">
+          <a href="<?php echo posting_url($row) ?>"><img src="<?php echo $row['posting_image']; ?>" alt="PlaceHolder" class="img-responsive imgre"></a>
           <CENTER>
             <h3 class="titles">
               <a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title']; ?></a>
