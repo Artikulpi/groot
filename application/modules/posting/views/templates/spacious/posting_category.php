@@ -19,7 +19,7 @@
                             <div class="row-fluid">
                                 <h5>
                                     <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                    <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
                                 </h5>
                             </div>
                             <div class="row">
@@ -42,7 +42,7 @@
                             <div class="row-fluid">
                                 <h5>
                                     <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                                    <span class="">Category: <a href=""><?php echo $row['category_name'] ?></a> </span>
+                                    <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>"><?php echo $row['category_name'] ?></a> </span>
                                 </h5>
                             </div>
                             <div class="row">
