@@ -1,5 +1,7 @@
+
+<div class="container down">
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="col-md-12">
+    <div class="row">
         <div class="">
             <div class="tag">
                 <h1><?php echo $page['page_name'] ?></h1>
@@ -25,5 +27,5 @@
             </div>
         </div>
     </div>
-
+</div>
 </div>

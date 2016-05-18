@@ -30,7 +30,7 @@
 
 
         <div class="col-md-4 col-sm-12 col-xs-12">
-        <br>
+            <br>
             <?php foreach ($posting_other as $row): ?>
                 <?php if ($row['posting_image'] != NULL) { ?>
                     <div class="directory-info-row">
@@ -63,28 +63,28 @@
 
       <?php } else { ?>
 
-         <div class="directory-info-row">
-            <div class="row">
-              <div class="col-md-12 col-sm-6">
-                <div class="panel">
-                  <div class="panel-body">
-                    <div class="media">
-                        <div class="media-body">
-                            <h5><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a> <span class="text-muted small"> - UI Engineer</span></h5>
-                            <address>
-                              <h5>
-                                <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
-                                <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>">
-                                  <?php echo $row['category_name'] ?></a> </span>
-                              </h5>
-                          </address>
-                          <!-- <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?> -->
-                      </div>
+       <div class="directory-info-row">
+        <div class="row">
+          <div class="col-md-12 col-sm-6">
+            <div class="panel">
+              <div class="panel-body">
+                <div class="media">
+                    <div class="media-body">
+                        <h5><a href="<?php echo posting_url($row) ?>"><?php echo $row['posting_title'] ?></a> <span class="text-muted small"> - UI Engineer</span></h5>
+                        <address>
+                          <h5>
+                            <span class=""><?php echo pretty_date($row['posting_published_date'], 'l, d-M-Y', FALSE) ?> </span> - 
+                            <span class="">Category: <a href="<?php echo site_url('posting/category/' . $row['posting_category_id']) ?>">
+                              <?php echo $row['category_name'] ?></a> </span>
+                          </h5>
+                      </address>
+                      <!-- <?php echo strip_tags(character_limiter($row['posting_description'], 500)) ?> -->
                   </div>
               </div>
           </div>
       </div>
   </div>
+</div>
 </div>
 
 <?php } ?>

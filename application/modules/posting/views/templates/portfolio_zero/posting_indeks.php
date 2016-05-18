@@ -1,5 +1,5 @@
-<br><br><br><br class="hidden-xs">
-<div class="container ukms">
+<br><br>
+<div class="container ukms down">
     <div class="row">
         <div class="row">
       <div class="col-sm-12 more-features section-description wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
