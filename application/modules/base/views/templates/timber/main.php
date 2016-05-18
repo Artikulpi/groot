@@ -8,14 +8,14 @@
               <img src="<?php echo template_media_url('image/timber.png')?>" alt="Placeholder" class="img-responsive img-pad">
             </CENTER>
           </div>
-          <div class="col-md-8 col-sm-12 col-xs-12">
+          <!-- <div class="col-md-8 col-sm-12 col-xs-12">
             <CENTER>
               <div class="col-md-12">
                 <button type="button" class="btn btn-default btn-lg log">LOG IN</button>
                 <button type="button" class="btn btn-default btn-lg sign">SIGN UP AND START COLLECTING</button>
               </div>
             </CENTER>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
