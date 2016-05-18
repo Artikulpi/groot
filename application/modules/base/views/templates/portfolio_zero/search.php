@@ -1,4 +1,5 @@
-<br><br>
+<br><br><br><br><br><br class="hidden-xs">
+<div class="container">
 <div class="col-md-12 col-sm-12 col-xs-12">
     <?php if (isset($posting)){ ?>
     <?php foreach ($posting as $row): ?>
@@ -58,4 +59,5 @@
     <?php }else{ ?>
     <div class="alert alert-warning" role="alert">Kata kunci yang anda cari tidak ditemukan.</div>
     <?php } ?>
+</div>
 </div>
