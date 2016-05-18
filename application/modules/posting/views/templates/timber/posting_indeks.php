@@ -1,10 +1,11 @@
 <br><br><br>
 <div class="container">
-<h1>Daftar Posting</h1><hr>
     <div class="col-md-12 col-sm-12 col-xs-12">
+<h1>Daftar Posting</h1><hr>
+    <div class="row">
         <?php foreach ($posting as $row): ?>
             <?php if ($row['posting_image'] != NULL) { ?>
-            <div class="col-md-12">
+
                 <div class="post">
                     <div class="col-md-3">
                         <div class="imgLiquidFill imgLiquid" style="width:250px; height:185px;">
@@ -30,10 +31,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
             <br><br><br><br><br><br><br><br><br><br>
             <?php } else { ?>
-            <div class="col-md-12">
+
                 <div class="post">
                     <div class="col-md-12">
                         <div class="tag">
@@ -54,9 +55,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
             <?php } ?>
         <?php endforeach; ?>
+    </div>
     </div>
     <div class="row">
         <div class="col-md-12">
